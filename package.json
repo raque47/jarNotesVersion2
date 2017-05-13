@@ -1,0 +1,12 @@
+{
+  "name": "jarNotes2",
+  "version": "1.0.0",
+  "description": "version two of jarNotes web app",
+  "main": "index.js",
+  "repository": "https://github.com/raque47/jarNotesVersion2",
+  "author": "Raquel Chavarria and Larissa Arroyo",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^2.5.1"
+  }
+}
