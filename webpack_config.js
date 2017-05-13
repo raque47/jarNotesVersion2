@@ -17,9 +17,12 @@ module.exports ={
         chunks: true
     },
     module: {
-        rules: [],
-        
-
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader'
+            }
+        ]
     },
 
         // sas loader
