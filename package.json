@@ -1,19 +1,31 @@
 {
-  "name": "jarNotes2",
+  "name": "jarnotesversion2",
   "version": "1.0.0",
   "description": "version two of jarNotes web app",
   "main": "index.js",
   "repository": "https://github.com/raque47/jarNotesVersion2",
   "author": "Raquel Chavarria and Larissa Arroyo",
   "license": "MIT",
-  "scripts":{
+  "scripts": {
     "lint": "eslint js/**/*.js webpack.config.js",
+    "start": "node_modules/.bin/webpack-dev-server",
     "build": "webpack",
-   // "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "watch": "npm run build -- --watch"
   },
-  
   "devDependencies": {
-    "webpack": "^2.5.1"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "css-loader": "^0.28.1",
+    "eslint-loader": "^1.7.1",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.5.1",
+     "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }
