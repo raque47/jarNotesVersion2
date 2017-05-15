@@ -6,6 +6,10 @@
   "repository": "https://github.com/raque47/jarNotesVersion2",
   "author": "Raquel Chavarria and Larissa Arroyo",
   "license": "MIT",
+  "scripts":{
+    "build": "webpack"
+  },
+  
   "devDependencies": {
     "webpack": "^2.5.1"
   }
