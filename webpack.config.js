@@ -1,32 +1,39 @@
 const path = require('path')
+//const HtmlWebpackPlugin = require('html-webpack-plugin');
+//const precss = require('precss');
+//const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 module.exports = {
-    context: __dirname,
-    entry: './js/App.js',
+    context: path.join(__dirname, '/src'),
+    entry: {
+        javascript: './app.jsx',
+    },
     devtool: 'eval',
     output: {
-        path: path.join(__dirname, '/public'),
+        path: path.join(__dirname, '/dist'),
         filename: 'bundle.js'
     },
-    devServer: {
-        publicPath: '/public/'
-    },
     resolve: {
-        extensions: ['.js', '.json']
+        extensions: ['.js', '.jsx', '.json'],
+    },
+    stats: {
+        colors: true,
+        reasons: true,
+        chunks: true
     },
     module: {
         rules: [
             {
                 enforce: 'pre', //preloader
-                test: /\.js$/,
+                test: [/\.js$/, /\.jsx$/],
                 loader: 'eslint-loader',
                 exclude: /node_modules/
             },
             {
-                // exclude: /node_modules/, // no corra nodemodules por babel
-                include: path.resolve(__dirname, 'js'), //Se transforman los .js de ES6 a ES5
-                test: /\.js$/,
-                loader: 'babel-loader'
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['babel-loader'],
             },
             {
                  test: [/\.scss$/, /\.css$/], 
