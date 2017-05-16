@@ -1,8 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import '../public/main.css'
-//import 'prueba.css'
-//import '../main.css'  //dist/css/main.css
+
 
 const App = React.createClass({
   render () {
