@@ -15,6 +15,10 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
   },
   resolve: {
+    // add alias for application code directory
+    alias:{
+        'bootstrap-path': path.join(__dirname, '../node_modules/bootstrap-sass/assets/stylesheets/')
+    },
     extensions: ['.js', '.jsx', '.json'],
   },
   stats: {

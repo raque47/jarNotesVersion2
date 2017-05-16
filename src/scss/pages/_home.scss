@@ -1,0 +1,920 @@
+$font-stack: 'Love Ya Like A Sister',
+cursive;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.root {
+    font-size: 16px;
+}
+.buttons {
+    background-color: transparent;
+    border: none;
+    display: block;
+}
+.navBar__images {
+    width: 2.3rem;
+    height: 2.3rem;
+    //  padding-right: 1.5rem;
+}
+.navBar__hiddenImages {
+    width: 1.5rem;
+    height: 2.5rem;
+}
+.navbar .container-fluid>.navbar-header {
+    float: left;
+    //margin-right: 10px;
+}
+.navbar-inverse {
+    background-color: #F8F8F8;
+    border: none;
+    //  border-color: #090909;
+}
+.navbar .navbar-nav {
+    float: left;
+    margin: 0;
+}
+.nav>li {
+    float: left;
+}
+.body {
+    margin: 0;
+}
+.fontFamily {
+    font-family: $font-stack;
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.editionBar__nav {
+    background-color: #F8F8F8;
+    border: 0.2rem solid #E7E7E7;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90vh;
+}
+.edition {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.editionBar__button {
+    display: block;
+    padding: 1rem 2rem 1rem 2rem;
+}
+.buttons:hover {
+    background-color: #F6CED8;
+}
+.buttons:focus {
+    border: none;
+    outline: none;
+    background-color: #F5A9D0;
+}
+.activeHiddenButton {
+    background-color: #F5A9D0;
+    border: none;
+    outline: none;
+    //background-color: red;
+}
+.disableHiddenButton {
+    background-color: #F8F8F8;
+}
+.editionBar__button:focus {
+    border: none;
+    outline: none;
+}
+.editionBar__button:first-child {
+    padding-top: 1rem;
+}
+.editionBar__button:last-child {
+    padding-bottom: 1rem;
+}
+.hiddenButtons__button {
+    //padding: 1rem 1rem 1rem 1.5rem;   
+    display: inline-block;
+    align-content: center;
+}
+.hiddenButtons {
+    background-color: #F8F8F8;
+    // width:17%;
+    display: none;
+    height: 5vh;
+    transition: opacity 1s;
+    text-align: center;
+}
+.buttonFont {
+    font-family: $font-stack;
+    font-size: 0.9em;
+    height: 4.5rem;
+    padding-top: 1rem;
+    padding-right: 0;
+}
+.buttonFontHidden {
+    font-family: $font-stack;
+    font-size: 0.8em;
+    margin-left: 0rem;
+}
+.editionBar__span {
+    visibility: hidden;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.hiddenControl {
+    display: none;
+}
+.activeControl {
+    display: inline-block;
+}
+.navBar__button {
+    width: 4rem;
+    padding-bottom: 0;
+    height: 5rem;
+    margin-right: 0.2rem;
+    display: inline-block;
+}
+.navbar-brand {
+    padding: 0px;
+    /* firefox bug fix */
+}
+.navbar-brand>img {
+    /* height: 40vh;
+    width: 40vw;
+    padding: 15px;
+    position: absolute; */
+    height: 40rem;
+    padding: 15px;
+    /* firefox bug fix */
+    width: 55rem;
+    position: absolute;
+    top: -7rem;
+    left: -2.8rem;
+}
+//propiedad de panel de notas de bootstrap
+.panel-group .panel-heading + .panel-collapse > .panel-body,
+.panel-group .panel-heading + .panel-collapse > .list-group {
+    border-top: 1px solid #ddd;
+    font-family: -webkit-pictograph;
+    justify-content: center;
+    justify-items: inherit;
+    text-align: justify;
+}
+.panel-title > a,
+.panel-title > small,
+.panel-title > .small,
+.panel-title > small > a,
+.panel-title > .small > a {
+    font-family: -webkit-pictograph;
+}
+.panel-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+}
+.navbar-form {
+    padding-left: 0;
+}
+.searchFormHidden {
+    display: none;
+}
+.searchFormVisible {
+    display: block;
+}
+.addNewElementFormHidden {
+    display: none;
+}
+.addNewElementFormVisible {
+    display: block;
+}
+.titleNoteControl {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-family: $font-stack;
+    font-size: 2rem;
+    align-self: stretch;
+}
+.noteText {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    border-radius: 0.7rem;
+}
+.titleNoteControl:hover {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-size: 3rem;
+    transition: font-size 1s;
+    flex: 0 1 auto;
+    align-self: stretch;
+}
+.titleNoteControl:focus {
+    color: #FF7138;
+    font-size: 3rem;
+}
+.editionNotesControl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    align-self: stretch;
+    padding: 0.2rem;
+    border-radius: 0.7rem;
+}
+.editionButtonControls {
+    margin: 0.5rem;
+}
+.increaseSizeNoteTitle {
+    color: #FF7138;
+    font-size: 2.5rem;
+}
+.editionButtonControls {
+    color: #FF7138;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    width: auto;
+    padding: 0.4rem;
+    background-color: #F6CED8;
+}
+.editionButtonControls:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
+.editionTextControl {
+    font-size: 1.4rem;
+    font-family: $font-stack;
+}
+.form-control:focus {
+    border-color: #ccc;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.075), 0 0 8px rgba(242, 188, 134, 1)
+}
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group {
+    background-color: #F6CED8;
+    height: 3.4rem;
+}
+.searchButtonInformationPanel {
+    width: 1.5rem;
+    height: 3.5rem;
+    padding-bottom: 1.5rem;
+}
+.noteContentFont {
+    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Fanwood Text', serif;
+    font-size: 2rem;
+}
+
+.showNoteAnimation
+{
+    background-color: white;
+    margin-bottom: 0rem;
+    max-height: 25vh;
+    overflow: auto;
+    margin-right: 0rem;
+    margin-top: 0.9rem;
+    animation: fade 1s;
+    border-top: 0.2rem solid #E7E7E7;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.notesBackground {
+    /*  border: 0.2rem solid gray;
+    max-height: 20vh; 
+    max-width: 100vw;
+    overflow-y: scroll;
+    overflow-x: scroll; */
+    /*  display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;  */
+}
+.noteAddedTitle {
+    font-family: $font-stack;
+    font-size: 2.2rem;
+    //    font-weight: bold;
+    margin-right: 1rem;
+}
+.listOfElements {
+  //  list-style-image: url('../../images/note-bullet.svg');;
+    font-size: 1.3rem;
+}
+
+ul.leaf
+{
+    // list-style-image: url('../../images/note-bullet.svg');;
+}
+
+a {
+    text-decoration: none ;
+    color:black;
+}
+a:hover
+{
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+a:active{
+    color:black;
+}
+
+.hideComponent {
+    display: none;
+    opacity: 0;
+}
+.showComponent {
+    display: block;
+    opacity: 1;
+}
+.transitionShowNoteContent {
+    opacity: 0;
+    transition: opacity 5s;
+}
+.invisibleComponent {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.visibleComponent {
+    visibility: visible;
+    opacity: 1;
+}
+.infoPanel {
+    background-color: transparent;
+    height: 85vh;
+    border: 0.2rem solid #DDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    padding-left: 1.8rem;
+
+    //overflow-y: scroll;
+    //overflow-x: scroll;
+    overflow: auto;
+}
+.infoPanelButtons {
+    display: inline;
+    padding: 0.5rem;
+}
+.infoPanelElements
+{
+    align-self: stretch;
+    //background-color: #E1F5A9;
+   // background-color: #F8F8F8;
+   // background-color: #A9F5BC; //Verde claro
+    margin-right: 1rem;
+}
+
+.bulletImage
+{
+    width:1.5rem;
+    height:1.5rem;
+    margin-left:0.5rem;
+    margin-right:0rem;
+}
+.borderStyle
+{
+    background: #F8F8F8;
+    margin-bottom: 1rem;
+    border: 0.2rem solid #E7E7E7;  
+
+}
+
+.container-fluid-fix {
+    padding-right: 15px;
+    //padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+textarea.form-control {
+    height: 77vh;
+}
+.addNewElementPanel {}
+.addNewElementTittleType {
+    padding: 1rem 0rem 0.8rem 0.8rem;
+}
+.textAreaAddElement {
+    width: 95%;
+}
+.formAddNewElement {
+    padding-left: 1rem;
+}
+.addNewElementButton {
+    margin: 0;
+}
+.contentPanel {
+    display: none;
+}
+.navContainerNotes {
+    display: inline;
+}
+.navElementSpanVisible {
+    display: none;
+    visibility: hidden;
+}
+
+.addLightColorTransition
+{
+    box-shadow: none;
+}
+.addDarkColorTransition
+{
+   // background-color: black;
+  //  transition: background-color 2s linear;
+    border-color: #ccc;
+    box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.075), 0 0 16px rgba(242, 188, 134, 1);
+    transition: box-shadow 0.5s ease-in;
+}
+
+
+.listInformationPanel
+{
+    display:block;
+    margin-right: 1rem;
+}
+
+
+/* Media Queries */
+
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+    body {
+        //background-color: #F09A9D;
+    }
+    textarea.form-control {
+        width: 100%;
+    }
+    .buttons {
+        margin-right: 0;
+    }
+    .disableHiddenButton {
+        margin-right: 0;
+    }
+    .navContainerNotes {
+        display: block;
+    }
+    .editionBar__nav {
+        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 4vh;
+    }
+ 
+    .infoPanel {
+        height: 20vh;
+        width: 90%;
+        //        margin: 1.5rem 2rem 2rem 2rem;
+        margin: 0 2rem 2rem 2rem;
+        padding-left: 1rem;
+        //        margin-top: 0px;
+    }
+    .secondContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-around;
+        align-items: center;
+    }
+    .firstElement {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+        margin: 1.5rem;
+        margin: 0;
+    }
+    .secondElement {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+        margin-bottom: 2rem;
+    }
+    .thirthElement {
+        order: 2;
+        flex: 1 1 auto;
+        align-self: auto;
+    }
+    .container-fluid {
+        padding-left: 15px;
+    }
+  
+    .listOfElements {
+       // padding-left: 1rem;
+    //   margin-right:1rem;
+    }
+    .noteAddedTitle {
+        font-size: 1.75rem;
+    }
+    .noteContentFont
+    {
+        font-size: 1.6rem;
+    }
+    .noteText {
+        height: 30vh;
+        width: 90%;
+        margin: 1.5rem 2rem 2rem 2rem;
+    }
+    h2,
+    .h2 {
+        font-size: 2.1rem;
+        font-weight: bold;
+    }
+    .openMenu {
+        display: none;
+        visibility: hidden;
+    }
+    .navBar__images {
+        //        width: 1.6rem;
+        //        height: 1.6rem;
+        width: 1.5rem;
+        height: 2.5rem;
+    }
+    .editionBar__button {
+        display: block;
+        padding: 0.4rem 0.3rem 0.4rem 1.3rem;
+    }
+    .titleNoteControl:hover {
+        font-size: 2.3rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2.3rem;
+    }
+    .titleNoteControl {
+        font-size: 1.5rem;
+    }
+    .input-group .form-control {
+        width: 60%;
+        margin-left: 2rem;
+    }
+    .navbar-brand>img {
+        display: none;
+ 
+    }
+
+    .infoPanel{
+        height: 40vh;
+    }
+
+    
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+    }
+    .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+    .navContainerNotes {
+        display: block;
+        border-color: #e7e7e7;
+        border: solid #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .navbar .navbar-nav {
+        float: left;
+        margin: 0;
+        width: 101%;
+        height: 100vh;
+    }
+    
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        padding: 0;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+        padding-left: 4.5rem;
+    }
+    .navBar__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+
+    body {
+        //background-color: #F09A9D;
+    }
+    textarea.form-control {
+        width: 100%;
+    }
+    .buttons {
+        margin-right: 0;
+    }
+    .disableHiddenButton {
+        margin-right: 0;
+    }
+    .navContainerNotes {
+        display: block;
+    }
+    .editionBar__nav {
+        display: block;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 4vh;
+    }
+    .noteText {
+        height: 30vh;
+        width: 90%;
+        margin: 1.5rem 2rem 2rem 2rem;
+    }
+    .infoPanel {
+        height: 20vh;
+        width: 90%;
+        //        margin: 1.5rem 2rem 2rem 2rem;
+        margin: 0 2rem 2rem 2rem;
+        padding-left: 1rem;
+        //        margin-top: 0px;
+    }
+    .secondContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-around;
+        align-items: center;
+    }
+    .firstElement {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+        margin: 1.5rem;
+        margin: 0;
+    }
+    .secondElement {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+        margin: 2.5rem;
+    }
+    .thirthElement {
+        order: 2;
+        flex: 1 1 auto;
+        align-self: auto;
+    }
+    .container-fluid {
+        padding-left: 15px;
+    }
+    h2,
+    .h2 {
+        font-size: 1.7rem;
+    }
+    .listOfElements {
+        padding-left: 1rem;
+    }
+    .noteAddedTitle {
+        font-size: 1.3rem;
+    }
+    .openMenu {
+        display: none;
+        visibility: hidden;
+    }
+    .navBar__images {
+        //        width: 1.6rem;
+        //        height: 1.6rem;
+        width: 1.5rem;
+        height: 2.5rem;
+    }
+    .editionBar__button {
+        display: block;
+        padding: 0.4rem 0.3rem 0.4rem 1.3rem;
+    }
+    .titleNoteControl:hover {
+        font-size: 2rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2rem;
+    }
+    .titleNoteControl {
+        font-size: 1.2rem;
+    }
+    .input-group .form-control {
+        width: 60%;
+        margin-left: 2rem;
+    }
+    .navbar-brand>img {
+        display: none;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+    }
+    .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+    .navContainerNotes {
+        display: block;
+        border-color: #e7e7e7;
+        border: solid #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .navbar .navbar-nav {
+        float: left;
+        margin: 0;
+        width: 101%;
+        height: 100vh;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        padding: 0;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+        padding-left: 4.5rem;
+    }
+    .navBar__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (max-width: 750) {
+    .container-fluid {
+        padding-left: 15px;
+    }
+    .openMenu {
+        display: none;
+        visibility: hidden;
+    }
+    .navBar__images {
+        //        width: 1.6rem;
+        //        height: 1.6rem;
+        width: 1.5rem;
+        height: 2.5rem;
+    }
+    .titleNoteControl:hover {
+        font-size: 2rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2rem;
+    }
+    .titleNoteControl {
+        font-size: 1.2rem;
+    }
+    .input-group .form-control {
+        width: 60%;
+        margin-left: 2rem;
+    }
+    .navbar-brand>img {
+        display: none;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+    }
+    .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+    .navContainerNotes {
+        display: block;
+        border-color: #e7e7e7;
+        border: solid #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .navbar .navbar-nav {
+        float: left;
+        margin: 0;
+        width: 101%;
+        height: 100vh;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        padding: 0;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+        padding-left: 4.5rem;
+    }
+    .navBar__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+}
