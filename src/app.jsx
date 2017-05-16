@@ -5,8 +5,8 @@ import './scss/main.scss';
 
 const App = () => (
   <div>
-    <h1>It works!</h1>
+   <h1>Hello world</h1>
   </div>
 );
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('app'));
