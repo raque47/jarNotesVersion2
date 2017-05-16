@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 
 import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 import './scss/pages/_home.scss';
-
+const image = require('./images/logo.png')
 const App = () => (
 
      <nav className="navbar navbar-default">
@@ -15,7 +15,7 @@ const App = () => (
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
-                <a className="navbar-brand pull-left" href="#"><img src={'/images/logo.png'}/></a>
+                <a className="navbar-brand pull-left" href="#"><img src={image}/></a>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div className="nav navbar-nav navbar-right">
