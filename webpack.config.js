@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = {
   context: path.join(__dirname, '/src'),
   entry: {
-    javascript: './app.jsx',
+    javascript: './App.jsx',
   },
   devtool: 'source-map',
   output: {
