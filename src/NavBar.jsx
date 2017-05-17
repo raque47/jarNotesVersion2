@@ -1,11 +1,7 @@
-// import React from 'react';
-// import { render } from 'react-dom';
 const React = require('react');
 const MenuButtons = require('./MenuButtons');
 
 const NavBar = React.createClass({
-  
-    // const NavBar = () => (
     render() {
         const searchIcon = "search-button.svg";
         const viewIcon="view-button.svg";
@@ -34,6 +30,5 @@ const NavBar = React.createClass({
         );
     },
 });
-
 
 module.exports = NavBar;  
