@@ -5,7 +5,7 @@ const EditionBar = React.createClass({
  render(){
      return (
             <nav className="editionBar__nav">
-                    <button id="toggleBar" className="editionBar__button buttons openMenu"><img src={require('./images/logo.png')}/> <img src={require('./images/menu-button.svg')}  className="navBar__images openMenu"/>  </button>
+                    <button id="toggleBar" className="editionBar__button buttons openMenu"><img src={require('./images/menu-button.svg')}  className="navBar__images openMenu"/>  </button>
                     <button className="editionBar__button buttons"><img src={require('./images/alarm-clock-button.svg')}  className="navBar__images openMenu"/><span className="editionBar__span buttonFont hiddenControl">Set Reminder</span></button>
 
                     <button className="editionBar__button buttons"><img src={require('./images/star-button.svg')}  className="navBar__images openMenu"/><span className="editionBar__span buttonFont hiddenControl">Add Shortcut</span></button>
