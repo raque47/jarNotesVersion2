@@ -12,11 +12,8 @@ const NavBar = React.createClass({
                         <a className="navbar-brand pull-left" href="#"><img src={require('../images/logo.png')} /></a>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <div className="nav navbar-nav navbar-right">
-                           
+                        <div className="nav navbar-nav navbar-right">                         
                             <MenuButtonsContainer/>
-
-
                             <button className="dropdown-toggle navBar__button buttons" data-toggle="dropdown"><img src={require('../images/user-button.svg')} className="navBar__images"/><span className="caret"></span></button>
                             <ul className="dropdown-menu">
                                 <li><a href="#">Settings</a></li>

@@ -23,9 +23,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <NavBar
-        
-        />
+        <NavBar/>
         <div className="container-fluid container-fluid-fix ">
           <div className="row edition secondContainer">
               <div className="col-md-1 firstElement">

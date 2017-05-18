@@ -105,7 +105,6 @@ cursive;
     // width:17%;
     display: none;
     height: 5vh;
-    transition: opacity 1s;
     text-align: center;
 }
 .buttonFont {
@@ -768,7 +767,7 @@ textarea.form-control {
     .hiddenButtons {
         visibility: visible;
         opacity: 1;
-        display: inline-block;
+      //  display: inline-block;
     }
     .navbar-header {
         display: block;
