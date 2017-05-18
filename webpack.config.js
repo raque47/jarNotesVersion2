@@ -7,7 +7,7 @@ const webpack = require('webpack');
 module.exports = {
   context: path.join(__dirname, '/src'),
   entry: {
-    javascript: './App.jsx',
+    javascript: './Containers/App.jsx',
   },
   devtool: 'source-map',
   output: {
@@ -39,7 +39,7 @@ module.exports = {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader',
+          'sass-loader'
         ],
       },
       {
