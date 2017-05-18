@@ -1,7 +1,7 @@
 const React = require('react');
-const Notes = require('./Notes');
-const Tags = require('./Tags');
-const Folders = require('./Folders');
+const Notes = require('../Components/Notes');
+{/*const Tags = require('./Tags');
+const Folders = require('./Folders'); */ }
 
 const InformationContainer = React.createClass({
     render() {
