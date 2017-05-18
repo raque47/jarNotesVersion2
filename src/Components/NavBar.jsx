@@ -15,13 +15,6 @@ const NavBar = React.createClass({
                         <div className="nav navbar-nav navbar-right">
                            
                             <MenuButtonsContainer/>
-
-
-                            <button className="dropdown-toggle navBar__button buttons" data-toggle="dropdown"><img src={require('../images/user-button.svg')} className="navBar__images"/><span className="caret"></span></button>
-                            <ul className="dropdown-menu">
-                                <li><a href="#">Settings</a></li>
-                                <li><a href="#">Log Out</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
