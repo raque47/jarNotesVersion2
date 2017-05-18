@@ -1,10 +1,8 @@
 const React = require('react');
-const MenuButtons = require('./MenuButtons');
+const MenuButtonsContainer = require('../Containers/MenuButtonsContainer');
 
 const NavBar = React.createClass({
     render() {
-        const searchIcon = "search-button.svg";
-        const viewIcon="view-button.svg";
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
@@ -15,9 +13,10 @@ const NavBar = React.createClass({
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <div className="nav navbar-nav navbar-right">
-                            <MenuButtons mainButton="notes-button.svg" buttonName="Notes" searchIcon={searchIcon} hiddenIcon={viewIcon} searchText="Search Note" text="View Notes" />
-                            <MenuButtons mainButton="tag-button.svg" buttonName="Tags" searchIcon={searchIcon} hiddenIcon="add-tag-button.svg" searchText="Search Tag" text="Add Tag" />
-                            <MenuButtons mainButton="folder-button.svg" buttonName="Folders" searchIcon={searchIcon} hiddenIcon="add-folder-button.svg" searchText="Search Folder" text="Add Folder" />                   
+                           
+                            <MenuButtonsContainer/>
+
+
                             <button className="dropdown-toggle navBar__button buttons" data-toggle="dropdown"><img src={require('../images/user-button.svg')} className="navBar__images"/><span className="caret"></span></button>
                             <ul className="dropdown-menu">
                                 <li><a href="#">Settings</a></li>

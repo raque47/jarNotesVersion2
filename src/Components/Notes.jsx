@@ -6,6 +6,15 @@ render(){
      <li>HOOOOLAAAA</li>
     );
   },
+
+   createListItem: function(note) {
+    return (
+      <li key={note.id}> 
+      </li>
+    );
+  }
+
+
 });
 
 module.exports = Notes;  
