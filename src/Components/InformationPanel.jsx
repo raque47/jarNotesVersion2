@@ -1,5 +1,7 @@
+const React = require('react');
+const InformationContainer = require('../Containers/InformationContainer');
 
-const IformationPanel = React.createClass({
+const InformationPanel = React.createClass({
     render() {
         return (
             <div id="panelInformation" className="infoPanel">
@@ -21,7 +23,7 @@ const IformationPanel = React.createClass({
               {/* LISTA DE NOTAS/FOLDERS/TAGS */}
               <InformationContainer/>
      
-              {/* ADD FOLDER/TAG COMPONENT */}
+              {/* ADD FOLDER/TAG COMPONENT 
               <div id="addNewElementForm" className="addNewElementPanel addNewElementFormHidden">
                   <div className="addNewElementTittleType">
                     <h4 id="" className="fontFamily"> Add a new tag</h4>
@@ -33,11 +35,12 @@ const IformationPanel = React.createClass({
                   </div>
                 </div> 
 
-                
+                */}
             </div>
 
         );
     },
 });
 
-module.exports = IformationPanel;  
+module.exports = InformationPanel;  
+

@@ -7,7 +7,9 @@ const image = require('../images/logo.png')
 const NavBar = require('../Components/NavBar');
 const EditionBar = require('../Components/EditionBar');
 const NotesEditionPanel = require('../Components/NotesEditionPanel');
-const InformationContainer = require('./InformationContainer');
+const InformationPanel = require('../Components/InformationPanel');
+
+
 
 const App = React.createClass({
    getInitialState: function () {
