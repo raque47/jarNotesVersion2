@@ -230,9 +230,10 @@ cursive;
     align-self: stretch;
     padding: 0.2rem;
     border-radius: 0.7rem;
+    position: relative;
 }
 .editionButtonControls {
-    margin: 0.5rem;
+    margin: 0.4rem;
 }
 
 
@@ -252,6 +253,9 @@ cursive;
     width: auto;
     padding: 0.4rem;
     background-color: #F6CED8;
+    height: 4vh;
+    padding-top: 0;
+
 }
 .editionButtonControls:last-child
 {
@@ -270,6 +274,10 @@ cursive;
     align-self: flex-end; */
 }
 
+.textButton{
+    position: absolute;
+    right: 0;
+}
 
 
 .editionButtonControls:hover {

@@ -12,7 +12,6 @@ const NotesEditionPanel = require('../Components/NotesEditionPanel');
 const InformationPanel = require('../Components/InformationPanel');
 
 
-
 const App = React.createClass({
   getInitialState: function () {
     return { notes: [] };
