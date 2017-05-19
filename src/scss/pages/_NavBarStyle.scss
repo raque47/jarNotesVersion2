@@ -1,0 +1,83 @@
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.container-fluid-fix {
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar .container-fluid>.navbar-header {
+    float: left;
+}
+.navbar-inverse {
+    background-color: #F8F8F8;
+    border: none;
+    //  border-color: #090909;
+}
+.navbar .navbar-nav {
+    float: left;
+    margin: 0;
+}
+.nav>li {
+    float: left;
+}
+
+.navbar-brand {
+    padding: 0px;
+    /* firefox bug fix */
+}
+.navbar-brand>img {
+    height: 40rem;
+    padding: 15px;
+    /* firefox bug fix */
+    width: 55rem;
+    position: absolute;
+    top: -7rem;
+    left: -2.8rem;
+}
+
+
+/* Media Queries */
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+    .container-fluid {
+        padding-left: 15px;
+    }
+     .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+    }   
+}
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+  .container-fluid {
+        padding-left: 15px;
+    }
+    .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 750) {
+ .container-fluid {
+        padding-left: 15px;
+  }
+  .navbar-header {
+        display: block;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+}
+

@@ -1,5 +1,9 @@
 const React = require('react');
 
+const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
+const style = require('../scss/pages/_NotesEditionStyle.scss');
+
+
 const NotesEditionPanel = React.createClass({
    render(){
      return (
