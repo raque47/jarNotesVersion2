@@ -1,4 +1,5 @@
 const React = require('react');
+const _addNewElement = require('../scss/pages/_addNewElement.scss');
 
 const AddNewElement = React.createClass({
   render() {

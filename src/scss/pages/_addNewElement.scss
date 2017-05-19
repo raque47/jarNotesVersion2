@@ -1,0 +1,99 @@
+$font-stack: 'Love Ya Like A Sister', cursive;
+
+.addNewElementPanel {}
+.addNewElementTittleType {
+    padding: 1rem 0rem 0.8rem 0.8rem;
+}
+.addNewElementFormHidden {
+    display: none;
+}
+.addNewElementButton {
+    margin: 0;
+}
+.editionButtonControls {
+    margin: 0.4rem;
+}
+.editionButtonControls {
+    color: #FF7138;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    width: auto;
+    padding: 0.4rem;
+    background-color: #F6CED8;
+    height: 4vh;
+    padding-top: 0;
+}
+.editionButtonControls:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
+.editionTextControl {
+    font-size: 1.4rem;
+    font-family: $font-stack;
+}
+.textAreaAddElement {
+    width: 95%;
+}
+.titleNoteControl {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-family: $font-stack;
+    font-size: 2rem;
+    align-self: stretch;
+}
+.titleNoteControl:hover {
+    border: none;
+    outline: none;
+    color: #FF7138;
+    font-size: 3rem;
+    transition: font-size 1s;
+    flex: 0 1 auto;
+    align-self: stretch;
+}
+.titleNoteControl:focus {
+    color: #FF7138;
+    font-size: 3rem;
+}
+
+@media only screen and (max-width: 500px) {
+    .titleNoteControl:hover {
+        font-size: 2.3rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2.3rem;
+    }
+    .titleNoteControl {
+        font-size: 1.5rem;
+    }
+}
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+    .titleNoteControl:hover {
+        font-size: 2rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2rem;
+    }
+    .titleNoteControl {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 750) {
+    .titleNoteControl:hover {
+        font-size: 2rem;
+        transition: font-size 1s;
+    }
+    .titleNoteControl:focus {
+        font-size: 2rem;
+    }
+    .titleNoteControl {
+        font-size: 1.2rem;
+    }
+}

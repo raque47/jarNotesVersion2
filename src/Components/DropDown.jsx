@@ -1,6 +1,5 @@
-
 const React = require('react');
-
+const _dropDown = require('../scss/pages/_dropDown.scss');
 
 const DropDown = React.createClass({
     render() {

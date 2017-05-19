@@ -1,0 +1,35 @@
+.infoPanel {
+    background-color: transparent;
+    height: 85vh;
+    border: 0.2rem solid #DDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    padding-left: 1.8rem;
+    overflow: auto;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 500px) {
+    .infoPanel {
+        height: 20vh;
+        width: 90%;
+        margin: 0 2rem 2rem 2rem;
+        padding-left: 1rem;
+    }
+    .infoPanel {
+        height: 40vh;
+    }
+}
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+    .infoPanel {
+        height: 20vh;
+        width: 90%;
+        margin: 0 2rem 2rem 2rem;
+        padding-left: 1rem;
+
+    }
+}

@@ -1,4 +1,5 @@
 const React = require('react');
+const _editionBar = require('../scss/pages/_editionBar.scss');
 
 const EditionBar = React.createClass({ 
 

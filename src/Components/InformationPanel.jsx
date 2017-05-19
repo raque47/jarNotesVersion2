@@ -2,6 +2,7 @@ const React = require('react');
 const InformationContainer = require('../Containers/InformationContainer');
 const AddNewElement = require('../Components/AddNewElement');
 const Search = require('../Components/Search');
+const _informationPanel = require('../scss/pages/_informationPanel.scss');
 
 const InformationPanel = React.createClass({
     render() {
