@@ -234,6 +234,9 @@ cursive;
 .editionButtonControls {
     margin: 0.5rem;
 }
+
+
+
 .increaseSizeNoteTitle {
     color: #FF7138;
     font-size: 2.5rem;
@@ -250,6 +253,25 @@ cursive;
     padding: 0.4rem;
     background-color: #F6CED8;
 }
+.editionButtonControls:last-child
+{
+   // flex: 1 1 auto;
+  // position: absolute;
+   //left: 60vw;
+
+   /* display: flex;
+    flex-direction: row;
+    background-color: yellow;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start; */
+   /* flex: 1 1 auto;
+    align-self: flex-end; */
+}
+
+
+
 .editionButtonControls:hover {
     background-color: #F5A9D0;
     color: #FF7138;
@@ -576,7 +598,9 @@ textarea.form-control {
     }
     .editionBar__button {
         display: block;
-        padding: 0.3rem 3rem 0.4rem 1rem;
+        // padding: 0.3rem 3rem 0.4rem 1rem;
+        padding: 0.4rem 3rem 0.4rem 1rem;
+
     }
     .titleNoteControl:hover {
         font-size: 2.3rem;
@@ -857,6 +881,7 @@ textarea.form-control {
         font-family: $font-stack;
         font-size: 1.7rem;
     }
+
 }
 
 @media only screen and (max-width: 750) {
