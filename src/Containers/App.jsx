@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+
 // import '_bootstrap.scss';
 
 import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 import '../scss/pages/_App.scss'
+//import '../scss/pages/_home.scss'
 
 const image = require('../images/logo.png')
 const NavBar = require('../Components/NavBar');
@@ -25,7 +27,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar/>
         <div className="container-fluid container-fluid-fix ">
           <div className="row edition secondContainer">
             <div className="col-md-1 firstElement">
@@ -38,7 +40,6 @@ const App = React.createClass({
               <InformationPanel />
             </div>
           </div>
-
         </div>
       </div>
     );

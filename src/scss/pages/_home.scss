@@ -508,6 +508,7 @@ textarea.form-control {
 @media only screen and (max-width: 500px) {
     body {
         //background-color: #F09A9D;
+          background-color: red;
     }
     textarea.form-control {
         width: 100%;
@@ -671,14 +672,14 @@ textarea.form-control {
         display: inline-block;
         padding-left: 4.5rem;
     }
-    // .navBar__button {
-    //     padding-bottom: 5rem;
-    //     padding-top: 0.5rem;
-    //     padding-right: 37rem;
-    //     border-top: solid #e7e7e7;
-    //     border-bottom: solid #e7e7e7;
-    //     padding-left: 2rem;
-    // }
+     .navBar__button {
+        padding-bottom: 5rem;
+        padding-top: 0.5rem;
+        padding-right: 37rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+     }
     .hiddenButtons__button {
         padding-bottom: 0.5rem;
         padding-right: 20rem;
@@ -735,6 +736,7 @@ textarea.form-control {
 
     body {
         //background-color: #F09A9D;
+        background-color:yellow;
     }
     textarea.form-control {
         width: 100%;
@@ -909,6 +911,9 @@ textarea.form-control {
 }
 
 @media only screen and (max-width: 750) {
+    .body{
+        background-color: green;
+    }
     .container-fluid {
         padding-left: 15px;
     }
