@@ -1,0 +1,109 @@
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container-fluid-fix {
+    padding-right: 15px;
+    //padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.edition {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.navbar .container-fluid>.navbar-header {
+    float: left;
+    //margin-right: 10px;
+}
+
+/* Media Queries */
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+   .container-fluid {
+        padding-left: 15px;
+    }
+   .firstElement {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+        margin: 1.5rem;
+        margin: 0;
+        width: 83%;
+        padding: 0;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+    .secondContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-around;
+        align-items: center;
+    }
+    .secondElement {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+        margin-bottom: 2rem;
+    }
+    .thirthElement {
+        order: 2;
+        flex: 1 1 auto;
+        align-self: auto;
+    }
+}
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+    .container-fluid {
+        padding-left: 15px;
+    }
+    .firstElement {
+        order: 1;
+        flex: 0 1 auto;
+        align-self: auto;
+        margin: 1.5rem;
+        margin: 0;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+    .secondContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: space-around;
+        align-items: center;
+    }
+    .secondElement {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+        margin: 2.5rem;
+    }
+    .thirthElement {
+        order: 2;
+        flex: 1 1 auto;
+        align-self: auto;
+    }
+}
+
+@media only screen and (max-width: 750) {
+    .container-fluid {
+        padding-left: 15px;
+    }
+    .navbar .container-fluid > .navbar-header {
+        float: none;
+        /* display: block; */
+    }
+}
