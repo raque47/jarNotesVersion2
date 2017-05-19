@@ -1,8 +1,8 @@
 const React = require('react');
 const InformationContainer = require('../Containers/InformationContainer');
 
-const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
-const style = require('../scss/pages/_SearchStyle.scss');
+//const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
+const _searchStyle = require('../scss/pages/_searchStyle.scss');
 
 const Search = React.createClass({
     render() {

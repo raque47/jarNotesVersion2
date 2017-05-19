@@ -1,8 +1,8 @@
 const React = require('react');
-const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
+// const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 const MenuButtonsContainer = require('../Containers/MenuButtonsContainer');
 
-const syle=require('../scss/pages/_NavBarStyle.scss');
+const _navBarStyle = require('../scss/pages/_navBarStyle.scss');
 
 const NavBar = React.createClass({
     render() {
