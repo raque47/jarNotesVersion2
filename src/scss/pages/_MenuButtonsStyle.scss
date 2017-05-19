@@ -115,6 +115,10 @@ $font-stack: 'Love Ya Like A Sister', cursive;
 	    width: 1.8rem;
         height: 2.5rem;
     }
+    .navbar-brand>img {
+        display: none;
+ 
+    }
 
 }
 
@@ -174,6 +178,10 @@ $font-stack: 'Love Ya Like A Sister', cursive;
         font-family: $font-stack;
         font-size: 1.7rem;
     }
+    .navbar-brand>img {
+        display: none;
+ 
+    }
     
 
 }
@@ -225,5 +233,9 @@ $font-stack: 'Love Ya Like A Sister', cursive;
         visibility: visible;
         font-family: $font-stack;
         font-size: 1.7rem;
+    }
+    .navbar-brand>img {
+        display: none;
+ 
     }
 }

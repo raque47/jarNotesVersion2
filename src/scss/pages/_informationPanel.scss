@@ -11,6 +11,9 @@
     overflow: auto;
 }
 
+ul#listInformationPanel {
+    list-style-type: none;
+}
 /* Mobile Styles */
 @media only screen and (max-width: 500px) {
     .infoPanel {
@@ -22,6 +25,7 @@
     .infoPanel {
         height: 40vh;
     }
+    
 }
 
 @media only screen and (max-width: 400px) and (max-width: 960px) {

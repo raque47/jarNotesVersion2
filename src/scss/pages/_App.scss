@@ -107,3 +107,11 @@
         /* display: block; */
     }
 }
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px){
+
+    .firstElement {
+        padding-left: 1rem;
+    }
+}
