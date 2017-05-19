@@ -18,7 +18,6 @@ a:active{
     background-color: transparent;
     border: none;
     display:block;
-   
 }
 
 .buttons:hover {
@@ -42,6 +41,27 @@ a:active{
     display: none;
     height: 5vh;
     text-align: center;
+}
+.showInlineControl {
+    display: inline-block;
+}
+.hideControl {
+    display: none;
+}
+.showBlockControl {
+    display: block;
+}
+
+.visibleControl
+{
+    visibility:visible;
+    display:inline-block;
+}
+
+.invisibleControl
+{
+    visibility:hidden;
+    display:none;
 }
 
 .inlineContainer {
@@ -71,6 +91,12 @@ a:active{
     display: inline-block;
 }
 
+.displayType
+{
+    display: inline;
+}
+
+
 
 /* Media Queries */
 
@@ -90,6 +116,11 @@ a:active{
      .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
         margin-right: 0;
     }
+    .displayType
+    {
+        display: block;
+    }
+
     .navBar__images {
 	    width: 1.8rem;
         height: 2.5rem;
@@ -172,6 +203,10 @@ a:active{
         //background-color: #F09A9D;
         background-color:yellow;
     }
+    .displayType
+    {
+        display: block;
+    }
     .invisibleComponent,
     .hiddenButtons {
         visibility: visible;
@@ -184,6 +219,7 @@ a:active{
         width: 100%;
         padding-bottom: 1rem;
     }
+
 
     .navbar .navbar-nav {
         float: left;
@@ -245,6 +281,10 @@ a:active{
     }
      .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
         margin-right: 0;
+    }
+    .displayType
+    {
+        display: block;
     }
 
     .inlineContainer {
