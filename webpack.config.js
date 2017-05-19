@@ -39,16 +39,16 @@ module.exports = {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader':{
-        includePaths: [
-        	path.resolve(__dirname, 'app/styles')
-        ]
+          'sass-loader'
+        // includePaths: [
+        // 	require: path.resolve(__dirname, 'app/styles')
+        // ]
           
           
           
-          :[includePath=path.join(__dirname, '../node_modules/bootstrap-sass/assets/stylesheets/')]          
-
-        ],
+        //   :[includePath=path.join(__dirname, '../node_modules/bootstrap-sass/assets/stylesheets/')]          
+//
+         ],
       },
       {
         test: /\.(?:png|jpg|svg)$/,
@@ -59,10 +59,7 @@ module.exports = {
       }
     ],
   },
-      sassLoader: {
-        includePaths: [
-        	path.resolve(__dirname, 'app/styles')
-        ]
+
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.tpl.ejs',

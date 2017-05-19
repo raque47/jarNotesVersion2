@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import '_bootstrap.scss';
+// import '_bootstrap.scss';
+
+import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss'
 import '../scss/pages/_home.scss';
 const image = require('../images/logo.png')
 const NavBar = require('../Components/NavBar');
