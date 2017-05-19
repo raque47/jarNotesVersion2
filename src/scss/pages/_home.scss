@@ -392,7 +392,15 @@ a:active{
    // background-color: #F8F8F8;
    // background-color: #A9F5BC; //Verde claro
     margin-right: 1rem;
+    //list-style-type: none;
 }
+// ul.infoPanelElements {
+//     list-style-type: none;
+// }
+ul#listInformationPanel {
+    list-style-type: none;
+}
+
 
 .bulletImage
 {
@@ -561,12 +569,14 @@ textarea.form-control {
     .navBar__images {
         //        width: 1.6rem;
         //        height: 1.6rem;
-        width: 1.5rem;
+        // width: 1.5rem;
+        // height: 2.5rem;
+	    width: 1.8rem;
         height: 2.5rem;
     }
     .editionBar__button {
         display: block;
-        padding: 0.4rem 3rem 0.4rem 1.rem;
+        padding: 0.3rem 3rem 0.4rem 1rem;
     }
     .titleNoteControl:hover {
         font-size: 2.3rem;
@@ -668,9 +678,11 @@ textarea.form-control {
 
     .editionBar__button:last-child {
         padding-bottom: 0; 
+        padding-top: 0.3rem;
     }
      .editionBar__button:first-child {
         padding-left: 0; 
+        margin-left: 0;
     }
 }
 
@@ -801,10 +813,10 @@ textarea.form-control {
     .inlineContainer {
         display: block;
         border-color: #e7e7e7;
-        border: solid #e7e7e7;
         width: 100%;
         padding-bottom: 1rem;
     }
+
     .navbar .navbar-nav {
         float: left;
         margin: 0;
@@ -925,7 +937,7 @@ textarea.form-control {
     .hiddenButtons__button {
         padding-bottom: 0.5rem;
         padding-right: 20rem;
-        border-top: solid #e7e7e7;
+        // border-top: solid #e7e7e7;
         border-bottom: solid #e7e7e7;
         padding-left: 2rem;
     }
