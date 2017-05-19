@@ -1,0 +1,227 @@
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import "../helpers/variables.scss";
+
+.buttons {
+    background-color: transparent;
+    border: none;
+    display: block;
+}
+
+.buttons:hover {
+    background-color: #F6CED8;
+}
+.buttons:focus {
+    border: none;
+    outline: none;
+    background-color: #F5A9D0;
+}
+
+.buttonFontHidden {
+    font-family: $font-stack;
+    font-size: 0.8em;
+    margin-left: 0rem;
+}
+
+.hiddenButtons {
+    background-color: #F8F8F8;
+    // width:17%;
+    display: none;
+    height: 5vh;
+    text-align: center;
+}
+.hiddenButtons__button {
+    //padding: 1rem 1rem 1rem 1.5rem;   
+    display: inline-block;
+    align-content: center;
+}
+
+.inlineContainer {
+    display: inline;
+}
+
+.navBar__hiddenImages {
+    width: 1.5rem;
+    height: 2.5rem;
+}
+
+.navBar__images {
+    width: 2.3rem;
+    height: 2.3rem;
+    //  padding-right: 1.5rem;
+}
+
+.navElementSpanVisible {
+    display: none;
+    visibility: hidden;
+}
+
+.navBar__button {
+    width: 4rem;
+    padding-bottom: 0;
+    height: 5rem;
+    margin-right: 0.2rem;
+    display: inline-block;
+}
+
+
+/* Media Queries */
+
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+    body {
+        //background-color: #F09A9D;
+    }
+    .buttons {
+        margin-right: 0;
+    }
+    .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+    .inlineContainer {
+        display: block;
+        border-color: #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .hiddenButtons__button:last-child
+    {
+        border: none;
+    } 
+    .navBar__button {
+        padding-bottom: 5rem;
+        padding-top: 0.5rem;
+        padding-right: 37rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+    .navBar__images {
+	    width: 1.8rem;
+        height: 2.5rem;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+
+    body {
+        //background-color: #F09A9D;
+    }
+    .buttons {
+        margin-right: 0;
+    }
+    .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+    .inlineContainer {
+        display: block;
+        border-color: #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+        padding-left: 4.5rem;
+    }
+ 
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+       // border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+     .hiddenButtons__button:last-child
+    {
+        border: none;
+    }
+    .navBar__button {
+        padding-bottom: 5rem;
+        padding-top: 0.5rem;
+        padding-right: 37rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .navBar__images {
+        width: 1.5rem;
+        height: 2.5rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+    
+
+}
+
+@media only screen and (max-width: 750) {
+     .buttonFontHidden {
+        font-size: 1.2rem;
+    }
+
+    .inlineContainer {
+        display: block;
+        border-color: #e7e7e7;
+        //border: solid #e7e7e7;
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+    .invisibleComponent,
+    .hiddenButtons {
+        visibility: visible;
+        opacity: 1;
+        display: inline-block;
+        padding-left: 4.5rem;
+    }
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        padding-right: 20rem;
+        // border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+     .hiddenButtons__button:last-child
+    {
+        border: none;
+    }
+    .navBar__button {
+        padding-bottom: 5rem;
+        padding-top: 0.5rem;
+        padding-right: 37rem;
+        border-top: solid #e7e7e7;
+        border-bottom: solid #e7e7e7;
+        padding-left: 2rem;
+    }
+    .navBar__images {
+        width: 1.5rem;
+        height: 2.5rem;
+    }
+    .navElementSpanVisible {
+        display: inline;
+        visibility: visible;
+        font-family: $font-stack;
+        font-size: 1.7rem;
+    }
+}
