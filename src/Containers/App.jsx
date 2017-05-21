@@ -31,7 +31,7 @@ const App = React.createClass({
         <div className="container-fluid container-fluid-fix ">
           <div className="row edition secondContainer">
             <div className="col-md-1 firstElement">
-              <EditionBar />
+              <EditionBar/>
             </div>
             <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
               <NotesEditionPanel />

@@ -40,10 +40,16 @@
 .editionBar__span {
     visibility: hidden;
     opacity: 1;
-    transition: opacity 1s;
+    transition: opacity 5s;
 }
+
 .hiddenControl {
     display: none;
+    visibility: hidden;
+}
+.showControl{
+    display:block;
+    visibility: visible;
 }
 .navBar__images {
     width: 2.3rem;

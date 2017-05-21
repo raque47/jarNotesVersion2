@@ -5,19 +5,40 @@ const DropDown= require('../Components/DropDown');
 const MenuButtonsContainer = React.createClass({
     getInitialState () {
     return {
-      isActiveNotes: false,
-      isActiveTags:false,
-      isActiveFolders:false,
-      idButton: ''
+      activeNotes: false,
+      activeTags:false,
+      activeFolders:false,
     }
   },
     showHiddenButtons(id) {
-   
-      this.setState({ idButton: id })
-     /*this.setState({
-        id:id
-     }); */
-      console.log('el target tiene: ' + idButton);
+    
+        switch(id)
+        {
+            case "notesButton":
+                if(this.state.activeNotes===true){
+                        this.setState({ activeNotes: false, activeTags:false, activeFolders:false});
+                }
+                else{
+                        this.setState({ activeNotes: true, activeTags:false, activeFolders:false});
+                }
+            break;
+            case "tagsButton":
+                if(this.state.activeTags===true){
+                        this.setState({activeNotes: false, activeTags:false, activeFolders:false});
+                }
+                else{
+                        this.setState({ activeNotes: false, activeTags:true, activeFolders:false});
+                }
+            break;
+            case "foldersButton":
+                if(this.state.activeFolders===true){
+                        this.setState({ activeNotes: false, activeTags:false, activeFolders:false});
+                }
+                else{
+                        this.setState({ activeNotes: false, activeTags:false, activeFolders:true});
+                }
+            break;
+        }
   },
      render() {
         const searchIcon = "search-button.svg";
@@ -26,17 +47,34 @@ const MenuButtonsContainer = React.createClass({
             <div >
                 <MenuButtons
                   /*  onClick = {this.showHiddenButtons}  */
-                    id="notesButton"
-                    onClickMainButton ={this.showHiddenButtons} 
-                    displayEvent="visibleControl" 
+                    idMainButton= "notesButton"
+                    onClickMainButton ={this.showHiddenButtons}         
+                    showHiddenButtons = {this.state.activeNotes}
                     mainButton="notes-button.svg" 
                     buttonName="Notes"
                     searchIcon={searchIcon} 
                     hiddenIcon={viewIcon} 
                     searchText="Search Note" 
                     text="View Notes"/>
-                <MenuButtons id = "tagsButton"  onClickMainButton ={this.showHiddenButtons}  displayEvent="invisibleControl" mainButton="tag-button.svg" buttonName="Tags" searchIcon={searchIcon} hiddenIcon="add-tag-button.svg" searchText="Search Tag" text="Add Tag" />
-                <MenuButtons id = "foldersButton"  onClickMainButton ={this.showHiddenButtons}  displayEvent="invisibleControl" mainButton="folder-button.svg" buttonName="Folders" searchIcon={searchIcon} hiddenIcon="add-folder-button.svg" searchText="Search Folder" text="Add Folder" />    
+                <MenuButtons
+                     idMainButton = "tagsButton"
+                     onClickMainButton ={this.showHiddenButtons}  
+                    showHiddenButtons = {this.state.activeTags}
+                     mainButton="tag-button.svg" 
+                     buttonName="Tags" 
+                     searchIcon={searchIcon} 
+                     hiddenIcon="add-tag-button.svg" 
+                     searchText="Search Tag" text="Add Tag" />
+                <MenuButtons 
+                    idMainButton = "foldersButton"
+                    onClickMainButton ={this.showHiddenButtons}  
+                    showHiddenButtons = {this.state.activeFolders}
+                    mainButton="folder-button.svg" 
+                    buttonName="Folders" 
+                    searchIcon={searchIcon} 
+                    hiddenIcon="add-folder-button.svg" 
+                    searchText="Search Folder" 
+                    text="Add Folder" />    
                 <DropDown userIcon="user-button.svg" item1="Settings" item2="Log Out" />        
             </div>
         );
