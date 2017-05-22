@@ -1,5 +1,7 @@
 const React = require('react');
 const Notes = require('../Components/Notes/Notes');
+// const dataBase = require('../../../public/db.json');
+import preload from '../../../public/db.json';
 
 const NotesContainer = React.createClass({
   getInitialState() {

@@ -1,0 +1,31 @@
+{
+    "notes": [{
+        "noteId": 1,
+        "noteName": "Nota1",
+        "noteContent": "djlasjdklsajdlksajdasd"
+    },
+    {
+        "noteId": 2,
+        "noteName": "Nota2",
+        "noteContent": "HOLAAAA"
+    },
+    {
+        "noteId": 3,
+        "noteName": "Nota3",
+        "noteContent": "adios"
+    }]
+    // "tags": [{
+    //     "tagId": 1,
+    //     "tagName": "Tag1"
+    // },{
+    //     "tagId": 2,
+    //     "tagName": "Tag2"
+    // }],
+    // "folders": [{
+    //     "folderId": 1,
+    //     "folderName": "Folder1"
+    // },{
+    //     "folderId": 2,
+    //     "folderName": "Folder2"
+    // }]
+}

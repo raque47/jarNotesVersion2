@@ -8,10 +8,12 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint js/**/*.js webpack.config.js",
-    "start": "node_modules/.bin/webpack-dev-server",
+    // "start": "node_modules/.bin/webpack-dev-server",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "api": "json-server --watch public/db.json",
+    "start": "concurrently \"npm run dev\" \"npm run api\""
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

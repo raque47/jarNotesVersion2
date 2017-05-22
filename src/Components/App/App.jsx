@@ -10,7 +10,9 @@ const App = React.createClass({
 
   render() {
     return (
-      <MainContainer/>
+      <Router>
+        <MainContainer/>
+      </Router>
     );
   },
 });
