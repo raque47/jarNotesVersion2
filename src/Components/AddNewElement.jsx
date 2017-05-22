@@ -1,12 +1,12 @@
 const React = require('react');
 const _addNewElement = require('../scss/pages/_addNewElement.scss');
-
+const Title = require('./Title');
 const AddNewElement = React.createClass({
   render() {
     return (
-      <div id="addNewElementForm" className="addNewElementPanel addNewElementFormHidden">
+      <div id="addNewElementForm" className={"addNewElementPanel " + (this.props.activeAddElement ? "addNewElementFormVisible" : "addNewElementFormHidden" )} >
         <div className="addNewElementTittleType">
-          <h4 id="" className="fontFamily"> Add a new tag</h4>
+          <h4>{"Add " + this.props.idAction}</h4>
         </div>
         <div className="formAddNewElement">
           <input id="addNewElementTittle" type="text" placeholder="Title" className="titleNoteControl" />

@@ -1,5 +1,5 @@
 const React = require('react');
-const InformationContainer = require('../Containers/InformationContainer');
+
 
 //const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 const _searchStyle = require('../scss/pages/_searchStyle.scss');
@@ -7,9 +7,9 @@ const _searchStyle = require('../scss/pages/_searchStyle.scss');
 const Search = React.createClass({
     render() {
         return (
-            <div>
-                <div id="searchForm__input" className="input-group searchFormHidden">
-                    <input type="text" className="form-control searchFormHidden" placeholder="Search" name="srch-term" id="srch-term" />
+            <div className={"navbar-form "  + (this.props.activeSearch ? "searchFormActive" : "searchFormHidden")} role="search">
+                <div id="searchForm__input" className={"input-group " + (this.props.activeSearch ? "searchFormActive" : "searchFormHidden")}>
+                    <input type="text" className={"form-control " + (this.props.activeSearch ? "searchFormActive" : "searchFormHidden")} placeholder="Search" name="srch-term" id="srch-term" />
                     <div className="input-group-btn">
                         <button className="btn btn-default" type="submit"><img src={require('../images/search-button.svg')} className="searchButtonInformationPanel" /> </button>
                     </div>

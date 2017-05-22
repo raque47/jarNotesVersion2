@@ -1,4 +1,4 @@
-$font-stack: 'Love Ya Like A Sister', cursive;
+@import '../helpers/variables.scss';
 
 .addNewElementPanel {}
 .addNewElementTittleType {
@@ -6,6 +6,9 @@ $font-stack: 'Love Ya Like A Sister', cursive;
 }
 .addNewElementFormHidden {
     display: none;
+}
+.addNewElementFormVisible {
+    display: block;
 }
 .addNewElementButton {
     margin: 0;

@@ -1,24 +1,35 @@
 const React = require('react');
-const InformationContainer = require('../Containers/InformationContainer');
-const AddNewElement = require('../Components/AddNewElement');
+const Title = require('../Components/Title');
 const Search = require('../Components/Search');
+const AddNewElement = require('../Components/AddNewElement');
 const _informationPanel = require('../scss/pages/_informationPanel.scss');
+const NotesContainer = require('../Containers/NotesContainer'); 
+const FoldersContainer = require('../Containers/FoldersContainer'); 
 
 const InformationPanel = React.createClass({
-    render() {
-        return (
-            <div id="panelInformation" className="infoPanel">
-              { /* TITLE COMPONENT <div>
-                  <h2 id="informationPanelTittle" className="fontFamily"> Notes</h2>
-                </div> */}
-              <Search/>
-              <InformationContainer/>
-              <AddNewElement buttonName = "hola"/>
-            </div>
+  render() {
+    return (
+      <div id="panelInformation" className="infoPanel">
+        <Title panelTitle={this.props.idAction} />
+        <Search
+          activeSearch={this.props.activeSearch}
+          idAction={this.props.idAction} />
+        <NotesContainer  
+        noteTitle={this.props.noteTitle}
+        noteContent={this.props.noteContent} 
+        totalNotes={this.props.totalNotes}  
+        activeAddNote={this.props.activeAddNote}/>
+       {/* <FoldersContainer/> */ }
+        <AddNewElement
+          activeAddElement={this.props.activeAddElement}
+          buttonName=""
+          noteTitle={this.props.noteTitle}
+          idAction={this.props.idAction} />
+      </div>
 
-        );
-    },
+    );
+  },
 });
 
-module.exports = InformationPanel;  
+module.exports = InformationPanel;
 

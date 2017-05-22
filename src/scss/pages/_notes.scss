@@ -1,0 +1,95 @@
+@import '../helpers/variables.scss';
+.infoPanelElements
+{
+    align-self: stretch;
+    margin-right: 1rem;
+}
+
+.borderStyle
+{
+    background: #F8F8F8;
+    margin-bottom: 1rem;
+    border: 0.2rem solid #E7E7E7;  
+}
+
+.noteAddedTitle {
+    font-family: $font-stack;
+    font-size: 2.2rem;
+    //    font-weight: bold;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+
+.infoPanelButtons {
+    display: inline;
+    padding: 0.5rem;
+}
+
+.hideComponent {
+    display: none;
+    opacity: 0;
+}
+.showComponent {
+    display: block;
+    opacity: 1;
+}
+
+.noteContentFont {
+    font-family: 'Yantramanav', sans-serif;
+    font-family: 'Fanwood Text', serif;
+    font-size: 2rem;
+}
+.showNoteAnimation
+{
+    background-color: white;
+    margin-bottom: 0rem;
+    max-height: 25vh;
+    overflow: auto;
+    margin-right: 0rem;
+    margin-top: 0.9rem;
+    animation: fade 1s;
+    border-top: 0.2rem solid #E7E7E7;
+    padding-left:1rem;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Media Queries */
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+    .noteAddedTitle {
+        font-size: 1.75rem;
+        margin-left: 1rem;
+    }
+     .buttons {
+        margin-right: 0;
+    }
+     .noteContentFont
+    {
+        font-size: 1.6rem;
+    }
+}
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+   .noteAddedTitle {
+        font-size: 1.3rem;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 750) {
+
+}

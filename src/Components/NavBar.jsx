@@ -20,7 +20,12 @@ const NavBar = React.createClass({
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <div className="nav navbar-nav navbar-right">                         
-                            <MenuButtonsContainer/>
+                            <MenuButtonsContainer 
+                            onClickHiddenButton={this.props.onClickHiddenButton} 
+                            onClickSearchEvent={this.props.onClickSearchEvent} 
+                            onClickViewEvent={this.props.onClickViewEvent} 
+                            onClickAddEvent = {this.props.onClickAddEvent}
+                            idHiddenButton={this.props.idHiddenButton}/>
                         </div>
                     </div>
                 </div>
