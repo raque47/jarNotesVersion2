@@ -17,7 +17,7 @@ const MainContainer = React.createClass({
         title: "",
         content: ""
       },
-      totalNotes: [{note:{title:"Hello", "content":"Bye"}}],
+      totalNotes: [{note:{title:"Hello", "content":"Bye", id:"2"}}],
     };
   },
   createNote: function () {

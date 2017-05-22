@@ -10,7 +10,7 @@ const Main = React.createClass({
   render() {
     return (
       <div>
-        <Switch>
+        {/*<Switch>*/}
         <NavBar
           onClickSearchEvent={this.props.onClickSearchEvent}
           onClickViewEvent={this.props.onClickViewEvent}
@@ -40,7 +40,7 @@ const Main = React.createClass({
             </div>
           </div>
         </div>
-        </Switch>
+        {/*</Switch>*/}
       </div>
     );
   },
