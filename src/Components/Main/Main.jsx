@@ -13,15 +13,17 @@ const Main = React.createClass({
         <NavBar
           onClickSearchEvent={this.props.onClickSearchEvent}
           onClickViewEvent={this.props.onClickViewEvent}
-          onClickAddEvent={this.props.onClickAddEvent}
-          idHiddenButton={this.props.idHiddenButton} />
+          onClickAddEvent={this.props.onClickAddEvent} />
         <div className="container-fluid container-fluid-fix ">
           <div className="row edition secondContainer">
             <div className="col-md-1 firstElement">
               <EditionBarContainer />
             </div>
             <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
-              <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}/>
+              <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}>
+              
+
+              </NoteEditionContainer>
             </div>
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
               <InformationPanel
@@ -32,7 +34,8 @@ const Main = React.createClass({
                 activeAddNote={this.props.activeAddNote}
                 noteTitle={this.props.noteTitle}
                 noteContent={this.props.noteContent}
-                totalNotes={this.props.totalNotes}/>
+                totalNotes={this.props.totalNotes} >
+                </InformationPanel>
             </div>
           </div>
         </div>
