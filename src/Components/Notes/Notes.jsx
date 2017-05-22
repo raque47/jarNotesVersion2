@@ -4,7 +4,7 @@ const notesStyle = require('./_notes.scss');
 const Notes = React.createClass({
   showNote(){
     console.log("show vale: " + this.props.showNote);
-    this.props.onClickShowEvent();
+    this.props.onClickShowEvent("hola");
   },
    editNote(){
     console.log("EDIT!! NOTEEEE!!");

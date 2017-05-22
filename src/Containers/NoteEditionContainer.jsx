@@ -22,7 +22,7 @@ const NoteEditionContainer = React.createClass({
   },
   render() {
     return (
-      <NoteEdition resetContent={this.state.resetContent} resetTitle={this.state.resetTitle} saveNoteContent={this.getNoteContent} saveNoteTitle={this.getNoteTitle} onClickAddNote={this.addNoteEvent} />
+      <NoteEdition resetContent={this.state.resetContent} resetTitle={this.state.resetTitle} getNoteContent={this.getNoteContent} getNoteTitle={this.getNoteTitle} onClickAddNote={this.addNoteEvent} />
     );
   },
 });

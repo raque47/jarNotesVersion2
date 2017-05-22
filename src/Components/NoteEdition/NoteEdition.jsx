@@ -3,17 +3,13 @@ const noteEditionStyle = require('./_noteEdition.scss');
 
 
 const NoteEdition = React.createClass({
-  addNoteEvent(){
-    //this.props.
-    console.log("AGREGAR NOTA!!!");
-  },
   sendNoteContent(event){
     const textAreaValue=event.target.value;
-    this.props.saveNoteContent(textAreaValue);
+    this.props.getNoteContent(textAreaValue);
   },
   sendNoteTitle(event){
     const noteTitle=event.target.value;
-    this.props.saveNoteTitle(noteTitle);
+    this.props.getNoteTitle(noteTitle);
   },
  
   render() {
