@@ -1,5 +1,5 @@
 const React = require('react');
-const _titleStyle = require('../scss/pages/_title.scss');
+const titleStyle = require('./_title.scss');
 
 const Title = React.createClass({
   activateItemsName() {

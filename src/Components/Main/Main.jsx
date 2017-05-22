@@ -1,13 +1,10 @@
 const React = require('react');
 const render = require('react-dom');
-
-const image = require('../images/logo.png')
-const NavBar = require('./NavBar');
-const EditionBar = require('./EditionBar');
-const NoteEditionContainer = require('../Containers/NoteEditionContainer');
-const InformationPanelContainer = require('../Containers/InformationPanelContainer');
-const EditionBarContainer = require('../Containers/EditionBarContainer');
-const InformationPanel = require('./InformationPanel');
+const image = require('../../images/logo.png')
+const NavBar = require('../NavBar/NavBar');
+const NoteEditionContainer = require('../../Containers/NoteEditionContainer');
+const EditionBarContainer = require('../../Containers/EditionBarContainer');
+const InformationPanel = require('../InformationPanel/InformationPanel');
 
 const Main = React.createClass({
   render() {

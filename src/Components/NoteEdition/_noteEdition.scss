@@ -1,6 +1,6 @@
 // @import '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 // @import "../helpers/variables.scss";
-$font-stack: 'Love Ya Like A Sister', cursive;
+@import '../../scss/helpers/variables.scss';
 
 .editionNotesControl {
     display: flex;

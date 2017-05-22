@@ -1,5 +1,5 @@
 const React = require('react');
-const _notesStyle = require('../scss/pages/_notes.scss');
+const notesStyle = require('./_notes.scss');
 
 const Notes = React.createClass({
   showNote(){
@@ -13,8 +13,8 @@ const Notes = React.createClass({
     return (
       <div className={"infoPanelElements borderStyle " + (this.props.activeAddNote ? "showComponent" : "hideComponent")} >
         <span className="noteAddedTitle">{this.props.titleNote}</span>
-        <button className="buttons infoPanelButtons" onClick={this.showNote}><img src={require("../images/view-button.svg")} className="navBar__images"/></button>
-        <button className="buttons infoPanelButtons" onClick={this.editNote}><img src={require("../images/edit-button.svg")} className="navBar__images"/></button>
+        <button className="buttons infoPanelButtons" onClick={this.showNote}><img src={require("../../images/view-button.svg")} className="navBar__images"/></button>
+        <button className="buttons infoPanelButtons" onClick={this.editNote}><img src={require("../../images/edit-button.svg")} className="navBar__images"/></button>
         <p className={"noteContentFont " + (this.props.showNote ? "showComponent showNoteAnimation" : "hideComponent")}>{this.props.textNote}</p>
       </div>
     );

@@ -1,6 +1,6 @@
 const React = require('react');
-const Notes = require('../Components/Notes');
-const InformationPanel = require('../Components/InformationPanel');
+const Notes = require('../Components/Notes/Notes');
+const InformationPanel = require('../Components/InformationPanel/InformationPanel');
 
 const InformationPanelContainer = React.createClass({
   render() {

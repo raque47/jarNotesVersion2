@@ -1,6 +1,6 @@
 const React = require('react');
 const render  = require('react-dom');
-const Main = require('../Components/Main');
+const Main = require('../Components/Main/Main');
 
 const MainContainer = React.createClass({
 

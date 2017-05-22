@@ -1,5 +1,5 @@
 const React = require('react');
-const EditionBar= require('../Components/EditionBar');
+const EditionBar= require('../Components/EditionBar/EditionBar');
 
 
 const EditionBarContainer = React.createClass({

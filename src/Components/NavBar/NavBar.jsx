@@ -1,8 +1,7 @@
 const React = require('react');
-// const bootstrap = require('../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
-const MenuButtonsContainer = require('../Containers/MenuButtonsContainer');
+const MenuButtonsContainer = require('../../Containers/MenuButtonsContainer');
 
-const _navBarStyle = require('../scss/pages/_navBarStyle.scss');
+const navBarStyle = require('./_navBar.scss');
 
 const NavBar = React.createClass({
     render() {
@@ -16,7 +15,7 @@ const NavBar = React.createClass({
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>    
                         </button>
-                        <a className="navbar-brand pull-left" href="#"><img src={require('../images/logo.png')} /></a>
+                        <a className="navbar-brand pull-left" href="#"><img src={require('../../images/logo.png')} /></a>
                     </div>
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <div className="nav navbar-nav navbar-right">                         

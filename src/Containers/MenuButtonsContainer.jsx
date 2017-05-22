@@ -1,6 +1,6 @@
 const React = require('react');
-const MenuButtons = require('../Components/MenuButtons');
-const DropDown = require('../Components/DropDown');
+const MenuButtons = require('../Components/MenuButtons/MenuButtons');
+const DropDown = require('../Components/DropDown/DropDown');
 
 const MenuButtonsContainer = React.createClass({
     getInitialState() {

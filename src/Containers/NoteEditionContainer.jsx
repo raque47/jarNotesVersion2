@@ -1,5 +1,5 @@
 const React = require('react');
-const NoteEdition = require('../Components/NoteEdition');
+const NoteEdition = require('../Components/NoteEdition/NoteEdition');
 
 const NoteEditionContainer = React.createClass({
   getInitialState() {

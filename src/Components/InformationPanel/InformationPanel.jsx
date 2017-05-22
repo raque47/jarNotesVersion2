@@ -1,10 +1,10 @@
 const React = require('react');
-const Title = require('../Components/Title');
-const Search = require('../Components/Search');
-const AddNewElement = require('../Components/AddNewElement');
-const _informationPanel = require('../scss/pages/_informationPanel.scss');
-const NotesContainer = require('../Containers/NotesContainer'); 
-const FoldersContainer = require('../Containers/FoldersContainer'); 
+const Title = require('../Title/Title');
+const Search = require('../Search/Search');
+const AddNewElement = require('../AddNewElement/AddNewElement');
+const NotesContainer = require('../../Containers/NotesContainer'); 
+const FoldersContainer = require('../../Containers/FoldersContainer'); 
+const informationPanelStyle = require('./_informationPanel.scss');
 
 const InformationPanel = React.createClass({
   render() {
