@@ -2,6 +2,12 @@ const React = require('react');
 const render = require('react-dom');
 const Main = require('../Components/Main/Main');
 
+const reactRouter = require('react-router-dom');
+const Link = reactRouter.Link;
+const Route = reactRouter.Route;
+const Switch =reactRouter.Switch;
+
+
 const MainContainer = React.createClass({
 
   getInitialState: function () {
@@ -64,20 +70,25 @@ const MainContainer = React.createClass({
   },
   render() {
     return (
-      <Main
-        onClickSearchEvent={this.searchEvent}
-        onClickViewEvent={this.viewEvent}
-        onClickAddEvent={this.addEvent}
-        onClickAddNote={this.addNote}
-        activeSearch={this.state.activeSearch}
-        activeView={this.state.activeView}
-        activeAddElement={this.state.activeAddElement}
-        idAction={this.state.idAction}
-        activeAddNote={this.state.activeAddNote}
-        totalNotes={this.state.totalNotes}
-        noteContent={this.state.noteContent}
-        noteTitle={this.state.noteTitle}
-        note={this.state.note} />
+
+     <Route exact path="/" render={ () => (
+          <Main
+            onClickSearchEvent={this.searchEvent}
+            onClickViewEvent={this.viewEvent}
+            onClickAddEvent={this.addEvent}
+            onClickAddNote={this.addNote}
+            activeSearch={this.state.activeSearch}
+            activeView={this.state.activeView}
+            activeAddElement={this.state.activeAddElement}
+            idAction={this.state.idAction}
+            activeAddNote={this.state.activeAddNote}
+            totalNotes={this.state.totalNotes}
+            noteContent={this.state.noteContent}
+            noteTitle={this.state.noteTitle}
+            note={this.state.note} 
+          /> )}
+        />
+              
     );
   },
 });

@@ -24,16 +24,17 @@ if (this.props.totalNotes.length > 0) {
     return <div>
       {preload.notes.map((item) => {
         return <Notes
+          key={item.noteId}
           showNote={this.state.showNote}
           activeAddNote="true"
           titleNote={item.noteTitle} 
           textNote={item.noteContent}
           onClickShowEvent={this.showNoteEvent}
-          />;      
+          />
       }
       
       )  };  
-     </div>;
+     </div>
     /*// console.log("cantidad de elementos es: " + this.props.totalNotes.length );
     let notesComponents = this.props.totalNotes.map(function (item) {
       console.log("EN MAP: " + item.note.title);
@@ -50,7 +51,10 @@ if (this.props.totalNotes.length > 0) {
 
     // return <div>{notesComponents}</div>;
 }
+else{
 return null;
+}
+
 
 }
 });

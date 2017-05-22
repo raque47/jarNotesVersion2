@@ -2,7 +2,7 @@ const React = require('react');
 const notesStyle = require('./_notes.scss');
 
 const Notes = React.createClass({
-showNote(){
+showNote(event){
 console.log("show vale: " + this.props.showNote);
 this.props.onClickShowEvent("hola");
 },
@@ -22,12 +22,9 @@ className="navBar__images"/></button>
 onClick={this.editNote}><img
 src={require("../../images/edit-button.svg")}
 className="navBar__images"/></button>
-{console.log("SHOW NOTE ES: " + this.props.showNote)}
 <p className={"noteContentFont " + (this.props.showNote ? 
 "showComponent showNoteAnimation" :
-"hideComponent")}>
-{console.log("SHOW NOTE ES: " + this.props.showNote)}
-{this.props.textNote}</p>
+"hideComponent")}> {this.props.textNote}</p>
 </div>
 );
 },
