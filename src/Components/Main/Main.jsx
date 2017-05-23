@@ -43,7 +43,9 @@ const Main = React.createClass({
                     activeAddNote={this.props.activeAddNote}
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
-                    totalNotes={this.props.totalNotes} >
+                    totalNotes={this.props.totalNotes}
+                    typeNotesAction={this.props.typeNotesAction}
+                    addNoteEvent={this.props.addNoteEvent} >
                     </InformationPanel>
                 </div>
               </div>

@@ -59,7 +59,6 @@ module.exports = {
       }
     ],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.tpl.ejs',
