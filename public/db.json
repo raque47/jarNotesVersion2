@@ -1,17 +1,13 @@
 {
-    "notes": [{
-        "noteId": 1,
-        "noteTitle": "Nota1",
-        "noteContent": "djlasjdklsajdlksajdasd"
+  "notes": [{
+    
+      "id": "Note1",
+      "noteTitle": "My first Note",
+      "noteContent": "Heeello!"
     },
     {
-        "noteId": 2,
-        "noteTitle": "Nota2",
-        "noteContent": "HOLAAAA"
-    },
-    {
-        "noteId": 3,
-        "noteTitle": "Nota3",
-        "noteContent": "adios"
+      "id": "Note1",
+      "noteTitle": "My Second Note",
+      "noteContent": "Byyyeeee!"
     }]
-}
+} 

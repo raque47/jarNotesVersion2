@@ -30,9 +30,9 @@ const InformationPanel = React.createClass({
         <NotesContainer  
         noteTitle={this.props.noteTitle}
         noteContent={this.props.noteContent} 
-        totalNotes={this.props.totalNotes}  
         activeAddNote={this.props.activeAddNote}
-        note={this.props.note}/>
+        typeNotesAction={this.props.typeNotesAction}
+        />
        {/* <FoldersContainer/> */ }
         <AddNewElement
           activeAddElement={this.props.activeAddElement}

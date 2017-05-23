@@ -19,54 +19,25 @@ const MainContainer = React.createClass({
       activeAddNote: false,
       noteTitle: "",
       noteContent: "",
-      note: {
-        title: "",
-        content: ""
-      },
-      totalNotes: [{note:{title:"Hello", "content":"Bye", id:"2"}}],
+      typeNotesAction:"",
     };
-  },
-  createNote: function () {
-    console.log("es una prueba jeje!");
-    /*  var arrayNotes = this.state.notes;
-      arrayNotes.push(<Notes />);
-      this.setState({ notes: arrayNotes }); */
   },
   searchEvent(id) {
     this.setState({ activeSearch: true, activeView: false, activeAddElement: false, idAction: id, activeAddNote: false });
-    console.log("SEARCH!! con ID" + id);
   },
 
   viewEvent(id) {
     this.setState({ activeSearch: false, activeView: true, activeAddElement: false, idAction: id, activeAddNote: false });
-    console.log("VIEW!!");
   },
-  addEvent(id) {
+  addElementEvent(id) {
     this.setState({ activeSearch: false, activeView: false, activeAddElement: true, idAction: id, activeAddNote: false });
     this.createNote;
-    console.log("ADD!!");
   },
   addNote(noteContent, noteTitle) {
-    console.log("Debo agregar una nota!!");
-    console.log("El contenido de la nota es el siguiente: " + noteContent);
-    console.log("el titulo de la nota es: " + noteTitle);
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
-    this.setState({
-      note: { title: noteTitle, content: noteContent },
-  //    totalNotes: this.state.totalNotes.concat([this.state.note]),
-      totalNotes:  this.state.totalNotes.concat([{note:{title:noteTitle, content:noteContent}}]),
-      activeAddNote: true
-    });
-    this.setState({ noteContent: noteContent, noteTitle: noteTitle });
-    //console.log("title es: " + totalNotes[0].title);
-    if (this.state.totalNotes.length == 0) {
-      console.log("0 elementos!");
-    }
-    else {
-      console.log(this.state.totalNotes.length);
-    }
+    this.setState({activeAddNote: true, noteContent: noteContent, noteTitle: noteTitle, typeNotesAction:"addNote"});
   },
   render() {
     return (
@@ -75,7 +46,7 @@ const MainContainer = React.createClass({
           <Main
             onClickSearchEvent={this.searchEvent}
             onClickViewEvent={this.viewEvent}
-            onClickAddEvent={this.addEvent}
+            onClickAddEvent={this.addElementEvent}
             onClickAddNote={this.addNote}
             activeSearch={this.state.activeSearch}
             activeView={this.state.activeView}
@@ -85,7 +56,7 @@ const MainContainer = React.createClass({
             totalNotes={this.state.totalNotes}
             noteContent={this.state.noteContent}
             noteTitle={this.state.noteTitle}
-            note={this.state.note} 
+            typeNotesAction={this.state.typeNotesAction}
           /> )}
         />
               
