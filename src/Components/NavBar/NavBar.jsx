@@ -20,6 +20,7 @@ const NavBar = React.createClass({
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <div className="nav navbar-nav navbar-right">                         
                             <MenuButtonsContainer 
+                            onClickMainButtonEvent={this.props.onClickMainButtonEvent}
                             onClickHiddenButton={this.props.onClickHiddenButton} 
                             onClickSearchEvent={this.props.onClickSearchEvent} 
                             onClickViewEvent={this.props.onClickViewEvent} 

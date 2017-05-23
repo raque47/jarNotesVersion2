@@ -32,6 +32,11 @@ const MainContainer = React.createClass({
       arrayNotes.push(<Notes />);
       this.setState({ notes: arrayNotes }); */
   },
+
+  mainButtonEvent(id) {
+    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id, activeAddNote: false });
+    console.log("SEARCH!! con ID" + id);
+  },
   searchEvent(id) {
     this.setState({ activeSearch: true, activeView: false, activeAddElement: false, idAction: id, activeAddNote: false });
     console.log("SEARCH!! con ID" + id);
@@ -71,8 +76,9 @@ const MainContainer = React.createClass({
   render() {
     return (
 
-     <Route exact path="/" render={ () => (
-          <Main
+     <Route path="/" render={ () => (
+          <Main 
+            onClickMainButtonEvent={this.mainButtonEvent}
             onClickSearchEvent={this.searchEvent}
             onClickViewEvent={this.viewEvent}
             onClickAddEvent={this.addEvent}

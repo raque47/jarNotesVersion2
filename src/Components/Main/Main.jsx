@@ -5,18 +5,25 @@ const NavBar = require('../NavBar/NavBar');
 const NoteEditionContainer = require('../../Containers/NoteEditionContainer');
 const EditionBarContainer = require('../../Containers/EditionBarContainer');
 const InformationPanel = require('../InformationPanel/InformationPanel');
-const Link = require('react-router-dom');
-const Route = require('react-router-dom');
-const Switch = require('react-router-dom');
+
+const reactRouter = require('react-router-dom');
+const Link = reactRouter.Link;
+const Route = reactRouter.Route;
+const Switch =reactRouter.Switch;
+const BrowserRouter =reactRouter.BrowserRouter;
 
 const Main = React.createClass({
   render() {
     return (
       <div> 
+          <Route path ="/" render={ () => (
             <NavBar
+              onClickMainButtonEvent={this.props.onClickMainButtonEvent}
               onClickSearchEvent={this.props.onClickSearchEvent}
               onClickViewEvent={this.props.onClickViewEvent}
               onClickAddEvent={this.props.onClickAddEvent} />
+             )}
+          />  
 
             <div className="container-fluid container-fluid-fix ">
               <div className="row edition secondContainer">
@@ -28,6 +35,7 @@ const Main = React.createClass({
                                   </div>
                 <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
                   <InformationPanel
+                    onClickMainButtonEvent={this.props.mainButtonEvent}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}

@@ -8,8 +8,6 @@ import {
 } from 'react-router-dom';
 
 
-
-
 const bootstrapStyle = require('../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 const appStyle = require('./_app.scss');
 

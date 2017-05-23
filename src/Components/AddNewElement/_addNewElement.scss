@@ -30,13 +30,42 @@
     height: 4vh;
     padding-top: 0;
 }
+.formAddNewElement {
+    padding-left: 1rem;
+}
+
+.addNewElementControlButton {
+    margin: 0.5rem;
+}
+.addNewElementControlButton{
+    color: #FF7138;
+    display: block;
+    padding: 6px 12px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    width: auto;
+    padding: 0.4rem;
+    background-color: #F6CED8;
+    /* height: 4vh; */
+    /* padding-top: 0; */
+    position: absolute;
+    right: 29px;
+}
+
+.addNewElementControlButton:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
 .editionButtonControls:hover {
     background-color: #F5A9D0;
     color: #FF7138;
     border: none;
 }
 .editionTextControl {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-family: $font-stack;
 }
 .textAreaAddElement {

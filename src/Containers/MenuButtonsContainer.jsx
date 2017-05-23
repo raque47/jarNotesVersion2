@@ -11,9 +11,8 @@ const MenuButtonsContainer = React.createClass({
         }
     },
     showHiddenButtons(id) {
-
         switch (id) {
-            case "notesButton":
+            case "notes":
                 if (this.state.activeNotes === true) {
                     this.setState({ activeNotes: false, activeTags: false, activeFolders: false });
                 }
@@ -21,7 +20,7 @@ const MenuButtonsContainer = React.createClass({
                     this.setState({ activeNotes: true, activeTags: false, activeFolders: false });
                 }
                 break;
-            case "tagsButton":
+            case "tags":
                 if (this.state.activeTags === true) {
                     this.setState({ activeNotes: false, activeTags: false, activeFolders: false });
                 }
@@ -29,7 +28,7 @@ const MenuButtonsContainer = React.createClass({
                     this.setState({ activeNotes: false, activeTags: true, activeFolders: false });
                 }
                 break;
-            case "foldersButton":
+            case "folders":
                 if (this.state.activeFolders === true) {
                     this.setState({ activeNotes: false, activeTags: false, activeFolders: false });
                 }
@@ -46,13 +45,13 @@ const MenuButtonsContainer = React.createClass({
             <div >
                 <MenuButtons
                     /*  onClick = {this.showHiddenButtons}  */
-                    idMainButton="notesButton"
+                    idMainButton="notes"
                     hiddenButton1="search notes"
-                    hiddenButton2="view notes"
+                    hiddenButton2="view"
                     onClickMainButton={this.showHiddenButtons}
                     showHiddenButtons={this.state.activeNotes}
 
-
+                    onClickMainButtonEvent={this.props.onClickMainButtonEvent}
                     onClickSearchEvent={this.props.onClickSearchEvent}
                     onClickViewEvent={this.props.onClickViewEvent}
                     onClickAddEvent={this.props.onClickAddEvent}
@@ -64,12 +63,13 @@ const MenuButtonsContainer = React.createClass({
                     searchText="Search Note"
                     text="View Notes" />
                 <MenuButtons
-                    idMainButton="tagsButton"
+                    idMainButton="tags"
                     hiddenButton1="search tags"
                     hiddenButton2="add tags"
                     onClickMainButton={this.showHiddenButtons}
                     showHiddenButtons={this.state.activeTags}
 
+                    onClickMainButtonEvent={this.props.onClickMainButtonEvent}
                     onClickSearchEvent={this.props.onClickSearchEvent}
                     onClickViewEvent={this.props.onClickViewEvent}
                     onClickAddEvent={this.props.onClickAddEvent}
@@ -80,12 +80,13 @@ const MenuButtonsContainer = React.createClass({
                     hiddenIcon="add-tag-button.svg"
                     searchText="Search Tag" text="Add Tag" />
                 <MenuButtons
-                    idMainButton="foldersButton"
+                    idMainButton="folders"
                     hiddenButton1="search folders"
                     hiddenButton2="add folders"
                     onClickMainButton={this.showHiddenButtons}
                     showHiddenButtons={this.state.activeFolders}
 
+                    onClickMainButtonEvent={this.props.onClickMainButtonEvent}
                     onClickSearchEvent={this.props.onClickSearchEvent}
                     onClickViewEvent={this.props.onClickViewEvent}
                     onClickAddEvent={this.props.onClickAddEvent}

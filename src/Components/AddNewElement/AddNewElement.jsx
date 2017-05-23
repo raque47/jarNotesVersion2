@@ -11,7 +11,7 @@ const AddNewElement = React.createClass({
         <div className="formAddNewElement">
           <input id="addNewElementTittle" type="text" placeholder="Title" className="titleNoteControl" />
           <textarea id="addNewElementContent" className="textAreaAddElement"></textarea>
-          <button id="addNoteButton" className="editionButtonControls addNewElementButton"><span className="editionTextControl">{this.props.buttonName}</span></button>
+          <button id="addNoteButton" className="addNewElementControlButton addNewElementButton"><span className="editionTextControl">Add Tag</span></button>
         </div>
       </div>
     );
