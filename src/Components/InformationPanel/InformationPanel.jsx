@@ -32,13 +32,15 @@ const InformationPanel = React.createClass({
         noteContent={this.props.noteContent} 
         activeAddNote={this.props.activeAddNote}
         typeNotesAction={this.props.typeNotesAction}
+        addNoteEvent={this.props.addNoteEvent}
         />
        {/* <FoldersContainer/> */ }
         <AddNewElement
           activeAddElement={this.props.activeAddElement}
           buttonName=""
           noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction} />
+          idAction={this.props.idAction}
+        />
       </div>
 
     );

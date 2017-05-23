@@ -36,7 +36,8 @@ const Main = React.createClass({
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
                     totalNotes={this.props.totalNotes}
-                    typeNotesAction={this.props.typeNotesAction} >
+                    typeNotesAction={this.props.typeNotesAction}
+                    addNoteEvent={this.props.addNoteEvent} >
                     </InformationPanel>
                 </div>
               </div>

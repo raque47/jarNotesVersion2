@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: Jar Notes REST Services API using Data Types
+version: v1
+protocols: [ HTTPS ] 
+baseUri: http://localhost:8081/{version}
+mediaType: application/json
+
+types:
+  Notes:
+    type: object
+    properties: 
+      noteId: string
+      noteTitle: string
+      noteContent: string
+    
+/notes:  
+  /{noteId}:
+  /noteTitle/{noteTitle}:
+
+
+/notes:
+  get:
+  post: 
+  /{noteId}:
+    get:
+      description: Method used to retrieve a specific note according to its ID.
+    put:
+    patch:
+      description: Method used to update a specific note according to its ID.
+    delete:  
+      description: Method used to delete a specific note according to its ID.
+  /noteTitle/{noteTitle}:
+    get:
+      description: Method used to get all the notes that matched the title of the note being specified in the api
+
+/notes:
+  get:
+  description: List all notes matching query criteria, if provided; otherwise list all notes
+    queryParameters:
+      noteTitle?: string
+      
+
+

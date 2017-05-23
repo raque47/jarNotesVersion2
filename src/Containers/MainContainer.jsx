@@ -20,6 +20,7 @@ const MainContainer = React.createClass({
       noteTitle: "",
       noteContent: "",
       typeNotesAction:"",
+      addNoteEvent:true
     };
   },
   searchEvent(id) {
@@ -37,7 +38,7 @@ const MainContainer = React.createClass({
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
-    this.setState({activeAddNote: true, noteContent: noteContent, noteTitle: noteTitle, typeNotesAction:"addNote"});
+    this.setState({activeAddNote: true, addNoteEvent:true, noteContent: noteContent, noteTitle: noteTitle, typeNotesAction:"addNote"});
   },
   render() {
     return (
@@ -57,6 +58,7 @@ const MainContainer = React.createClass({
             noteContent={this.state.noteContent}
             noteTitle={this.state.noteTitle}
             typeNotesAction={this.state.typeNotesAction}
+            addNoteEvent={this.state.addNoteEvent}
           /> )}
         />
               
