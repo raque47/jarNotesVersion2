@@ -1,6 +1,8 @@
 const React = require('react');
 const noteEditionStyle = require('./_noteEdition.scss');
 
+const reactRouter = require('react-router-dom');
+const Link = reactRouter.Link;
 
 const NoteEdition = React.createClass({
   sendNoteContent(event){
@@ -20,7 +22,10 @@ const NoteEdition = React.createClass({
         <div className="editionNotesControl">
           <button className="editionButtonControls"><img src={require('../../images/paint-button.svg')} className="navBar__images" data-toggle="tooltip" data-placement="top" title="Font Color" /></button>
           <button className="editionButtonControls"><img src={require('../../images/upload-button.svg')} className="navBar__images" data-toggle="tooltip" data-placement="top" title="Load Image" /></button>
+         
+         <Link to={'/addNote'}>  
           <button onClick={this.props.onClickAddNote} id="addNoteButton" className="editionButtonControls textButton"><span className="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Save Note</span></button>
+          </Link>
         </div>
       </div>
     );
