@@ -12,21 +12,19 @@ types:
       noteId: string
       noteTitle: string
       noteContent: string
-      tagId: string[] /*  */
+      tagsId: string[]
+      folderId: string
   Folders:
     type: object
     properties:
       folderId: string
       name: string
-      noteId: string[]
-      notesCollection: notes[]  /* Se puede tener una coleccion de notas dentro de otra coleccion? (folders) Para no
-       tener que estar haciendo gets por cada id de nota -folders/notesCollection/ */
   Tags:
     type: object
     properties:
       tagId: string
       name: string
- 
+
 /notes:  
   /{noteId}:
   /noteTitle/{noteTitle}:
@@ -35,15 +33,21 @@ types:
 /folders:
   /{folderId}:
   /{noteId}: /* Como hago el get? Si en folders tengo un arreglo de ids  */
+  /{name}:
 
 /tags:
   /{tagId}:
+  /{name}:
 
 /notes:
   get:
-    description: Method used to list all the notes.
+    description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
+    queryParameters:
+      noteTitle?: string
+    responses: 
   post: 
     description: Method used to add a new note.
+    
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -58,7 +62,9 @@ types:
 
 /folders:
   get:
-    description: Method used to list all the folders.
+    description: List the folder matching query criteria, if provided; otherwise list all folders
+    queryParameters:
+      name?: string
   post: 
     description: Method used to add a new folder.
   /{folderId}:
@@ -73,15 +79,16 @@ types:
       description: "COMPLETAR LUEGO!!!!".
 
 /tags: 
+  get: 
+  description: List the tag matching query criteria, if provided; otherwise list all tags
+  queryParameters:
+    name?: string
+
+  /{tagId}:
+      description: Method used to get a specific tag according to its ID
 
 
 
 
-/notes:
-  get:
-  description: List all notes matching query criteria, if provided; otherwise list all notes
-    queryParameters:
-      noteTitle?: string
-      
 
 
