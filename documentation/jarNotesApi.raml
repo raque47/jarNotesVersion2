@@ -47,6 +47,16 @@ types:
     responses: 
   post: 
     description: Method used to add a new note.
+    body:
+      application/json:
+        type: Note
+        example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
+    responses:
+      201:
+        body:
+          application/json:
+            type: Note
+            example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
     
   /{noteId}:
     get:
@@ -67,6 +77,16 @@ types:
       name?: string
   post: 
     description: Method used to add a new folder.
+    body:
+      application/json:
+        type: Note
+        example: {"folderId": "1","name": "Folder Mates" }
+    responses:
+      201:
+        body:
+          application/json:
+            type: Note
+            example: {"folderId": "1","name": "Folder Mates" }
   /{folderId}:
      get:
       description: Method used to retrieve a specific folder according to its ID.
