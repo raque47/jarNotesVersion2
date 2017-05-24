@@ -53,16 +53,6 @@ const InformationPanel = React.createClass({
         )}
         />
 
-      
-        <AddNewElement
-          activeAddElement={this.props.activeAddElement}
-          buttonName=""
-          noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction}
-        />
-      
-
-
       <Route path='/add tags' render={() => (
         <AddNewElement
           activeAddElement={this.props.activeAddElement}

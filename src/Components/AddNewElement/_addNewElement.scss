@@ -30,12 +30,19 @@
     height: 4vh;
     padding-top: 0;
 }
-.formAddNewElement {
+.addNewElementPanel {
     padding-left: 1rem;
+        
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: stretch;
 }
 
 .addNewElementControlButton {
-    margin: 0.5rem;
+    margin: 1.5rem;
+    align-self: flex-end;
 }
 .addNewElementControlButton{
     color: #FF7138;
@@ -93,7 +100,28 @@
     font-size: 3rem;
 }
 
+    .formAddNewElement{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: stretch;
+        padding-left: 2rem;
+        width: 24rem;
+    }
+
 @media only screen and (max-width: 500px) {
+    .formAddNewElement{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: stretch;
+        padding-left: 2rem;
+        width: 24rem;
+    }
     .titleNoteControl:hover {
         font-size: 2.3rem;
         transition: font-size 1s;
