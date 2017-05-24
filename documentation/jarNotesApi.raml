@@ -67,7 +67,11 @@ types:
           application/json:
             type: Note
             example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
-    
+      404:
+        body:
+          application/json:
+            type: Error
+            example: { "message" : "Not found", "code" : 1001 }
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -114,6 +118,11 @@ types:
           application/json:
             type: Note
             example: {"folderId": "1","name": "Folder Mates" }
+      404:
+        body:
+          application/json:
+            type: Error
+            example: { "message" : "Not found", "code" : 1001 }
   /{folderId}:
      get:
       description: Method used to retrieve a specific folder according to its ID.
