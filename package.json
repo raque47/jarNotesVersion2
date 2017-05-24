@@ -12,7 +12,10 @@
     "dev": "webpack-dev-server",
     "watch": "npm run build -- --watch",
     "api": "json-server --watch public/db.json",
-    "start": "concurrently \"npm run dev\" \"npm run api\""
+    "start": "concurrently \"npm run dev\" \"npm run api\"",
+    "raml": "raml2html ./documentation/jarNotesApi.raml > ./documentation/jarNotesApi.html"
+
+
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

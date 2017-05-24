@@ -27,7 +27,7 @@ types:
     properties:
       code: integer
       message: string
-#/NOTES GET, POST & PUT 
+#/NOTES GET, POST 
 /notes:
   get:
     description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
@@ -66,24 +66,23 @@ types:
             application/json:
               type: Error
               example: { "message" : "Note not found", "code" : 1001 }
-
-      put:
-        description: Update a Note according to its ID.
-        body:
-          application/json:
-            type: Notes
-            example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
-        responses:
-          200:
-            body:
-              application/json:
-                type: Notes
-                example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
-          404:
-            body:
-              application/json:
-                type: Error
-                example: { "message" : "Note not found", "code" : 1001 }
+    put:
+      description: Update a Note according to its ID.
+      body:
+        application/json:
+          type: Notes
+          example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+      responses:
+        200:
+          body:
+            application/json:
+              type: Notes
+              example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Note not found", "code" : 1001 }
     delete:  
       description: Method used to delete a specific note according to its ID.
       responses:
@@ -93,7 +92,7 @@ types:
             application/json:
               type: Error
               example: { "message" : "Note not found", "code" : 1001 }
-  #/NOTES/IDNOTES GET
+  #/NOTES/noteTitle GET
   /noteTitle/{noteTitle}:
     get:
       description: Method used to get all the notes that matched the title of the note being specified in the api
@@ -108,7 +107,8 @@ types:
             application/json:
               type: Error
               example: { "message" : "Note not found", "code" : 1001 }
-  /tagId/{tagId}:
+  #/NOTES/TagsID GET
+  /tagsId/{tagsId}:
     get:
       description: Method used to get the notes that matched with the id of the tag being specified in the api
       responses:
@@ -117,6 +117,7 @@ types:
             application/json:
               type: Notes[]
               example: [{"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }, { "noteId": "2", "noteTitle": "Nota 2","noteContent": "A Congrsaxasasdsadsim.","tagsIds": ["1", "2"],"folderId":"1"}]
+#/FOLDERS GET & POST
 /folders:
   get:
     description: List the folder matching query criteria, if provided; otherwise list all folders
@@ -140,6 +141,7 @@ types:
           application/json:
             type: Note
             example: {"folderId": "1","name": "Folder Mates" }
+  #/FOLDERS/foldersID GET
   /{folderId}:
     get:
       description: Method used to retrieve a specific folder according to its ID.
@@ -163,6 +165,7 @@ types:
             application/json:
               type: Error
               example: { "message" : "Folder not found", "code" : 1001 }
+  #/FOLDERS/name GET
   /{name}:
     get:
       description: Method used to retrieve a specific folder according to its name.
@@ -177,6 +180,7 @@ types:
             application/json:
               type: Error
               example: { "message" : "Folder not found", "code" : 1001 }
+#/TAGS GET & POST
 /tags: 
   get: 
     description: List the tag matching query criteria, if provided; otherwise list all tags
@@ -188,6 +192,7 @@ types:
             application/json:
               type: Tags[]
               example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
+  #/TAGS/tagId GET 
   /{tagId}:
       get:
         description: Method used to get a specific tag according to its ID
@@ -211,6 +216,7 @@ types:
               application/json:
                 type: Error
                 example: { "message" : "Tag not found", "code" : 1001 }
+  #/TAGS/name GET 
   /{name}:
     get:
        description: Method used to get a specific tag according to its name
