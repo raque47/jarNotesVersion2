@@ -29,20 +29,6 @@ types:
       code: integer
       message: string
 
-
-/notes:  
-  /{noteId}:
-  /noteTitle/{noteTitle}:
-  /tagId/{tagId}:
-
-/folders:
-  /{folderId}:
-  /{name}:
-
-/tags:
-  /{tagId}:
-  /{name}:
-
 /notes:
   get:
     description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
@@ -66,18 +52,11 @@ types:
           application/json:
             type: Note
             example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
-  put: 
-    description: Method used to add a new note.
-    body:
-      application/json:
-        type: Note
-        example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
-    responses:
-      200:
+      404:
         body:
           application/json:
-            type: Note
-            example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
+            type: Error
+            example: { "message" : "Not found", "code" : 1001 }
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -99,17 +78,19 @@ types:
   /noteTitle/{noteTitle}:
     get:
       description: Method used to get all the notes that matched the title of the note being specified in the api
-        responses:
+      responses:
         200:
           body:
             application/json:
-              type: Notes
-              example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
-        404:
+              type: Notes[]
+              example: [{"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }, { "noteId": "2", "noteTitle": "Nota 2","noteContent": "A Congrsaxasasdsadsim.","tagsIds": ["1", "2"],"folderId":"1"}]
+  /tagId/{tagId}:
+      responses:
+        200:
           body:
             application/json:
-              type: Error
-              example: { "message" : "Note not found", "code" : 1001 }
+              type: Notes[]
+              example: [{"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }, { "noteId": "2", "noteTitle": "Nota 2","noteContent": "A Congrsaxasasdsadsim.","tagsIds": ["1", "2"],"folderId":"1"}]
 /folders:
   get:
     description: List the folder matching query criteria, if provided; otherwise list all folders
@@ -125,28 +106,21 @@ types:
     description: Method used to add a new folder.
     body:
       application/json:
-        type: Folders
+        type: Note
         example: {"folderId": "1","name": "Folder Mates" }
     responses:
       201:
         body:
           application/json:
-            type: Folders
+            type: Note
             example: {"folderId": "1","name": "Folder Mates" }
-  put: 
-    description: Method used to add a new folder.
-    body:
-      application/json:
-        type: Folders
-        example: {"folderId": "1","name": "Folder Mates" }
-    responses:
-      200:
+      404:
         body:
           application/json:
-            type: Folders
-            example: {"folderId": "1","name": "Folder Mates" }
+            type: Error
+            example: { "message" : "Not found", "code" : 1001 }
   /{folderId}:
-     get:
+    get:
       description: Method used to retrieve a specific folder according to its ID.
       responses:
         200:
@@ -163,57 +137,59 @@ types:
       description: Method used to update a specific folder according to its ID.
     delete:  
       description: Method used to delete a specific folder according to its ID.
-
-/tags: 
-  get: 
-  description: List the tag matching query criteria, if provided; otherwise list all tags
-  queryParameters:
-    name?: string
-  responses: 
-      200:
-        body:
-          application/json:
-            type: Tags[]
-            example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
- post: 
-    description: Method used to add a new folder.
-    body:
-      application/json:
-        type: Tags
-        example: [{"tagId": "1", "name": "Tag 1"}]
-    responses:
-      201:
-        body:
-          application/json:
-            type: Tags
-            example:[{"tagId": "1", "name": "Tag 1"}]
-  put: 
-    description: Method used to add a new folder.
-    body:
-      application/json:
-        type: Tags
-        example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
-    responses:
-      200:
-        body:
-          application/json:
-            type: Tags
-            example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
-  /{tagId}:
-      description: Method used to get a specific tag according to its ID
+  /{name}:
+    get:
+      description: Method used to retrieve a specific folder according to its name.
       responses:
         200:
           body:
             application/json:
-              type: Tags
-              example: {"tagId": "1", "name": "Tag 1"}
+              type: Folders
+              example: {"folderId": "1", "name": "Folder Mates"}
         404:
           body:
             application/json:
               type: Error
-              example: { "message" : "Tag not found", "code" : 1001 }
-
-
+              example: { "message" : "Folder not found", "code" : 1001 }
+/tags: 
+  get: 
+    description: List the tag matching query criteria, if provided; otherwise list all tags
+    queryParameters:
+      name?: string
+    responses: 
+        200:
+          body:
+            application/json:
+              type: Tags[]
+              example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
+  /{tagId}:
+      get:
+        description: Method used to get a specific tag according to its ID
+        responses:
+          200:
+            body:
+              application/json:
+                type: Tags
+                example: {"tagId": "1", "name": "Tag 1"}
+          404:
+            body:
+              application/json:
+                type: Error
+                example: { "message" : "Tag not found", "code" : 1001 }
+  /{name}:
+    get:
+       description: Method used to get a specific tag according to its name
+        responses:
+          200:
+            body:
+              application/json:
+                type: Tags
+                example: {"tagId": "1", "name": "Tag 1"}
+          404:
+            body:
+              application/json:
+                type: Error
+                example: { "message" : "Tag not found", "code" : 1001 }
 
 
 
