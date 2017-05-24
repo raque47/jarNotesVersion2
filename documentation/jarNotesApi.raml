@@ -86,6 +86,13 @@ types:
                 example: { "message" : "Note not found", "code" : 1001 }
     delete:  
       description: Method used to delete a specific note according to its ID.
+      responses:
+        204:
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Note not found", "code" : 1001 }
   #/NOTES/IDNOTES GET
   /noteTitle/{noteTitle}:
     get:
@@ -102,6 +109,8 @@ types:
               type: Error
               example: { "message" : "Note not found", "code" : 1001 }
   /tagId/{tagId}:
+    get:
+      description: Method used to get the notes that matched with the id of the tag being specified in the api
       responses:
         200:
           body:
@@ -131,11 +140,6 @@ types:
           application/json:
             type: Note
             example: {"folderId": "1","name": "Folder Mates" }
-      404:
-        body:
-          application/json:
-            type: Error
-            example: { "message" : "Not found", "code" : 1001 }
   /{folderId}:
     get:
       description: Method used to retrieve a specific folder according to its ID.
@@ -150,10 +154,15 @@ types:
             application/json:
               type: Error
               example: { "message" : "Folder not found", "code" : 1001 }
-    patch:
-      description: Method used to update a specific folder according to its ID.
     delete:  
       description: Method used to delete a specific folder according to its ID.
+      responses:
+        204:
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Folder not found", "code" : 1001 }
   /{name}:
     get:
       description: Method used to retrieve a specific folder according to its name.
@@ -188,6 +197,15 @@ types:
               application/json:
                 type: Tags
                 example: {"tagId": "1", "name": "Tag 1"}
+          404:
+            body:
+              application/json:
+                type: Error
+                example: { "message" : "Tag not found", "code" : 1001 }
+      delete:
+        description: Method used to delete a specific tag according to its ID.
+        responses:
+          204:
           404:
             body:
               application/json:
