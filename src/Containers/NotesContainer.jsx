@@ -7,12 +7,14 @@ const randomID = require('../../node_modules/random-id');
 
 const NotesContainer = React.createClass({
   getInitialState() {
+    console.log("estoy en estado inicial!!");
     return {
+
       showNoteSelected: false,
       showNote: false,
       idNoteSelected: "",
       allNotes: "",
-      addNoteEvent: true,
+      addNoteEvent: this.props.addNoteEvent,
     }
   },
   showNoteEvent(id) {
@@ -24,26 +26,29 @@ const NotesContainer = React.createClass({
       this.setState({ showNote: false, idNoteSelected: id });
     }
   },
-  showSpecificNote() {
-    console.log("SHOW!!! SPECIFIC NOTE!!!");
+  showSpecificNote(id) {
+    console.log("SHOW!!! SPECIFIC NOTE!!!" + id);
+    //  console.log("all notes vale: " + this.state.allNotes[0].id)
     let notes = "";
+    console.log("tam del preload es: " + preload.notes);
     if (this.props.activeAddNote === true) {
 
       notes = preload.notes.map((item) => {
-
-        if (item.noteId == this.state.idNoteSelected) {
+        if (item.noteId === id) {
           console.log("ENTRE AL IF");
           return <Notes
             key={item.noteId}
             noteId={item.noteId}
-            showNote={this.state.showNote}
+            showNote={true}
             activeAddNote="true"
             titleNote={item.noteTitle}
             textNote={item.noteContent}
-            onClickShowEvent={this.showNoteEvent}
+            showAllNotes={this.props.showAllNotes}
+            onClickShowEvent={this.showSpecificNote}
           />
         }
         else {
+          console.log("ENTRE AL ELSE con note id del json" + item.noteId + " presionado " + id);
           return <Notes
             key={item.noteId}
             noteId={item.noteId}
@@ -51,12 +56,18 @@ const NotesContainer = React.createClass({
             activeAddNote="true"
             titleNote={item.noteTitle}
             textNote={item.noteContent}
-            onClickShowEvent={this.showNoteEvent}
+            showAllNotes={this.props.showAllNotes}
+            onClickShowEvent={this.showSpecificNote}
           />
         }
+
+
       }
 
       );
+
+      console.log("notas en specific note es: " + notes);
+      this.setState({ allNotes: notes, addNoteEvent:false });
     }
     return notes;
   },
@@ -85,7 +96,8 @@ const NotesContainer = React.createClass({
           activeAddNote="true"
           titleNote={item.noteTitle}
           textNote={item.noteContent}
-          onClickShowEvent={this.showNoteEvent} />
+          onClickShowEvent={this.showSpecificNote}
+        />
       });
 
       x = notes;
@@ -108,83 +120,146 @@ const NotesContainer = React.createClass({
     //Generate a random id for the new note
     const randomId = randomID(5, 0);
     const newNote = {
-      id: randomId, noteTitle: this.props.noteTitle,
+      noteId: randomId, noteTitle: this.props.noteTitle,
       noteContent: this.props.noteContent
     }
 
     var x = "";
-    var promise = "";
-    var promiseAddNote = new Promise((resolve, reject) => {
-      axios.post('http://localhost:3000/notes', newNote).then(function () {
-        resolve();
-        console.log('saved successfully');
-      });
-    });
-
+    var promiseShowNotes = "";
     var content = "";
-    var promiseShowNotes = new Promise((resolve, reject) => {
+    const self = this;
+    /*   var promiseAddNote = new Promise((resolve, reject) => {
+         axios.post('http://localhost:3000/notes', newNote).then(function () {
+           resolve();
+           console.log('saved successfully');
+         });
+       }); */
+
+    var promiseAddNote = axios.post('http://localhost:3000/notes', newNote).then(function () {
+      //   resolve();
+      //    console.log('saved successfully');
       axios.get('http://localhost:3000/notes').then(function (response) {
 
         const result = response.data;
         prueba = response;
-        const notes = result.map((item) => {
+
+        console.log("props es: " + self.props.activeAddNote);
+        self.props.activeAddNote = false;
+
+        content = result.map((item) => {
+          {console.log("SHOW VALE: " + self.props.showAllNotes)}
           return <Notes
             key={item.noteId}
             noteId={item.noteId}
             showNote={false}
-            activeAddNote="true"
+            activeAddNote={self.props.activeAddNote}
+            titleNote={item.noteTitle}
+            textNote={item.noteContent} 
+            showAllNotes={self.props.showAllNotes}
+            onClickShowEvent={self.showSpecificNote} />
+        });
+
+        self.props.addNoteEvent = false;
+        console.log("self props es: " + self.props.addNoteEvent);
+        self.setState({ allNotes: content, addNoteEvent: false });
+
+      })
+
+
+    });
+
+
+    // promiseAddNote.then(  promiseShowNotes = new Promise((resolve, reject) => {
+
+
+    /*   promiseAddNote.then( axios.get('http://localhost:3000/notes').then(function (response) {
+  
+        const result = response.data;
+        prueba = response;
+       
+        console.log("props es: " + self.props.activeAddNote );
+         self.props.activeAddNote = false;
+   
+       result.map((item) => {
+          return <Notes
+            key={item.noteId}
+            noteId={item.noteId}
+            showNote={false}
+            activeAddNote={true}
             titleNote={item.noteTitle}
             textNote={item.noteContent}
             onClickShowEvent={this.showNoteEvent} />
-        });
-        resolve(notes);
-      })
-    });
+        }); 
+   
+  
+  
+  
+      })) */
+    // })
+    // );
 
 
-    Promise.all([promiseAddNote, promiseShowNotes]).then(values => {
-      console.log("values es: " + values);
-      // this.setState({ allNotes: values });
-      return values
-    });
-
+    /*  Promise.all([promiseAddNote]).then(values => {
+       console.log("values es: " + values);
+       this.setState({ allNotes: values, addNoteEvent:false});
+       // return values
+      });
+   */
   },
 
 
   render: function () {
 
     // console.log("esto vale add note event: " + this.state.addNoteEvent);
-    let actionResult = "";
-    let promiseShowAllNotes = "";
-    const m = "";
-    switch (this.props.typeNotesAction) {
-      case "viewNotes":
-        actionResult = this.showAllNotes();
-        break;
-      case "viewSpecificNote":
-        actionResult = this.showSpecificNote();
-        break;
-      case "addNote":
-      /* if (this.props.addNoteEvent == true) {
-      x= this.addNote();
-      cino
-      } */
+    /* let actionResult = "";
+     // let promiseShowAllNotes = "";
+     const m = "";
+     console.log("type action es: " + this.props.typeNotesAction);
+     switch (this.props.typeNotesAction) {
+       case "viewNotes":
+         actionResult = this.showAllNotes();
+         break;
+       case "viewSpecificNote":
+         actionResult = this.showSpecificNote();
+         break;
+       // return null;
+       case "addNote":
+         console.log("ADD NOTE CASE!");
+      //   break;
+            var promiseShowAllNotes = new Promise((resolve, reject) => {
+              const x = this.addNote();
+              resolve(x);
+              console.log('datos son: ' +x);
+            });
+            promiseShowAllNotes.then(function (x) {
+              console.log("ya tengo los resultados");
+             /* return <div>
+                {actionResult = x}
+              </div> */
+    //break;
+    //   }); 
 
-      /* promiseShowAllNotes = new Promise((resolve, reject) => {
-      const x = this.addNote();
-      resolve(x);
-      console.log('saved successfully');
-      });
-      break; */
-    }
-
-    /* promiseShowAllNotes.then(function (x) {
-    return <div>
-    {x}
-    </div>
+    //    console.log("props en switch " + this.props.activeAddNote);
+    /* 
     }); */
 
-    return null;
+    // return null;
+    //   }
+
+    console.log("props es: " + this.props.addNoteEven);
+    console.log("state de add note event es es: " +   this.state.addNoteEvent);
+
+    if (this.state.addNoteEvent === this.props.addNoteEvent || this.state.addNoteEvent ===true ) {
+      this.addNote();
+    }
+    if (this.state.addNoteEvent === true) {
+      this.state.addNoteEvent = false;
+    }
+    else {
+      this.state.addNoteEvent = true;
+    }
+    console.log("todas las notas valen: " + this.state.allNotes);
+    return <div>{this.state.allNotes}</div>;
   }
 });
 

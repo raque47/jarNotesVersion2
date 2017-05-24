@@ -19,11 +19,7 @@ const InformationPanel = React.createClass({
 
       <div id="panelInformation" className="infoPanel">
 
-
         <Title panelTitle={this.props.idAction} />
-
-        {console.log("AAAAAA" + this.props.idAction)}
-
         <Route path="/search" render={() => (
           <Search
             activeSearch={this.props.activeSearch}
@@ -39,6 +35,20 @@ const InformationPanel = React.createClass({
             activeAddNote={this.props.activeAddNote}
             typeNotesAction={this.props.typeNotesAction}
             addNoteEvent={this.props.addNoteEvent}
+            showAllNotes={this.props.showAllNotes}
+          />
+        )}
+        />
+
+        
+        <Route path="/addNote" render={() => (
+          <NotesContainer
+            noteTitle={this.props.noteTitle}
+            noteContent={this.props.noteContent}
+            activeAddNote={true}
+            typeNotesAction={this.props.typeNotesAction}
+            addNoteEvent={this.props.addNoteEvent}
+            showAllNotes={this.props.showAllNotes}
           />
         )}
         />
