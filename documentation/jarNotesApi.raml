@@ -12,15 +12,42 @@ types:
       noteId: string
       noteTitle: string
       noteContent: string
-    
+      tagsId: string[]
+      folderId: string
+  Folders:
+    type: object
+    properties:
+      folderId: string
+      name: string
+  Tags:
+    type: object
+    properties:
+      tagId: string
+      name: string
+
 /notes:  
   /{noteId}:
   /noteTitle/{noteTitle}:
+  /tagId/{tagId}:
 
+/folders:
+  /{folderId}:
+  /{noteId}: /* Como hago el get? Si en folders tengo un arreglo de ids  */
+  /{name}:
+
+/tags:
+  /{tagId}:
+  /{name}:
 
 /notes:
   get:
+    description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
+    queryParameters:
+      noteTitle?: string
+    responses: 
   post: 
+    description: Method used to add a new note.
+    
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -33,11 +60,35 @@ types:
     get:
       description: Method used to get all the notes that matched the title of the note being specified in the api
 
-/notes:
+/folders:
   get:
-  description: List all notes matching query criteria, if provided; otherwise list all notes
+    description: List the folder matching query criteria, if provided; otherwise list all folders
     queryParameters:
-      noteTitle?: string
-      
+      name?: string
+  post: 
+    description: Method used to add a new folder.
+  /{folderId}:
+     get:
+      description: Method used to retrieve a specific folder according to its ID.
+    put:
+    patch:
+      description: Method used to update a specific folder according to its ID.
+    delete:  
+      description: Method used to delete a specific folder according to its ID.
+  /{noteId}:
+      description: "COMPLETAR LUEGO!!!!".
+
+/tags: 
+  get: 
+  description: List the tag matching query criteria, if provided; otherwise list all tags
+  queryParameters:
+    name?: string
+
+  /{tagId}:
+      description: Method used to get a specific tag according to its ID
+
+
+
+
 
 
