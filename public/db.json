@@ -1,28 +1,60 @@
 {
-  "notes": [
-    {
-      "noteId": "wyDJE",
-      "noteTitle": "aaa",
-      "noteContent": "a",
-      "id": 1
-    },
-    {
-      "noteId": "hkpGV",
-      "noteTitle": "bbb",
-      "noteContent": "b",
-      "id": 2
-    },
-    {
-      "noteId": "4MjkW",
-      "noteTitle": "ccccc",
-      "noteContent": "c",
-      "id": 3
-    },
-    {
-      "noteId": "sezcI",
-      "noteTitle": "g",
-      "noteContent": "g",
-      "id": 4
+    "notes": [{
+        "noteId": "1",
+        "noteTitle": "Nota 1",
+        "noteContent": "Bla bla ba.",
+        "tagsIds": ["1", "2"],
+        "folderId":"1"
+    }, {
+        "noteId": "2",
+        "noteTitle": "Nota 2",
+        "noteContent": "A Congrsaxasasdsadsim.",
+        "tagsIds": ["1", "2"],
+        "folderId":"1"
+    }, {
+        "noteId": "3",
+        "noteTitle": "Nota 3",
+        "noteContent": "LLLLLLL.",
+        "tagsIds": ["4", "2"],
+        "folderId":"2"
+    }, {
+        "noteId": "4",
+        "noteTitle": "Nota 4",
+        "noteContent": "Uno dos tres cuatro sadsim.",
+        "tagsIds": ["1", "4"],
+        "folderId":"2"
+    }, {
+        "noteId": "5",
+        "noteTitle": "Nota 5",
+        "noteContent": "B Congrsaxasasdsadsim.",
+        "tagsIds": ["1", "2", "3"],
+        "folderId":"3"
+    }],
+
+     "folders": [{
+        "folderId": "1",
+        "name": "Folder Mates"
+    }, {
+        "folderId": "2",
+        "name": "Folder Rojo"
+    }, {
+        "folderId": "3",
+        "name": "Folder 3"
+    }],
+
+
+    "tags": [{
+        "tagId": "1",
+        "name": "Tag1"
+    }, {
+        "tagId": "2",
+        "name": "Tag2"
+    }, {
+        "tagId": "3",
+        "name": "Tag3"
     }
-  ]
+    , {
+        "tagId": "4",
+        "name": "Tag4"       
+    }]
 }
