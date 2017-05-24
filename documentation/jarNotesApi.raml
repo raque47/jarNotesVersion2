@@ -45,12 +45,28 @@ types:
     queryParameters:
       noteTitle?: string
     responses: 
+      200:
+        body:
+          application/json:
+            type: Notes[]
+            example: [{"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }, { "noteId": "2", "noteTitle": "Nota 2","noteContent": "A Congrsaxasasdsadsim.","tagsIds": ["1", "2"],"folderId":"1"}]
   post: 
     description: Method used to add a new note.
     
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
+      responses:
+        200:
+          body:
+            application/json:
+              type: Notes
+              example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Note not found", "code" : 1001 }
     put:
     patch:
       description: Method used to update a specific note according to its ID.
@@ -65,27 +81,58 @@ types:
     description: List the folder matching query criteria, if provided; otherwise list all folders
     queryParameters:
       name?: string
+    responses: 
+      200:
+        body:
+          application/json:
+            type: Folders[]
+            example: [{"folderId": "1", "name": "Folder Mates"}, {"folderId": "2", "name": "Folder Rojo"}]
   post: 
     description: Method used to add a new folder.
   /{folderId}:
      get:
       description: Method used to retrieve a specific folder according to its ID.
+      responses:
+        200:
+          body:
+            application/json:
+              type: Folders
+              example: {"folderId": "1", "name": "Folder Mates"}
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Folder not found", "code" : 1001 }
     put:
     patch:
       description: Method used to update a specific folder according to its ID.
     delete:  
       description: Method used to delete a specific folder according to its ID.
-  /{noteId}:
-      description: "COMPLETAR LUEGO!!!!".
 
 /tags: 
   get: 
   description: List the tag matching query criteria, if provided; otherwise list all tags
   queryParameters:
     name?: string
-
+  responses: 
+      200:
+        body:
+          application/json:
+            type: Tags[]
+            example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
   /{tagId}:
       description: Method used to get a specific tag according to its ID
+      responses:
+        200:
+          body:
+            application/json:
+              type: Tags
+              example: {"tagId": "1", "name": "Tag 1"}
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Tag not found", "code" : 1001 }
 
 
 
