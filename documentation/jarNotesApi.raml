@@ -27,7 +27,7 @@ types:
     properties:
       code: integer
       message: string
-# /NOTES GET, POST & PUT 
+#/NOTES GET, POST & PUT 
 /notes:
   get:
     description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
@@ -51,10 +51,10 @@ types:
           application/json:
             type: Note
             example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
-  #/NOTES/IDNOTES GET
+  #/NOTES/IDNOTES GET, PUT & DELETE
   /{noteId}:
     get:
-      description: Method used to retrieve a specific note according to its ID.
+      description: Method used to get a specific note according to its ID.
       responses:
         200:
           body:
@@ -66,6 +66,24 @@ types:
             application/json:
               type: Error
               example: { "message" : "Note not found", "code" : 1001 }
+
+      put:
+        description: Update a Note according to its ID.
+        body:
+          application/json:
+            type: Notes
+            example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+        responses:
+          200:
+            body:
+              application/json:
+                type: Notes
+                example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+          404:
+            body:
+              application/json:
+                type: Error
+                example: { "message" : "Note not found", "code" : 1001 }
     delete:  
       description: Method used to delete a specific note according to its ID.
   #/NOTES/IDNOTES GET
