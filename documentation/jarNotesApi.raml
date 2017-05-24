@@ -4,7 +4,6 @@ version: v1
 protocols: [ HTTPS ] 
 baseUri: http://localhost:8081/{version}
 mediaType: application/json
-
 types:
   Notes:
     type: object
@@ -28,21 +27,7 @@ types:
     properties:
       code: integer
       message: string
-
-
-/notes:  
-  /{noteId}:
-  /noteTitle/{noteTitle}:
-  /tagId/{tagId}:
-
-/folders:
-  /{folderId}:
-  /{name}:
-
-/tags:
-  /{tagId}:
-  /{name}:
-
+# /NOTES GET, POST & PUT 
 /notes:
   get:
     description: Method used to list all notes matching query criteria, if provided; otherwise list all notes
@@ -78,6 +63,7 @@ types:
           application/json:
             type: Note
             example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
+  #/NOTES/IDNOTES GET, PUT & DELETE
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
