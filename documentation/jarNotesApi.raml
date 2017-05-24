@@ -12,15 +12,38 @@ types:
       noteId: string
       noteTitle: string
       noteContent: string
-    
+      tagId: string[] /*  */
+  Folders:
+    type: object
+    properties:
+      folderId: string
+      name: string
+      noteId: string[]
+      notesCollection: notes[]  /* Se puede tener una coleccion de notas dentro de otra coleccion? (folders) Para no
+       tener que estar haciendo gets por cada id de nota -folders/notesCollection/ */
+  Tags:
+    type: object
+    properties:
+      tagId: string
+      name: string
+ 
 /notes:  
   /{noteId}:
   /noteTitle/{noteTitle}:
+  /tagId/{tagId}:
 
+/folders:
+  /{folderId}:
+  /{noteId}: /* Como hago el get? Si en folders tengo un arreglo de ids  */
+
+/tags:
+  /{tagId}:
 
 /notes:
   get:
+    description: Method used to list all the notes.
   post: 
+    description: Method used to add a new note.
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -32,6 +55,27 @@ types:
   /noteTitle/{noteTitle}:
     get:
       description: Method used to get all the notes that matched the title of the note being specified in the api
+
+/folders:
+  get:
+    description: Method used to list all the folders.
+  post: 
+    description: Method used to add a new folder.
+  /{folderId}:
+     get:
+      description: Method used to retrieve a specific folder according to its ID.
+    put:
+    patch:
+      description: Method used to update a specific folder according to its ID.
+    delete:  
+      description: Method used to delete a specific folder according to its ID.
+  /{noteId}:
+      description: "COMPLETAR LUEGO!!!!".
+
+/tags: 
+
+
+
 
 /notes:
   get:

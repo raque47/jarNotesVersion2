@@ -1,0 +1,22 @@
+{
+    "folders": [
+        {
+            "folderId": "2",
+            "name": "First Folder",
+            "noteId": [
+                "5",
+                "6"
+            ],
+            "notesCollection": [
+                {
+                    "noteId": "6",
+                    "noteTitle": "First Note",
+                    "noteContent": "Bla bla bla",
+                    "tagId": [
+                        "3"
+                    ]
+                }
+            ]
+        }
+    ]
+}
