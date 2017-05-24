@@ -37,7 +37,6 @@ types:
 
 /folders:
   /{folderId}:
-  /{noteId}: /* Como hago el get? Si en folders tengo un arreglo de ids  */
   /{name}:
 
 /tags:
@@ -79,12 +78,6 @@ types:
           application/json:
             type: Note
             example: { "noteId": "1", "noteTitle": "Nota 1",  "noteContent": "Bla bla ba.", "tagsIds": ["1", "2"],"folderId":"1" }
-      404:
-        body:
-          application/json:
-            type: Error
-            example: { "message" : "Notes not found", "code" : 1001 }
-    
   /{noteId}:
     get:
       description: Method used to retrieve a specific note according to its ID.
@@ -106,7 +99,17 @@ types:
   /noteTitle/{noteTitle}:
     get:
       description: Method used to get all the notes that matched the title of the note being specified in the api
-
+        responses:
+        200:
+          body:
+            application/json:
+              type: Notes
+              example: {"noteId": "1", "noteTitle": "Nota 1","noteContent": "Bla bla ba.","tagsIds": ["1", "2"],"folderId":"1" }
+        404:
+          body:
+            application/json:
+              type: Error
+              example: { "message" : "Note not found", "code" : 1001 }
 /folders:
   get:
     description: List the folder matching query criteria, if provided; otherwise list all folders
@@ -142,11 +145,6 @@ types:
           application/json:
             type: Folders
             example: {"folderId": "1","name": "Folder Mates" }
-      404:
-        body:
-          application/json:
-            type: Error
-            example: { "message" : "Folders not found", "code" : 1001 }
   /{folderId}:
      get:
       description: Method used to retrieve a specific folder according to its ID.
@@ -161,7 +159,6 @@ types:
             application/json:
               type: Error
               example: { "message" : "Folder not found", "code" : 1001 }
-    put:
     patch:
       description: Method used to update a specific folder according to its ID.
     delete:  
@@ -178,7 +175,6 @@ types:
           application/json:
             type: Tags[]
             example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
-
  post: 
     description: Method used to add a new folder.
     body:
@@ -203,11 +199,6 @@ types:
           application/json:
             type: Tags
             example: [{"tagId": "1", "name": "Tag 1"}, {"tagId": "2", "name": "Tag 2"}]
-      404:
-        body:
-          application/json:
-            type: Error
-            example: { "message" : "Tags not found", "code" : 1001 }
   /{tagId}:
       description: Method used to get a specific tag according to its ID
       responses:
