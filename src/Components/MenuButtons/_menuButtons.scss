@@ -111,8 +111,9 @@ a:active{
         margin-right: 0;
     }
     .buttonFontHidden {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         pointer-events: none;
+        padding-left: 1rem;
     }
      .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
         margin-right: 0;
@@ -125,7 +126,8 @@ a:active{
     .navBar__images {
 	    width: 1.8rem;
         height: 2.5rem;
-        pointer-events: none
+        pointer-events: none;
+        float: left;
     
     }
     .navbar-brand>img {
@@ -159,7 +161,7 @@ a:active{
         padding-bottom: 0.5rem;
         padding-right: 20rem;
         border-bottom: solid #e7e7e7;
-        padding-left: 2rem;
+        padding-left: 4rem;
     }
     .hiddenButtons__button:last-child
     {
@@ -177,7 +179,8 @@ a:active{
         display: inline;
         visibility: visible;
         font-family: $font-stack;
-        font-size: 1rem;
+        font-size: 2rem;
+        padding-left: 3rem;
     }
     .navbar-toggle {
         position: relative;
@@ -206,8 +209,9 @@ a:active{
         margin-right: 0;
     }
     .buttonFontHidden {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
         pointer-events: none;
+        padding-left: 1rem;
     }
      .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
         margin-right: 0;
@@ -220,7 +224,8 @@ a:active{
     .navBar__images {
 	    width: 1.5rem;
         height: 2.5rem;
-        pointer-events: none
+        pointer-events: none;
+        float: left;
     
     }
     .navbar-brand>img {
@@ -254,7 +259,7 @@ a:active{
         padding-bottom: 0.5rem;
         padding-right: 20rem;
         border-bottom: solid #e7e7e7;
-        padding-left: 1rem;
+        padding-left: 4rem;
     }
     .hiddenButtons__button:last-child
     {
@@ -273,7 +278,8 @@ a:active{
         display: inline;
         visibility: visible;
         font-family: $font-stack;
-        font-size: 1rem;
+        font-size: 2rem;
+        padding-left: 3rem;
     }
     .navbar-toggle {
         position: relative;
@@ -300,6 +306,7 @@ a:active{
      .buttonFontHidden {
         font-size: 1.2rem;
         pointer-events: none;
+        padding-left: 1rem;
     }
      .container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
         margin-right: 0;
@@ -329,9 +336,8 @@ a:active{
     .hiddenButtons__button {
         padding-bottom: 0.5rem;
         padding-right: 20rem;
-        // border-top: solid #e7e7e7;
         border-bottom: solid #e7e7e7;
-        padding-left: 2rem;
+        padding-left: 4rem;
     }
      .hiddenButtons__button:last-child
     {
@@ -354,7 +360,8 @@ a:active{
         display: inline;
         visibility: visible;
         font-family: $font-stack;
-        font-size: 1.7rem;
+        font-size: 2rem;
+        padding-left: 3rem;
     }
     .navbar-brand>img {
         display: none;
