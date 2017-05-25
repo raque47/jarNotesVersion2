@@ -25,6 +25,7 @@ const InformationPanel = React.createClass({
             activeSearch={this.props.activeSearch}
             idAction={this.props.idAction}
             actionType={this.props.actionType}
+            onClickEditNote = {this.props.onClickEditNote}
           />
         )}
         />
@@ -37,6 +38,7 @@ const InformationPanel = React.createClass({
             showAllNotes={this.props.showAllNotes}
             idAction={this.props.idAction}
             actionType="viewNotes"
+            onClickEditNote = {this.props.onClickEditNote}
           />
         )}
         />

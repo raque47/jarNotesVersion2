@@ -12,7 +12,8 @@ const InformationPanelContainer = React.createClass({
           activeAdd={this.props.activeAdd}
           idAction={this.props.idAction}
           totalNotes={this.props.totalNotes}
-          typeNotesAction={this.props.typeNotesAction}/>
+          typeNotesAction={this.props.typeNotesAction}
+          onClickEditNote = {this.props.onClickEditNote}/>
       </div>
     );
 

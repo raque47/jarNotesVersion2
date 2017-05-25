@@ -3,13 +3,15 @@ const notesStyle = require('./_notes.scss');
 
 const Notes = React.createClass({
   showNote(event) {
-    console.log("me estriparon a mi " + this.props.noteId);
-    this.props.addNoteEvent = false;
     const idNoteSelected = this.props.noteId;
     this.props.onClickShowEvent(idNoteSelected);
   },
-  editNote() {
+  editNote(event) {
     console.log("EDIT!! NOTEEEE!!");
+    const idNoteSelected = this.props.noteId;
+    const noteTitleSelected = this.props.titleNote;
+    const noteContentSelected = this.props.textNote;
+    this.props.onClickEditEvent(idNoteSelected, noteTitleSelected, noteContentSelected);
   },
   render() {
     return (
