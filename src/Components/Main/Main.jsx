@@ -44,7 +44,8 @@ const Main = React.createClass({
                     noteContent={this.props.noteContent}
                     actionType={this.props.actionType}
                     showAllNotes={this.props.showAllNotes}
-                    addNoteEvent={this.props.addNoteEvent}>
+                    addNoteEvent={this.props.addNoteEvent}
+                    onClickEditNote = {this.props.onClickEditNote}>
                     </InformationPanel>
                 </div>
               </div>

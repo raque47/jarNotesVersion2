@@ -78,6 +78,10 @@ const MainContainer = React.createClass({
     }
     this.setState({addNoteEvent: true, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "addNote" });
   },
+  editNote(noteTitle, noteContent){
+    console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent);
+    this.setState({addNoteEvent: true, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote" });
+  },
   render() {
     return (
 
@@ -98,6 +102,7 @@ const MainContainer = React.createClass({
           addNoteEvent={this.state.addNoteEvent}
           actionType={this.state.actionType}
           showAllNotes={this.state.showAllNotes}
+          onClickEditNote={this.editNote}
         />)}
       />
 

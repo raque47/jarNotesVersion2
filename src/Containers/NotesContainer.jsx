@@ -14,13 +14,10 @@ const NotesContainer = React.createClass({
     }
   },
 
-  showNoteEvent(id) {
-    if (this.state.showNote === false) {
-      this.setState({ showNote: true, idNoteSelected: id });
-    }
-    else {
-      this.setState({ showNote: false, idNoteSelected: id });
-    }
+  editNote(idNoteSelected, noteTitleSelected, noteContentSelected){
+    console.log("TENGO QUE EDITAR NOTA!!!! " + idNoteSelected +" " + noteTitleSelected + " " + noteContentSelected );
+    this.props.onClickEditNote(noteTitleSelected, noteContentSelected);
+    console.log();
   },
 
   showSpecificNote(id) {
@@ -38,6 +35,7 @@ const NotesContainer = React.createClass({
             textNote={item.noteContent}
             showAllNotes={self.props.showAllNotes}
             onClickShowEvent={self.showSpecificNote}
+            onClickEditEvent={self.editNote}
           />
         }
         else {
@@ -49,6 +47,7 @@ const NotesContainer = React.createClass({
             textNote={item.noteContent}
             showAllNotes={self.props.showAllNotes}
             onClickShowEvent={self.showSpecificNote}
+            onClickEditEvent={self.editNote}
           />
         }
 
@@ -70,7 +69,8 @@ const NotesContainer = React.createClass({
             titleNote={item.noteTitle}
             textNote={item.noteContent}
             showAllNotes={this.props.showAllNotes}
-            onClickShowEvent={this.showSpecificNote} />
+            onClickShowEvent={this.showSpecificNote}
+            onClickEditEvent={this.editNote} />
         });
 
       this.setState({ allNotes: content, noteEvent: false });
@@ -103,7 +103,8 @@ const NotesContainer = React.createClass({
             titleNote={item.noteTitle}
             textNote={item.noteContent}
             showAllNotes={self.props.showAllNotes}
-            onClickShowEvent={self.showSpecificNote} />
+            onClickShowEvent={self.showSpecificNote}
+            onClickEditEvent={self.editNote}/>
         });
 
         self.props.noteEvent = false;
