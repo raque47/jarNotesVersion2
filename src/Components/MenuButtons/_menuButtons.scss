@@ -106,7 +106,7 @@ a:active{
 
 /* Mobile Styles */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 580px) {
     .buttons {
         margin-right: 0;
     }
@@ -367,4 +367,21 @@ a:active{
         display: none;
  
     }
+}
+
+@media only screen and (max-width: 350px) {
+    .hiddenButtons__button {
+        padding-bottom: 0.5rem;
+        /* padding-right: 20rem; */
+        border-bottom: solid #e7e7e7;
+        /* padding-left: 4rem; */
+        padding-left: 2.5rem;
+        padding-right: 17rem;
+    }
+
+    .buttonFontHidden {
+        font-size: 1rem;
+        pointer-events: none;
+        padding-left: 0.6rem;
+    } 
 }
