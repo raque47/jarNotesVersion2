@@ -40,13 +40,11 @@ const Main = React.createClass({
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     idAction={this.props.idAction}
-                    activeAddNote={this.props.activeAddNote}
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
-                    totalNotes={this.props.totalNotes}
-                    typeNotesAction={this.props.typeNotesAction}
-                    addNoteEvent={this.props.addNoteEvent} 
-                    showAllNotes={this.props.showAllNotes}>
+                    actionType={this.props.actionType}
+                    showAllNotes={this.props.showAllNotes}
+                    addNoteEvent={this.props.addNoteEvent}>
                     </InformationPanel>
                 </div>
               </div>

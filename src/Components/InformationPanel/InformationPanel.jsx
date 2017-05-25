@@ -24,6 +24,7 @@ const InformationPanel = React.createClass({
           <Search
             activeSearch={this.props.activeSearch}
             idAction={this.props.idAction}
+            actionType={this.props.actionType}
           />
         )}
         />
@@ -32,10 +33,10 @@ const InformationPanel = React.createClass({
           <NotesContainer
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
-            activeAddNote={this.props.activeAddNote}
-            typeNotesAction={this.props.typeNotesAction}
             addNoteEvent={false}
             showAllNotes={this.props.showAllNotes}
+            idAction={this.props.idAction}
+            actionType="viewNotes"
           />
         )}
         />
@@ -45,10 +46,9 @@ const InformationPanel = React.createClass({
           <NotesContainer
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
-            activeAddNote={true}
-            typeNotesAction={this.props.typeNotesAction}
             addNoteEvent={this.props.addNoteEvent}
             showAllNotes={this.props.showAllNotes}
+            actionType={this.props.actionType}
           />
         )}
         />

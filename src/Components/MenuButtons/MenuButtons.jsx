@@ -28,6 +28,7 @@ const MenuButtons = React.createClass({
   activateSearchHiddenEvent(event){
     //Get the id of the hidden button
     const idHiddenButton = event.target.id;
+    console.log('el id es: ' +event.target.id);
     switch(idHiddenButton)
     {
       case "search notes":
@@ -46,7 +47,7 @@ const MenuButtons = React.createClass({
     console.log('el id es: ' +event.target.id);
     switch(idHiddenButton)
     {
-      case "view notes":
+      case "view":
         this.props.onClickViewEvent("Notes");
         break;
       case "add tags":
