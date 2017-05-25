@@ -13,6 +13,7 @@ const Notes = React.createClass({
   },
   render() {
     return (
+    <div className = "containerOfElements">
       <div id= {this.props.noteId} className={"infoPanelElements borderStyle " +
         (this.props.showAllNotes ? "showComponent" : "hideComponent")} >
         <span className="noteAddedTitle">{this.props.titleNote}</span>
@@ -27,6 +28,7 @@ const Notes = React.createClass({
         <p className={"noteContentFont " + (this.props.showNote ?
           "showComponent showNoteAnimation" :
           "hideComponent")}> {this.props.textNote}</p>
+      </div>
       </div>
     );
   },

@@ -58,13 +58,6 @@ const MenuButtons = React.createClass({
        break;
     }
   },
-
-  showNoteEvent(name) {
-    console.log("estoy en showNoteEvent" + name);
-    if (this.state.showNote === false) {
-    this.setState({ showNote: true });
-    }
-  },
   render() {
     return (
 

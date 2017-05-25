@@ -3,6 +3,7 @@ const React = require('react');
 const Notes = require('../Components/Notes/Notes');
 const axios = require('../../node_modules/axios');
 const randomID = require('../../node_modules/random-id');
+const notesStyle = require('../Components/Notes/_notes.scss');
 
 const NotesContainer = React.createClass({
   getInitialState() {
@@ -140,7 +141,7 @@ const NotesContainer = React.createClass({
       case "searchNotes":
         break;
     }
-    return <div>{this.state.allNotes}</div>;
+    return <div className="containerOfElements">{this.state.allNotes}</div>;
   }
 });
 
