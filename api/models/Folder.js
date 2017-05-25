@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const foldersSchema = new moongose.Schema({
+const folderSchema = new moongose.Schema({
     name:{
-        type: String
+        type: String,
+        required: "The folder must have a name."
     }
 });
 
-module.exports = mongoose.model('Store', foldersSchema);
+module.exports = mongoose.model('Store', folderSchema);
