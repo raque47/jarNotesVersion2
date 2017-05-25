@@ -14,7 +14,7 @@
     "api": "json-server --watch public/db.json",
     "start:client": "concurrently \"npm run dev\" \"npm run api\"",
     "raml": "raml2html ./documentation/jarNotesApi.raml > ./documentation/jarNotesApi.html",
-    "start:server": "nodemon ./api/"
+    "start:server": "nodemon ./api/start"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",
