@@ -4,19 +4,17 @@ const Notes = require('../Components/Notes/Notes');
 const axios = require('../../node_modules/axios');
 const randomID = require('../../node_modules/random-id');
 
-
 const NotesContainer = React.createClass({
   getInitialState() {
     console.log("estoy en estado inicial!!");
     return {
-
-      showNoteSelected: false,
       showNote: false,
       idNoteSelected: "",
       allNotes: "",
-      addNoteEvent: this.props.addNoteEvent,
+      addNoteEvent: true,
     }
   },
+
   showNoteEvent(id) {
     console.log("estoy en showNoteEvent" + id);
     if (this.state.showNote === false) {
@@ -26,14 +24,14 @@ const NotesContainer = React.createClass({
       this.setState({ showNote: false, idNoteSelected: id });
     }
   },
+
   showSpecificNote(id) {
     console.log("SHOW!!! SPECIFIC NOTE!!!" + id);
-    //  console.log("all notes vale: " + this.state.allNotes[0].id)
     let notes = "";
-    console.log("tam del preload es: " + preload.notes);
-    if (this.props.activeAddNote === true) {
-
-      notes = preload.notes.map((item) => {
+    const self = this;
+    axios.get('http://localhost:3000/notes').then(function (response) {
+      const data = response.data;
+      notes = data.map((item) => {
         if (item.noteId === id) {
           console.log("ENTRE AL IF");
           return <Notes
@@ -43,8 +41,8 @@ const NotesContainer = React.createClass({
             activeAddNote="true"
             titleNote={item.noteTitle}
             textNote={item.noteContent}
-            showAllNotes={this.props.showAllNotes}
-            onClickShowEvent={this.showSpecificNote}
+            showAllNotes={self.props.showAllNotes}
+            onClickShowEvent={self.showSpecificNote}
           />
         }
         else {
@@ -56,20 +54,15 @@ const NotesContainer = React.createClass({
             activeAddNote="true"
             titleNote={item.noteTitle}
             textNote={item.noteContent}
-            showAllNotes={this.props.showAllNotes}
-            onClickShowEvent={this.showSpecificNote}
+            showAllNotes={self.props.showAllNotes}
+            onClickShowEvent={self.showSpecificNote}
           />
         }
 
-
-      }
-
-      );
-
+      });
       console.log("notas en specific note es: " + notes);
-      this.setState({ allNotes: notes, addNoteEvent:false });
-    }
-    return notes;
+      self.setState({ allNotes: notes, addNoteEvent: false });
+    })
   },
   setAllNotes(notes) {
     this.setState({ allNotes: notes, addNoteEvent: false });
@@ -103,11 +96,6 @@ const NotesContainer = React.createClass({
       x = notes;
       console.log("NOTAS!!" + x);
       return x;
-
-      // this.setState({ allNotes: notes, addNoteEvent:false });
-
-
-      // console.log("Yay! " + successMessage);
     });
 
   },
@@ -116,28 +104,28 @@ const NotesContainer = React.createClass({
   },
   addNote() {
 
-    console.log("ENTRE A ADD NOTE!");
+    console.log("ENTRE A ADD NOTE! " + "title es: " + this.props.noteTitle + " content es: " + this.props.noteTitle);
     //Generate a random id for the new note
-    const randomId = randomID(5, 0);
+    const random = randomID(5, 0);
+
+
     const newNote = {
-      noteId: randomId, noteTitle: this.props.noteTitle,
+      noteId: random, noteTitle: this.props.noteTitle,
       noteContent: this.props.noteContent
     }
+
+    /*const prueba2 = {
+    noteId: "2", noteTitle:"hello", noteContent: "bye"
+
+  } */
 
     var x = "";
     var promiseShowNotes = "";
     var content = "";
     const self = this;
-    /*   var promiseAddNote = new Promise((resolve, reject) => {
-         axios.post('http://localhost:3000/notes', newNote).then(function () {
-           resolve();
-           console.log('saved successfully');
-         });
-       }); */
-
     var promiseAddNote = axios.post('http://localhost:3000/notes', newNote).then(function () {
       //   resolve();
-      //    console.log('saved successfully');
+      console.log('saved successfully');
       axios.get('http://localhost:3000/notes').then(function (response) {
 
         const result = response.data;
@@ -147,14 +135,14 @@ const NotesContainer = React.createClass({
         self.props.activeAddNote = false;
 
         content = result.map((item) => {
-          {console.log("SHOW VALE: " + self.props.showAllNotes)}
+          { console.log("SHOW VALE: " + self.props.showAllNotes) }
           return <Notes
             key={item.noteId}
             noteId={item.noteId}
             showNote={false}
             activeAddNote={self.props.activeAddNote}
             titleNote={item.noteTitle}
-            textNote={item.noteContent} 
+            textNote={item.noteContent}
             showAllNotes={self.props.showAllNotes}
             onClickShowEvent={self.showSpecificNote} />
         });
@@ -167,97 +155,36 @@ const NotesContainer = React.createClass({
 
 
     });
-
-
-    // promiseAddNote.then(  promiseShowNotes = new Promise((resolve, reject) => {
-
-
-    /*   promiseAddNote.then( axios.get('http://localhost:3000/notes').then(function (response) {
-  
-        const result = response.data;
-        prueba = response;
-       
-        console.log("props es: " + self.props.activeAddNote );
-         self.props.activeAddNote = false;
+    /* const prueba= {
+       noteId: "2", noteTitle:"hello", noteContent: "bye"
    
-       result.map((item) => {
-          return <Notes
-            key={item.noteId}
-            noteId={item.noteId}
-            showNote={false}
-            activeAddNote={true}
-            titleNote={item.noteTitle}
-            textNote={item.noteContent}
-            onClickShowEvent={this.showNoteEvent} />
-        }); 
-   
-  
-  
-  
-      })) */
-    // })
-    // );
+     }
+    axios.post('http://localhost:3000/notes', prueba).then(function (response) {
+      console.log("EXITOOOOO! " + response.data)
+      console.log("saved!");
+    }); */
 
 
-    /*  Promise.all([promiseAddNote]).then(values => {
-       console.log("values es: " + values);
-       this.setState({ allNotes: values, addNoteEvent:false});
-       // return values
-      });
-   */
+
   },
 
 
   render: function () {
+    console.log("props es: " + this.props.addNoteEvent);
+    console.log("state de add note event es es: " + this.state.addNoteEvent);
 
-    // console.log("esto vale add note event: " + this.state.addNoteEvent);
-    /* let actionResult = "";
-     // let promiseShowAllNotes = "";
-     const m = "";
-     console.log("type action es: " + this.props.typeNotesAction);
-     switch (this.props.typeNotesAction) {
-       case "viewNotes":
-         actionResult = this.showAllNotes();
-         break;
-       case "viewSpecificNote":
-         actionResult = this.showSpecificNote();
-         break;
-       // return null;
-       case "addNote":
-         console.log("ADD NOTE CASE!");
-      //   break;
-            var promiseShowAllNotes = new Promise((resolve, reject) => {
-              const x = this.addNote();
-              resolve(x);
-              console.log('datos son: ' +x);
-            });
-            promiseShowAllNotes.then(function (x) {
-              console.log("ya tengo los resultados");
-             /* return <div>
-                {actionResult = x}
-              </div> */
-    //break;
-    //   }); 
-
-    //    console.log("props en switch " + this.props.activeAddNote);
-    /* 
-    }); */
-
-    // return null;
-    //   }
-
-    console.log("props es: " + this.props.addNoteEven);
-    console.log("state de add note event es es: " +   this.state.addNoteEvent);
-
-    if (this.state.addNoteEvent === this.props.addNoteEvent || this.state.addNoteEvent ===true ) {
+    if (this.state.addNoteEvent === this.props.addNoteEvent) {
       this.addNote();
     }
+
     if (this.state.addNoteEvent === true) {
       this.state.addNoteEvent = false;
     }
     else {
       this.state.addNoteEvent = true;
     }
+
+    console.log("PRUEEEEBA");
     console.log("todas las notas valen: " + this.state.allNotes);
     return <div>{this.state.allNotes}</div>;
   }
