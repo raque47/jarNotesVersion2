@@ -15,7 +15,6 @@
     "start:client": "concurrently \"npm run dev\" \"npm run api\"",
     "raml": "raml2html ./documentation/jarNotesApi.raml > ./documentation/jarNotesApi.html",
     "start:server": "nodemon ./api/"
-
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",
@@ -56,9 +55,12 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
     "jsonfile": "^3.0.0",
+    "mongoose": "^4.10.2",
+    "nodemon": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"
