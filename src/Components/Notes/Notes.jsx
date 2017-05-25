@@ -3,11 +3,8 @@ const notesStyle = require('./_notes.scss');
 
 const Notes = React.createClass({
   showNote(event) {
-
- //   this.props.onClickShowEvent("hola");
-
     console.log("me estriparon a mi " + this.props.noteId);
- //   this.props.addNoteEvent = true;
+    this.props.addNoteEvent = false;
     const idNoteSelected = this.props.noteId;
     this.props.onClickShowEvent(idNoteSelected);
   },
@@ -16,7 +13,6 @@ const Notes = React.createClass({
   },
   render() {
     return (
-
       <div id= {this.props.noteId} className={"infoPanelElements borderStyle " +
         (this.props.showAllNotes ? "showComponent" : "hideComponent")} >
         <span className="noteAddedTitle">{this.props.titleNote}</span>
