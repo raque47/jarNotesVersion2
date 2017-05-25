@@ -1,10 +1,8 @@
 
 const mongoose = require('mongoose');
 const app = require('./index');
-const port = process.env.PORT || 4000;
-
 require('dotenv').config();
-
+const port;
 
 mongoose.connect(process.env.DB);
 
@@ -21,6 +19,8 @@ mongoose.connection.on('error',function (err) {
 mongoose.connection.on('disconnected', function () {  
   console.log('Mongoose default connection disconnected'); 
 });
+
+app.set(port, process.env.PORT || 4000);
 
 app.listen(port, ()=>{
     console.log(`Express listening on port ${port}`);
