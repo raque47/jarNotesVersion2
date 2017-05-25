@@ -60,7 +60,7 @@
 
 /* Mobile Styles */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 780px) {
     .editionBar__nav {
         display: block;
         display: flex;
@@ -112,7 +112,7 @@
         visibility: hidden;
     }
 }
-@media only screen and (max-width: 750) {
+@media only screen and (max-width: 750px) {
 
     .openMenu {
         display: none;
