@@ -15,9 +15,10 @@ const NoteEdition = React.createClass({
   },
  
   render() {
+    console.log("ENTRE A EDITION NOTEEEEEEE");
     return (
       <div className="form-group noteText">
-        <input type="text" onChange={this.sendNoteTitle} value={this.props.resetTitle}  placeholder="Title" className="titleNoteControl" id="titleNote" />
+        <input type="text" onChange={this.sendNoteTitle} value="hola" placeholder="Title" className="titleNoteControl" id="titleNote" />
         <textarea type="text" onChange={this.sendNoteContent} value={this.props.resetContent} className="form-control noteContentFont" rows="5" id="noteContent" placeholder="Write a new note..."></textarea>
         <div className="editionNotesControl">
           <button className="editionButtonControls"><img src={require('../../images/paint-button.svg')} className="navBar__images" data-toggle="tooltip" data-placement="top" title="Font Color" /></button>

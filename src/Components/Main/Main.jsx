@@ -31,8 +31,26 @@ const Main = React.createClass({
                  <EditionBarContainer/>
                 </div>
                 <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
-                  <NoteEditionContainer onClickAddNote={this.props.onClickAddNote} />
-                                  </div>
+
+
+                <Switch>
+                  <Route path="/" render={() => (
+                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
+                  )}/>
+
+                  <Route path="/editNote" render={() => (
+                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
+                        noteTitle={this.props.noteTitle}
+                        noteContent={this.props.noteContent}
+                        editNote={true}
+                      />
+                    )}/>
+                    
+                </Switch>
+
+
+
+                </div>
                 <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
                   <InformationPanel
                     onClickMainButtonEvent={this.props.mainButtonEvent}

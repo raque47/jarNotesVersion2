@@ -20,10 +20,14 @@ const NotesContainer = React.createClass({
     this.props.onClickEditNote(noteTitleSelected, noteContentSelected);
     console.log();
   },
+  componentWillMount(){
+    //this.state.data = response.data del axios 
+  },
 
   showSpecificNote(id) {
     let notes = "";
     const self = this;
+    //  notes = this.state.data.map 
     axios.get('http://localhost:3000/notes').then(function (response) {
       const data = response.data;
       notes = data.map((item) => {
