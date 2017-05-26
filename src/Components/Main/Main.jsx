@@ -33,8 +33,8 @@ const Main = React.createClass({
                 <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
 
 
-                <Switch>
-                  <Route path="/" render={() => (
+           
+                  <Route exact path="/" render={() => (
                       <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
                   )}/>
 
@@ -46,7 +46,7 @@ const Main = React.createClass({
                       />
                     )}/>
                     
-                </Switch>
+        
 
 
 
