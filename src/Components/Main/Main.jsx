@@ -33,11 +33,7 @@ const Main = React.createClass({
                 <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
 
 
-           
-                  <Route exact path="/" render={() => (
-                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
-                  )}/>
-
+                <Switch>
                   <Route path="/editNote" render={() => (
                       <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                         noteTitle={this.props.noteTitle}
@@ -45,6 +41,16 @@ const Main = React.createClass({
                         editNote={true}
                       />
                     )}/>
+           
+                  <Route exact path="/" render={() => (
+                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
+                  )}/>
+
+                  <Route path="/" render={() => (
+                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
+                  )}/>
+
+                </Switch>
                     
         
 
