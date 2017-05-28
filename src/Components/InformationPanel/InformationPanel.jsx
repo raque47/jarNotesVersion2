@@ -20,58 +20,72 @@ const InformationPanel = React.createClass({
       <div id="panelInformation" className="infoPanel">
 
         <Title panelTitle={this.props.idAction} />
-        <Route path="/search" render={() => (
-          <Search
-            activeSearch={this.props.activeSearch}
-            idAction={this.props.idAction}
-            actionType={this.props.actionType}
-            onClickEditNote = {this.props.onClickEditNote}
+
+        <Switch>
+            <Route path="/search" render={() => (
+              <Search
+                activeSearch={this.props.activeSearch}
+                idAction={this.props.idAction}
+                actionType={this.props.actionType}
+                onClickEditNote = {this.props.onClickEditNote}
+              />
+            )}
+            />
+
+            <Route path="/view" render={() => (
+              <NotesContainer
+                noteTitle={this.props.noteTitle}
+                noteContent={this.props.noteContent}
+                addNoteEvent={false}
+                showAllNotes={this.props.showAllNotes}
+                idAction={this.props.idAction}
+                actionType="viewNotes"
+                onClickEditNote = {this.props.onClickEditNote}
+              />
+            )}
+            />
+
+            
+            <Route path="/addNote" render={() => (
+              <NotesContainer
+                noteTitle={this.props.noteTitle}
+                noteContent={this.props.noteContent}
+                addNoteEvent={this.props.addNoteEvent}
+                showAllNotes={this.props.showAllNotes}
+                actionType={this.props.actionType}
+              />
+            )}
+            />
+
+          <Route path='/add tags' render={() => (
+            <AddNewElement
+              activeAddElement={this.props.activeAddElement}
+              buttonName=""
+              noteTitle={this.props.noteTitle}
+              idAction={this.props.idAction} />
+          )}
           />
-        )}
-        />
 
-        <Route path="/view" render={() => (
-          <NotesContainer
-            noteTitle={this.props.noteTitle}
-            noteContent={this.props.noteContent}
-            addNoteEvent={false}
-            showAllNotes={this.props.showAllNotes}
-            idAction={this.props.idAction}
-            actionType="viewNotes"
-            onClickEditNote = {this.props.onClickEditNote}
+          <Route path='/add folders' render={() => (
+            <AddNewElement
+              activeAddElement={this.props.activeAddElement}
+              buttonName=""
+              noteTitle={this.props.noteTitle}
+              idAction={this.props.idAction} />
+          )}
+          />  
+          <Route path="/" render={() => (
+            <NotesContainer
+              noteTitle={this.props.noteTitle}
+              noteContent={this.props.noteContent}
+              addNoteEvent={this.props.addNoteEvent}
+              showAllNotes={this.props.showAllNotes}
+              actionType={this.props.actionType}
+            />
+          )}
           />
-        )}
-        />
+        </Switch>
 
-        
-        <Route path="/addNote" render={() => (
-          <NotesContainer
-            noteTitle={this.props.noteTitle}
-            noteContent={this.props.noteContent}
-            addNoteEvent={this.props.addNoteEvent}
-            showAllNotes={this.props.showAllNotes}
-            actionType={this.props.actionType}
-          />
-        )}
-        />
-
-      <Route path='/add tags' render={() => (
-        <AddNewElement
-          activeAddElement={this.props.activeAddElement}
-          buttonName=""
-          noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction} />
-      )}
-      />
-
-      <Route path='/add folders' render={() => (
-        <AddNewElement
-          activeAddElement={this.props.activeAddElement}
-          buttonName=""
-          noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction} />
-      )}
-      />  
       </div >
     );
   },

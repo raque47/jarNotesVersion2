@@ -64,7 +64,7 @@ const NotesContainer = React.createClass({
     this.setState({ allNotes: notes, noteEvent: false });
   },
   showAllNotes() {
-    axios.get('http://localhost:3000/notes').then(function (response) {
+    axios.get('http://localhost:3000/api/notes').then(function (response) {
       const result = response.data;
       content = result.map((item) => {
           return <Notes
