@@ -1,10 +1,11 @@
-const React = require('react');
-const editionBarStyle = require('./_editionBar.scss');
+import React from 'react';
+import editionBarStyle from './_editionBar.scss';
 
-const EditionBar = React.createClass({
-   activateItemsName() {
-       this.props.onClickButton();
-   },
+class EditionBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
    render() {
 
       return (
@@ -17,10 +18,9 @@ const EditionBar = React.createClass({
             <button className="editionBar__button buttons"><img src={require('../../images/share-links.svg')} className="navBar__images" /><span className={"editionBar__span buttonFont " + (this.props.displayEvent ? 'showControl' : 'hiddenControl')}>Copy Notelink</span></button>
          </nav>
       );
-   },
-});
+   }
+};
 
-
-module.exports = EditionBar;
+export default EditionBar;
 
 

@@ -1,15 +1,13 @@
-const React = require('react');
-const MenuButtons = require('../Components/MenuButtons/MenuButtons');
-const DropDown = require('../Components/DropDown/DropDown');
+import React from 'react';
+import MenuButtons from '../Components/MenuButtons/MenuButtons';
+import DropDown from '../Components/DropDown/DropDown';
 
-const MenuButtonsContainer = React.createClass({
-    getInitialState() {
-        return {
-            activeNotes: false,
-            activeTags: false,
-            activeFolders: false,
-        }
-    },
+class MenuButtonsContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.showHiddenButtons = this.showHiddenButtons.bind(this);
+        this.state = { activeNotes: false, activeTags: false, activeFolders: false, }
+    }
     showHiddenButtons(id) {
         switch (id) {
             case "notes":
@@ -37,7 +35,7 @@ const MenuButtonsContainer = React.createClass({
                 }
                 break;
         }
-    },
+    }
     render() {
         const searchIcon = "search-button.svg";
         const viewIcon = "view-button.svg";
@@ -100,8 +98,8 @@ const MenuButtonsContainer = React.createClass({
                 <DropDown userIcon="user-button.svg" item1="Settings" item2="Log Out" />
             </div>
         );
-    },
-});
+    }
+};
 
-module.exports = MenuButtonsContainer;
+export default MenuButtonsContainer;
 

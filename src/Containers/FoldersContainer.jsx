@@ -1,16 +1,17 @@
-const React = require('react');
-const Folders = require('../Components/Folders/Folders');
+import React from 'react';
+import Folders from '../Components/Folders/Folders';
 
-const FoldersContainer = React.createClass({
-  getInitialState() {
-    return {
-    }
-  },
+
+class FoldersContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <Folders/>  
     );
-  },
-});
+  }
+};
 
-module.exports = FoldersContainer;  
+export default FoldersContainer;  

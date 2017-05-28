@@ -1,8 +1,13 @@
-const React = require('react');
-const Notes = require('../Components/Notes/Notes');
-const InformationPanel = require('../Components/InformationPanel/InformationPanel');
+import React from 'react';
+import Notes from '../Components/Notes/Notes';
+import InformationPanel from '../Components/InformationPanel/InformationPanel';
 
-const InformationPanelContainer = React.createClass({
+
+class InformationPanelContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div>
@@ -13,11 +18,11 @@ const InformationPanelContainer = React.createClass({
           idAction={this.props.idAction}
           totalNotes={this.props.totalNotes}
           typeNotesAction={this.props.typeNotesAction}
-          onClickEditNote = {this.props.onClickEditNote}/>
+          onClickEditNote = {this.props.onClickEditNote}
+          idNoteSelected={this.props.idNoteSelected}/>
       </div>
     );
+  }
+};
 
-  },
-});
-
-module.exports = InformationPanelContainer;  
+export default InformationPanelContainer;  

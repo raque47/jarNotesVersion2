@@ -1,7 +1,10 @@
-const React = require('react');
-const addNewElementStyle = require('./_addNewElement.scss');
+import React from'react';
+import addNewElementStyle from './_addNewElement.scss';
 
-const AddNewElement = React.createClass({
+class AddNewElement extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div id="addNewElementForm" className={"addNewElementPanel " + (this.props.activeAddElement ? "addNewElementFormVisible" : "addNewElementFormHidden" )} >
@@ -15,7 +18,7 @@ const AddNewElement = React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+};
 
-module.exports = AddNewElement;  
+export default AddNewElement;  

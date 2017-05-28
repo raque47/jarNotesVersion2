@@ -1,32 +1,28 @@
-const React = require('react');
-const EditionBar= require('../Components/EditionBar/EditionBar');
+import React from 'react';
+import EditionBar from '../Components/EditionBar/EditionBar';
 
 
-const EditionBarContainer = React.createClass({
-    getInitialState() {
-      return {
-         displayEvent: false
-      }
-   },
-   showItemsName() {
-      if (this.state.displayEvent === true) {
-         this.setState({ displayEvent: false });
-      }
-      else {
-         this.setState({ displayEvent: true });
-      }
-   },
-
-   render() {
-
-      return (
-          <EditionBar 
-          onClickButton={this.showItemsName}
-          displayEvent = {this.state.displayEvent}/>
+class EditionBarContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { displayEvent: false };
+    }
+    showItemsName() {
+        if (this.state.displayEvent === true) {
+            this.setState({ displayEvent: false });
+        }
+        else {
+            this.setState({ displayEvent: true });
+        }
+    }
+    render() {
+        return (
+            <EditionBar
+                onClickButton={this.showItemsName}
+                displayEvent={this.state.displayEvent} />
         );
-    },
-});
+    }
+};
 
-module.exports = EditionBarContainer;  
+export default EditionBarContainer;
 
-               

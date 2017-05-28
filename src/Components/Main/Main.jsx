@@ -1,18 +1,18 @@
-const React = require('react');
-const render = require('react-dom');
-const image = require('../../images/logo.png')
-const NavBar = require('../NavBar/NavBar');
-const NoteEditionContainer = require('../../Containers/NoteEditionContainer');
-const EditionBarContainer = require('../../Containers/EditionBarContainer');
-const InformationPanel = require('../InformationPanel/InformationPanel');
+import React from 'react';
+import render from 'react-dom';
+import image from '../../images/logo.png';
+import NavBar from '../NavBar/NavBar';
+import NoteEditionContainer from '../../Containers/NoteEditionContainer';
+import EditionBarContainer from '../../Containers/EditionBarContainer';
+import InformationPanel from '../InformationPanel/InformationPanel';
 
-const reactRouter = require('react-router-dom');
-const Link = reactRouter.Link;
-const Route = reactRouter.Route;
-const Switch =reactRouter.Switch;
-const BrowserRouter =reactRouter.BrowserRouter;
+import {Link, Route, Switch, BrowserRouter} from 'react-router-dom';
 
-const Main = React.createClass({
+
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div> 
@@ -38,24 +38,25 @@ const Main = React.createClass({
                       <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                         noteTitle={this.props.noteTitle}
                         noteContent={this.props.noteContent}
-                        editNote={true}
+                        actionType={this.props.actionType} 
                       />
                     )}/>
            
                   <Route exact path="/" render={() => (
-                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
+                      <NoteEditionContainer 
+                      onClickAddNote={this.props.onClickAddNote} 
+                      actionType={this.props.actionType} 
+                     />  
                   )}/>
 
                   <Route path="/" render={() => (
-                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}  editNote={false}/>  
+                      <NoteEditionContainer 
+                      onClickAddNote={this.props.onClickAddNote}  
+                      actionType={this.props.actionType} 
+                     />  
                   )}/>
 
                 </Switch>
-                    
-        
-
-
-
                 </div>
                 <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
                   <InformationPanel
@@ -68,8 +69,8 @@ const Main = React.createClass({
                     noteContent={this.props.noteContent}
                     actionType={this.props.actionType}
                     showAllNotes={this.props.showAllNotes}
-                    addNoteEvent={this.props.addNoteEvent}
-                    onClickEditNote = {this.props.onClickEditNote}>
+                    onClickEditNote = {this.props.onClickEditNote}
+                    idNoteSelected = {this.props.idNoteSelected}>
                     </InformationPanel>
                 </div>
               </div>
@@ -77,7 +78,7 @@ const Main = React.createClass({
         
       </div>
     );
-  },
-});
+  }
+};
 
-module.exports = Main;
+export default Main;

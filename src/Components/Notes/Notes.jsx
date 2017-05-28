@@ -1,19 +1,28 @@
-const React = require('react');
-const notesStyle = require('./_notes.scss');
-const reactRouter = require('react-router-dom');
-const Link = reactRouter.Link;
-const Notes = React.createClass({
-  showNote(event) {
+import React from 'react';
+import notesStyle from './_notes.scss';
+import {Link} from 'react-router-dom';
+
+
+
+
+
+class Notes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.showNote = this.showNote.bind(this);
+    this.editNote = this.editNote.bind(this);
+  }
+ showNote(event) {
     const idNoteSelected = this.props.noteId;
     this.props.onClickShowEvent(idNoteSelected);
-  },
+  }
   editNote(event) {
     console.log("EDIT!! NOTEEEE!!");
     const idNoteSelected = this.props.noteId;
     const noteTitleSelected = this.props.titleNote;
     const noteContentSelected = this.props.textNote;
     this.props.onClickEditEvent(idNoteSelected, noteTitleSelected, noteContentSelected);
-  },
+  }
   render() {
     return (
       <div id= {this.props.noteId} className={"infoPanelElements borderStyle " +
@@ -34,8 +43,8 @@ const Notes = React.createClass({
           "hideComponent")}> {this.props.textNote}</p>
       </div>
     );
-  },
-});
+  }
+};
 
-module.exports = Notes;
+export default Notes;
 

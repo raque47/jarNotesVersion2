@@ -1,11 +1,18 @@
-const React = require('react');
-const render  = require('react-dom');
-const menuButtonsStyle= require('./_menuButtons.scss');
+import React from 'react';
+import render  from 'react-dom';
+import menuButtonsStyle from './_menuButtons.scss';
 
-const reactRouter = require('react-router-dom');
-const Link = reactRouter.Link;
+import {Link} from 'react-router-dom';
 
-const MenuButtons = React.createClass({
+
+class MenuButtons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.activateHiddenButtons = this.activateHiddenButtons.bind(this);
+    this.activateSearchHiddenEvent = this.activateSearchHiddenEvent.bind(this);
+    this.activateAddHiddenEvent = this.activateAddHiddenEvent.bind(this);
+
+  }
   activateHiddenButtons(event) {
     //Get the id of the button
     const idButton = event.target.id;
@@ -19,12 +26,12 @@ const MenuButtons = React.createClass({
         this.props.onClickMainButtonEvent("Tags");
         break;
       case "folders":
-       this.props.onClickMainButtonEvent("Folders");
+     this.props.onClickMainButtonEvent("Tags");
        break;
     }
+
     this.props.onClickMainButton(idButton);  
-  },
-  
+  } 
   activateSearchHiddenEvent(event){
     //Get the id of the hidden button
     const idHiddenButton = event.target.id;
@@ -41,7 +48,7 @@ const MenuButtons = React.createClass({
        this.props.onClickSearchEvent("Folders");
        break;
     }
-  },
+  }
   activateAddHiddenEvent(event){
     const idHiddenButton = event.target.id;
     console.log('el id es: ' +event.target.id);
@@ -57,13 +64,13 @@ const MenuButtons = React.createClass({
        this.props.onClickAddEvent("Folders");
        break;
     }
-  },
+  }
   render() {
     return (
 
         <div className="inlineContainer">
         <Link to={`/${this.props.idMainButton}`}>  
-          <button id={this.props.idMainButton} onClick= {this.activateHiddenButtons} className="navBar__button  buttons visibleControl "><img src={require(`../../images/${this.props.mainButton}`)} className="navBar__images" data-toggle="tooltip" data-placement="top" title={this.props.tooltipName} /><span className="navElementSpanVisible">{this.props.buttonName}</span></button>
+          <button id={this.props.idMainButton} onClick= {this.activateHiddenButtons.bind(this)} className="navBar__button  buttons visibleControl "><img src={require(`../../images/${this.props.mainButton}`)} className="navBar__images" data-toggle="tooltip" data-placement="top" title={this.props.tooltipName} /><span className="navElementSpanVisible">{this.props.buttonName}</span></button>
         </Link>  
           <div className={this.props.showHiddenButtons ? 'visibleControl' : 'invisibleControl'}  >
             <Link to={'/search'}>
@@ -75,7 +82,7 @@ const MenuButtons = React.createClass({
           </div>
         </div>
     );
-  },
-});
+  }
+};
 
-module.exports = MenuButtons;  
+export default MenuButtons;  

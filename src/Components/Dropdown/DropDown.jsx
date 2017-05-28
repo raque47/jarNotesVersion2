@@ -1,7 +1,11 @@
-const React = require('react');
-const dropDownStyle = require('./_dropDown.scss');
+import React from 'react';
+import dropDownStyle from './_dropDown.scss';
 
-const DropDown = React.createClass({
+
+class DropDown extends React.Component {
+  constructor(props) {
+    super(props);
+  }
     render() {
         return (
             <div className="inlineContainer">
@@ -12,7 +16,7 @@ const DropDown = React.createClass({
                 </ul>
             </div>
         );
-    },
-});
+    }
+};
 
-module.exports = DropDown;  
+export default DropDown;  

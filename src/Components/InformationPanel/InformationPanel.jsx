@@ -1,22 +1,22 @@
-const React = require('react');
-const Title = require('../Title/Title');
-const Search = require('../Search/Search');
-const AddNewElement = require('../AddNewElement/AddNewElement');
-const NotesContainer = require('../../Containers/NotesContainer');
-const FoldersContainer = require('../../Containers/FoldersContainer');
-const informationPanelStyle = require('./_informationPanel.scss');
+import React from 'react';
+import Title from '../Title/Title';
+import Search from '../Search/Search';
+import AddNewElement from '../AddNewElement/AddNewElement';
+import NotesContainer from '../../Containers/NotesContainer';
+import FoldersContainer from '../../Containers/FoldersContainer';
+import informationPanelStyle from './_informationPanel.scss';
 
-const reactRouter = require('react-router-dom');
-const Link = reactRouter.Link;
-const Route = reactRouter.Route;
-const Switch = reactRouter.Switch;
-const BrowserRouter = reactRouter.BrowserRouter;
+import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
-const InformationPanel = React.createClass({
+class InformationPanel extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    console.log("estoy en information panel!!");
     return (
-
       <div id="panelInformation" className="infoPanel">
 
         <Title panelTitle={this.props.idAction} />
@@ -25,7 +25,7 @@ const InformationPanel = React.createClass({
             activeSearch={this.props.activeSearch}
             idAction={this.props.idAction}
             actionType={this.props.actionType}
-            onClickEditNote = {this.props.onClickEditNote}
+            onClickEditNote={this.props.onClickEditNote}
           />
         )}
         />
@@ -34,48 +34,51 @@ const InformationPanel = React.createClass({
           <NotesContainer
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
-            addNoteEvent={false}
             showAllNotes={this.props.showAllNotes}
             idAction={this.props.idAction}
             actionType="viewNotes"
-            onClickEditNote = {this.props.onClickEditNote}
+            onClickEditNote={this.props.onClickEditNote}
+            idNoteSelected={this.props.idNoteSelected}
           />
         )}
         />
 
-        
-        <Route path="/addNote" render={() => (
+
+        <Route path="/addNote" render={() => (console.log("wwwww"),
+  
           <NotesContainer
             noteTitle={this.props.noteTitle}
             noteContent={this.props.noteContent}
-            addNoteEvent={this.props.addNoteEvent}
             showAllNotes={this.props.showAllNotes}
             actionType={this.props.actionType}
+            onClickEditNote={this.props.onClickEditNote}
+            idNoteSelected={this.props.idNoteSelected}
           />
         )}
         />
 
-      <Route path='/add tags' render={() => (
-        <AddNewElement
-          activeAddElement={this.props.activeAddElement}
-          buttonName=""
-          noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction} />
-      )}
-      />
+        <Route path='/add tags' render={() => (
+          <AddNewElement
+            activeAddElement={this.props.activeAddElement}
+            buttonName=""
+            noteTitle={this.props.noteTitle}
+            idAction={this.props.idAction} />
+        )}
+        />
 
-      <Route path='/add folders' render={() => (
-        <AddNewElement
-          activeAddElement={this.props.activeAddElement}
-          buttonName=""
-          noteTitle={this.props.noteTitle}
-          idAction={this.props.idAction} />
-      )}
-      />  
-      </div >
-    );
-  },
-});
+        <Route path='/add folders' render={() => (
+          <AddNewElement
+            activeAddElement={this.props.activeAddElement}
+            buttonName=""
+            noteTitle={this.props.noteTitle}
+            idAction={this.props.idAction} />
+        )}
+        />
 
-module.exports = InformationPanel;
+      </div>
+    )
+  }
+}
+
+export default InformationPanel;
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const notesSchema = new moongose.Schema({
     noteTitle:{
         type: String

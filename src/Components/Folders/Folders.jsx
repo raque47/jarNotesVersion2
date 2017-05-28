@@ -1,11 +1,14 @@
-const React = require('react');
+import React from 'react';
 
-const Folders = React.createClass({   
+class Folders extends React.Component {
+  constructor(props) {
+    super(props);
+  }  
 render(){
      return (
      <li>Folder 1</li>
     );
-  },
-});
+  }
+};
 
-module.exports = Folders;  
+export default Folders;  

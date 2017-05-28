@@ -1,9 +1,13 @@
-const React = require('react');
-const MenuButtonsContainer = require('../../Containers/MenuButtonsContainer');
+import React from 'react';
+import MenuButtonsContainer from '../../Containers/MenuButtonsContainer';
 
-const navBarStyle = require('./_navBar.scss');
+import navBarStyle from './_navBar.scss';
 
-const NavBar = React.createClass({
+
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
     render() {
         return (
             <nav className="navbar navbar-default">
@@ -31,7 +35,7 @@ const NavBar = React.createClass({
                 </div>
             </nav>
         );
-    },
-});
+    }
+};
 
-module.exports = NavBar;  
+export default NavBar;  

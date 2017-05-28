@@ -8,12 +8,15 @@ import {
 } from 'react-router-dom';
 
 
-const bootstrapStyle = require('../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss');
-const appStyle = require('./_app.scss');
+import bootstrapStyle from '../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+import appStyle from './_app.scss';
 
-const MainContainer = require('../../Containers/MainContainer');
+import MainContainer from '../../Containers/MainContainer';
 
-const App = React.createClass({
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -21,9 +24,8 @@ const App = React.createClass({
         <MainContainer/>
       </Router>
     );
-  },
-});
-
+  }
+};
 
 render(<App />, document.getElementById('app'));
 

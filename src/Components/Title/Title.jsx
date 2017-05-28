@@ -1,16 +1,17 @@
-const React = require('react');
-const titleStyle = require('./_title.scss');
+import React from 'react';
+import titleStyle from './_title.scss';
 
-const Title = React.createClass({
-  activateItemsName() {
-    this.props.onClickButton();
-  },
-  render() {
 
-    return (
+class Title extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+   render() {
+return (
       <h2 id="informationPanelTittle" className="fontFamily">{this.props.panelTitle}</h2>
     );
-  },
-});
+   }
+}
 
-module.exports = Title;
+export default Title;

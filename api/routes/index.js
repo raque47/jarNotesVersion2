@@ -1,8 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const Notes = require()
+
+router.get('/', noteApi );
 
 
-router.get('/', (req, res) => {
+
+
+
+
+
+
+(req, res) => {
     //res.send("Hello World!");
     res.json({  //No se puede hacer .json y .send simultaneamente porque por debajo estos implementan un res.send para no dejar el server guindando
         'id': '89kjn',

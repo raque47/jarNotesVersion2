@@ -1,17 +1,14 @@
-const React = require('react');
-const render = require('react-dom');
-const Main = require('../Components/Main/Main');
+import React from 'react';
+import render from 'react-dom';
+import Main from '../Components/Main/Main';
 
-const reactRouter = require('react-router-dom');
-const Link = reactRouter.Link;
-const Route = reactRouter.Route;
-const Switch = reactRouter.Switch;
+import { Link, Route, Switch } from 'react-router-dom';
 
 
-const MainContainer = React.createClass({
-
-  getInitialState: function () {
-    return {
+class MainContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       activeSearch: false,
       activeView: false,
       activeAddElement: false,
@@ -19,14 +16,20 @@ const MainContainer = React.createClass({
       noteTitle: "",
       noteContent: "",
       actionType: "viewNotes",
-      addNoteEvent: true,
-      showAllNotes: true
-    };
-  },
+      showAllNotes: true,
+      idNoteSelected: ""
+    }
+    this.mainButtonEvent = this.mainButtonEvent.bind(this);
+    this.searchEvent = this.searchEvent.bind(this);
+    this.viewEvent = this.viewEvent.bind(this);
+    this.addElementEvent = this.addElementEvent.bind(this);
+    this.addNote = this.addNote.bind(this);
+    this.editNote = this.editNote.bind(this);
 
+  }
   mainButtonEvent(id) {
     this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id});
-  },
+  }
 
   searchEvent(id) {
     let event = "";
@@ -41,7 +44,7 @@ const MainContainer = React.createClass({
       event = "searchTags"
     }
     this.setState({ activeSearch: true, activeView: false, activeAddElement: false, idAction: id, showAllNotes: false, actionType: event });
-  },
+  }
 
   viewEvent(id) {
     let event = "";
@@ -56,7 +59,7 @@ const MainContainer = React.createClass({
       event = "viewTags"
     }
     this.setState({ activeSearch: false, activeView: true, activeAddElement: false, idAction: id, showAllNotes: true, actionType: event });
-  },
+  }
   addElementEvent(id) {
     console.log("add element event!: ");
     let event = "";
@@ -70,24 +73,33 @@ const MainContainer = React.createClass({
       event = "addTag"
     }
     this.setState({ activeSearch: false, activeView: false, activeAddElement: true, idAction: id, showAllNotes: false, actionType: event });
-  },
-  addNote(noteContent, noteTitle) {
+  }
+  addNote(noteContent, noteTitle, action) {
     console.log("add note main container!: ");
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
-    this.setState({addNoteEvent: true, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "addNote" });
-  },
-  editNote(noteTitle, noteContent){
-    console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent);
-    this.setState({addNoteEvent: true, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote" });
-  },
+    if(action=="edit"){
+        this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote" });
+    }
+    else{
+        console.log("estoy en el action type add note!!");
+        this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "addNote" });
+    }
+
+ // console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent + "este id: " + this.state.idNoteSelected );
+  
+  }
+  editNote(noteTitle, noteContent, idNoteSelected){
+    console.log("estoy en editNote en note container!");
+    this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected  });
+  }
   render() {
     return (
 
       <Route path="/" render={() => (
         <Main
-          onClickMainButtonEvent={this.mainButtonEvent}
+          onClickMainButtonEvent={this.mainButtonEvent.bind(this)}
           onClickSearchEvent={this.searchEvent}
           onClickViewEvent={this.viewEvent}
           onClickAddEvent={this.addElementEvent}
@@ -99,15 +111,15 @@ const MainContainer = React.createClass({
           noteContent={this.state.noteContent}
           noteTitle={this.state.noteTitle}
           typeNotesAction={this.state.typeNotesAction}
-          addNoteEvent={this.state.addNoteEvent}
           actionType={this.state.actionType}
           showAllNotes={this.state.showAllNotes}
           onClickEditNote={this.editNote}
+          idNoteSelected={this.state.idNoteSelected}
         />)}
       />
 
     );
-  },
-});
+  }
+};
 
-module.exports = MainContainer;  
+export default MainContainer;  
