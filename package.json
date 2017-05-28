@@ -14,7 +14,8 @@
     "api": "json-server --watch public/db.json",
     "start:client": "concurrently \"npm run dev\" \"npm run api\"",
     "raml": "raml2html ./documentation/jarNotesApi.raml > ./documentation/jarNotesApi.html",
-    "start:server": "nodemon ./api/start"
+    "start:server": "nodemon ./api/start",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",
@@ -54,6 +55,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "body-parser-json": "^1.9.2",
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "dotenv": "^4.0.0",
@@ -61,9 +63,11 @@
     "jquery": "^3.2.1",
     "jsonfile": "^3.0.0",
     "mongoose": "^4.10.2",
+    "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "urlencoded-body-parser": "^2.0.1"
   }
 }

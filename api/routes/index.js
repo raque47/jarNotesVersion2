@@ -2,21 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Notes = require()
 
-router.get('/', noteApi );
+
+const noteAPI =  require('../controllers/notesController');
 
 
+router.get('/notes', noteAPI.getNotes);
+router.post('/notes', noteAPI.addNote);
 
-
-
-
-
-
-(req, res) => {
-    //res.send("Hello World!");
-    res.json({  //No se puede hacer .json y .send simultaneamente porque por debajo estos implementan un res.send para no dejar el server guindando
-        'id': '89kjn',
-        name: 'xxx'
-    });
-});
 
 module.exports = router;

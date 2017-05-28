@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const app = require('./index');
+const app = require('./app');
 require('dotenv').config();
 
 mongoose.connect(process.env.DB);
@@ -19,7 +19,7 @@ mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected'); 
 });
 
-app.listen(process.env.PORT || 4000, ()=>{
-  //9  console.log(`Express listening on port ${port}`);
+app.listen(process.env.PORT || 3000, ()=>{
+  console.log('Express listening on port 3000');
 }); //Lleva 2 parametros, el primer parametro es el puerto donde correra el server y el segundo es el callback
 

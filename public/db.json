@@ -4,56 +4,6 @@
       "noteTitle": "First Note!",
       "noteContent": "First Note Content!",
       "id": 1
-    },
-    {
-      "noteTitle": "aaaa",
-      "noteContent": "aaa",
-      "id": 2
-    },
-    {
-      "noteTitle": "ggg",
-      "noteContent": "ggg",
-      "id": 3
-    },
-    {
-      "noteTitle": "hhh",
-      "noteContent": "hh",
-      "id": 4
-    },
-    {
-      "noteTitle": "qqq",
-      "noteContent": "qqqq",
-      "id": 5
-    },
-    {
-      "noteTitle": "aaa",
-      "noteContent": "aaa",
-      "id": 6
-    },
-    {
-      "noteTitle": "qqq",
-      "noteContent": "qqqq",
-      "id": 7
-    },
-    {
-      "noteTitle": "hhhh",
-      "noteContent": "hhh",
-      "id": 8
-    },
-    {
-      "noteTitle": "hhhh",
-      "noteContent": "hhh",
-      "id": 9
-    },
-    {
-      "noteTitle": "q",
-      "noteContent": "q",
-      "id": 10
-    },
-    {
-      "noteTitle": "g",
-      "noteContent": "g",
-      "id": 11
     }
   ],
   "folders": [],
