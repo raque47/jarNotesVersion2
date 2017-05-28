@@ -2,11 +2,16 @@
     background-color: transparent;
     height: 85vh;
     border: 0.2rem solid #DDD;
-    display: flex;
+    display: -ms-flexbox;
+    /* display: flex; */
+    -ms-flex-direction: column;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: stretch;
+    -ms-flex-pack: start;
+    /* justify-content: flex-start; */
+    -ms-flex-align: start;
+    /* align-items: flex-start; */
+    -ms-flex-line-pack: stretch;
+    /* align-content: stretch; */
     padding-left: 1.8rem;
     overflow: auto;
 }
