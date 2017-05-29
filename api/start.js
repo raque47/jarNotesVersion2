@@ -3,23 +3,18 @@ const mongoose = require('mongoose');
 const app = require('./app');
 require('dotenv').config();
 
-mongoose.connect(process.env.DB);
+mongoose.Promise = global.Promise;
 
-mongoose.connection.on('connected', function () {  
-  console.log('Mongoose default connection open to ' + process.env.DB);
-}); 
+//const port = process.env.PORT;
+const uriString = process.env.DB || 'localhost:27017/Jarnotes';
 
-// If the connection throws an error
-mongoose.connection.on('error',function (err) {  
-  console.log('Mongoose default connection error: ' + err);
-}); 
-
-// When the connection is disconnected
-mongoose.connection.on('disconnected', function () {  
-  console.log('Mongoose default connection disconnected'); 
+app.listen(3000, () => {
+  console.log(`Server running on port`);
 });
 
-app.listen(process.env.PORT || 3000, ()=>{
-  console.log('Express listening on port 3000');
-}); //Lleva 2 parametros, el primer parametro es el puerto donde correra el server y el segundo es el callback
 
+try {
+    mongoose.connect('mongodb://localhost:27017/Jarnotes'); //- starting a db connection
+}catch(err) {
+    mongoose.createConnection('mongodb://localhost:27017/Jarnotes'); //- starting another db connection
+}

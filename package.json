@@ -15,7 +15,7 @@
     "start:client": "concurrently \"npm run dev\" \"npm run api\"",
     "raml": "raml2html ./documentation/jarNotesApi.raml > ./documentation/jarNotesApi.html",
     "start:server": "nodemon ./api/start",
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\""
+    "start":  "concurrently \"npm run dev\" \"npm run start:server\""
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

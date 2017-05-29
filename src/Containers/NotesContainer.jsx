@@ -49,7 +49,7 @@ class NotesContainer extends React.Component {
         const self = this;
         console.log("VIEW NOTES EVENT!!");
         if (this.state.noteEvent === true) {
-          axios.get('http://localhost:3000/notes').then(function (response) {
+          axios.get('http://localhost:3000/api/notes').then(function (response) {
             self.setState({ allNotes: response.data });
           })
           this.state.noteEvent = false;
@@ -63,10 +63,10 @@ class NotesContainer extends React.Component {
         if (this.state.noteEvent === true) {
           const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent }
           const self = this;
-          promiseAddNote = axios.post('http://localhost:3000/notes', newNote).then(() => {
+          promiseAddNote = axios.post('http://localhost:3000/api/notes', newNote).then(() => {
 
             //Se realiza un get de todas las notas para obtener 
-            axios.get('http://localhost:3000/notes').then(function (response) {
+            axios.get('http://localhost:3000/api/notes').then(function (response) {
               self.setState({ allNotes: response.data });
             })
           });

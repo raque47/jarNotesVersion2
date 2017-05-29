@@ -19,14 +19,16 @@ function getNotes(req, res) {
 
 //post Note
 function addNote(req, res) {
+    console.log('post: crear nota!!');
     const note = new Note(req.body);
-    note.save(err,data => {
+    note.save(err => {
         if (!err) {
-            res.status(200);
-            res.json(data);
+            res.status(201);
+            res.json(note);
         }
         else {
             res.status(404);
+            res.json(err);
         }
     });
 }
