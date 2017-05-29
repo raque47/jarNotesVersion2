@@ -33,6 +33,7 @@ class Main extends React.Component {
             <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
 
 
+
               <Switch>
                 <Route path="/editNote" render={() => (
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
@@ -45,6 +46,17 @@ class Main extends React.Component {
                     idNoteSelected={this.props.idNoteSelected}
                   />
                 )} />
+
+                <Route path='/add folders' render={() => (
+                  <AddNewElementContainer
+                    onClickAddElement={this.props.onClickAddElement}
+                    actionType={this.props.actionType}
+                    activeAddElement={this.props.activeAddElement}
+                    buttonName=""
+                    noteTitle={this.props.noteTitle}
+                    idAction={this.props.idAction} />
+                )}
+                />
 
 
                 <Route exact path="/" render={() => (
@@ -78,11 +90,11 @@ class Main extends React.Component {
                 idNoteSelected={this.props.idNoteSelected}>
               </InformationPanel>
             </div>
-          
+
           </div>
 
         </div>
-<Modal/>
+        <Modal />
       </div>
 
     );

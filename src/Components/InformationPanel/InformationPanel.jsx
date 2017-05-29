@@ -3,7 +3,9 @@ import Title from '../Title/Title';
 import Search from '../Search/Search';
 import AddNewElement from '../AddNewElement/AddNewElement';
 import NotesContainer from '../../Containers/NotesContainer';
+import TagsContainer from '../../Containers/TagsContainer';
 import FoldersContainer from '../../Containers/FoldersContainer';
+import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import informationPanelStyle from './_informationPanel.scss';
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
@@ -61,11 +63,14 @@ class InformationPanel extends React.Component {
   
             )}
             />
-    
-         
+            
+
 
           <Route path='/add tags' render={() => (
-            <AddNewElement
+            console.log("ENTREE AQUIIII"),
+            <AddNewElementContainer
+              onClickAddElement={this.props.onClickAddElement} 
+              actionType={this.props.actionType} 
               activeAddElement={this.props.activeAddElement}
               buttonName=""
               noteTitle={this.props.noteTitle}
@@ -74,13 +79,39 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/add folders' render={() => (
-            <AddNewElement
+            <AddNewElementContainer
+              onClickAddElement={this.props.onClickAddElement} 
+              actionType={this.props.actionType} 
               activeAddElement={this.props.activeAddElement}
               buttonName=""
               noteTitle={this.props.noteTitle}
               idAction={this.props.idAction} />
           )}
-          />  
+          />
+          
+          <Route path='/addTags' render={() => (
+            <TagsContainer
+                tagName={this.props.tagName}
+                addTagEvent={this.props.addTagEvent}
+                showAllTags={this.props.showAllTags}
+                actionType={this.props.actionType}
+                onClickEditTag = {this.props.onClickEditTag}
+                idTagSelected={this.props.idTagSelected}
+               />
+          )}
+          />
+
+          <Route path='/addFolders' render={() => (
+            <FoldersContainer
+              onClickAddElement={this.props.onClickAddElement} 
+              actionType={this.props.actionType} 
+              activeAddElement={this.props.activeAddElement}
+              buttonName=""
+              noteTitle={this.props.noteTitle}
+              idAction={this.props.idAction} />
+          )}
+          />
+
           <Route path="/" render={() => (
             <NotesContainer
               noteTitle={this.props.noteTitle}
