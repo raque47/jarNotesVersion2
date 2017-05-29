@@ -33,10 +33,7 @@ function addNote(req, res) {
 
 //put Note
 function updateNote(req, res) {
-    console.log("UPPPPDATEEEEE!!!");
-    const note = new Note(req.body);
-   // console.log("this is the body" + req.body);
-    note.update(err => {
+    Note.findOneAndUpdate({ _id: req.body._id }, req.body, (err, note) => {
         if (!err) {
             res.status(201);
             res.json(note);
