@@ -67,7 +67,6 @@ class MenuButtons extends React.Component {
   }
   render() {
     return (
-
         <div className="inlineContainer">
         <Link to={`/${this.props.idMainButton}`}>  
           <button id={this.props.idMainButton} onClick= {this.activateHiddenButtons.bind(this)} className="navBar__button  buttons visibleControl "><img src={require(`../../images/${this.props.mainButton}`)} className="navBar__images" data-toggle="tooltip" data-placement="top" title={this.props.tooltipName} /><span className="navElementSpanVisible">{this.props.buttonName}</span></button>

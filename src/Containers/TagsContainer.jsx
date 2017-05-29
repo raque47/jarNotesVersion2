@@ -1,8 +1,8 @@
 import preload from '../../public/db.json';
 import React, { Component } from 'react';
-import Tags from '../Components/Tags/Tags';
+import Tag from '../Components/Tags/Tags';
 import axios from '../../node_modules/axios';
-// import tagsStyle from '../Components/Tags/_tags.scss'
+//import tagsStyle from '../Components/Tags/_tags.scss'
 
 
 class TagsContainer extends React.Component {
@@ -16,7 +16,7 @@ class TagsContainer extends React.Component {
       idTagSelected: ""
     };
     this.showSpecificTag = this.showSpecificTag.bind(this);
-    this.editTag = this.editTag.bind(this);
+    // this.editTag = this.editTag.bind(this);
   } //Close the constructor
 
   componentWillMount() {
@@ -37,15 +37,19 @@ class TagsContainer extends React.Component {
   }
 
   addTag() {
+      console.log("Entre a addTag() en TagContainer")
     const newTag = { tagName: this.props.tagName }
     const self = this;
+    console.log("ANTES DE POST en addTag() en TagContainer")
     axios.post('http://localhost:3000/api/tags', newTag).then(() => {
+       console.log("DESPUESS DE POST en addTag() en TagContainer")
       //Se realiza un get de todas los tags 
       self.getTags();
     });
   }
 
   getTags() {
+    console.log("GET en addTag() en TagContainer")
     const self = this;
     axios.get('http://localhost:3000/api/tags').then(function (response) {
       self.setState({ allTags: response.data, tagEvent: false });
@@ -116,7 +120,7 @@ class TagsContainer extends React.Component {
         }
       }
       console.log("showTag vale: " + showTag);
-      return <TagsContainer
+      return <Tag
         key={item._id}
         tagId={item._id}
         showTag={showTag}

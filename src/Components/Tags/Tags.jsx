@@ -4,12 +4,12 @@ import {Link} from 'react-router-dom';
 class Tags extends React.Component {
   constructor(props) {
     super(props);
-    this.showTag = this.showTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
     this.editTag = this.editTag.bind(this);
   }
  deleteTag(event) {
     const idTagSelected = this.props.tagId;
-    this.props.onClickShowEvent(idTagSelected);
+    this.props.onClickDeleteEvent(idTagSelected);
   }
   editTag(event) {
     console.log("EDIT ** TAAAGGGGGG!!");
@@ -39,5 +39,5 @@ class Tags extends React.Component {
   }
 };
 
-export default Notes;
+export default Tags;
 

@@ -1,10 +1,19 @@
 import React from'react';
 import addNewElementStyle from './_addNewElement.scss';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class AddNewElement extends React.Component {
   constructor(props) {
     super(props);
+    this.sendTagName = this.sendTagName.bind(this);
   }
+  sendTagName(event){
+    const tagName=event.target.value;
+   this.props.getTagName(tagName);
+  }
+
+
+
   render() {
     return (
       <div id="addNewElementForm" className={"addNewElementPanel " + (this.props.activeAddElement ? "addNewElementFormVisible" : "addNewElementFormHidden" )} >
@@ -12,9 +21,12 @@ class AddNewElement extends React.Component {
           <h4>{"Add " + this.props.idAction}</h4>
         </div>
         <div className="formAddNewElement">
-          <input id="addNewElementTittle" type="text" placeholder="Title" className="titleNoteControl" />
+          <input type="text" onChange={this.sendTagName} value={this.props.resetName} placeholder="Title" className="titleNoteControl"  id="addNewElementTittle"  />
           <textarea id="addNewElementContent" className="textAreaAddElement"></textarea>
-          <button id="addNoteButton" className="addNewElementControlButton addNewElementButton"><span className="editionTextControl">Add Tag</span></button>
+          <Link to={"/add"+this.props.idAction}>  
+           <button onClick={this.props.onClickAddElement} id="addElementButton" className="addNewElementControlButton addNewElementButton"><span className="editionTextControl">{"Add " + this.props.idAction}</span></button>
+          </Link>
+        
         </div>
       </div>
     );

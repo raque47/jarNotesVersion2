@@ -15,9 +15,13 @@ class MainContainer extends React.Component {
       idAction: "",
       noteTitle: "",
       noteContent: "",
-      actionType: "viewNotes",
+      tagName: "",
+      actionType: "viewTags",
+      actionTypeElement: "viewElement",
       showAllNotes: true,
-      idNoteSelected: ""
+      showAllTags: false,
+      idNoteSelected: "",
+      idTagSelected: ""
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -25,6 +29,8 @@ class MainContainer extends React.Component {
     this.addElementEvent = this.addElementEvent.bind(this);
     this.addNote = this.addNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.addTag = this.addTag.bind(this);
+    //this.addFolder = this.addFolder.bind(this);
 
   }
   mainButtonEvent(id) {
@@ -94,6 +100,23 @@ class MainContainer extends React.Component {
     console.log("estoy en editNote en note container! con id " + idNoteSelected);
     this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected  });
   }
+
+  addTag(tagName, action) {
+    console.log("ADDD TAGG main container!: ");
+    if (tagName === "") {
+      noteTitle = "No Title"
+    }
+    if(action=="edit"){
+        this.setState({tagName: tagName, showAllNotes: true, actionType: "editTag" });
+    }
+    else{
+        console.log("estoy en el action type ADDD TAGG!!");
+        this.setState({tagName: tagName, showAllTags: true, actionType: "addTag" });
+  }
+
+ // console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent + "este id: " + this.state.idNoteSelected );
+  
+  }
   render() {
     return (
 
@@ -104,6 +127,7 @@ class MainContainer extends React.Component {
           onClickViewEvent={this.viewEvent}
           onClickAddEvent={this.addElementEvent}
           onClickAddNote={this.addNote}
+          onClickAddElement={this.props.addElement} 
           activeSearch={this.state.activeSearch}
           activeView={this.state.activeView}
           activeAddElement={this.state.activeAddElement}
