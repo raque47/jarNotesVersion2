@@ -81,7 +81,7 @@ class InformationPanel extends React.Component {
               idAction={this.props.idAction} />
           )}
           />  
-        { /* <Route path="/" render={() => (
+          <Route path="/" render={() => (
             <NotesContainer
               noteTitle={this.props.noteTitle}
               noteContent={this.props.noteContent}
@@ -91,7 +91,7 @@ class InformationPanel extends React.Component {
               onClickEditNote = {this.props.onClickEditNote}
             />
           )}
-          />  */}
+          />  
         </Switch>
       </div>
     )

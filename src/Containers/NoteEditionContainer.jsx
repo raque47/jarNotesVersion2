@@ -40,6 +40,8 @@ class NoteEditionContainer extends React.Component {
     if(this.props.actionType === "editNote" && this.state.resetControl === false){
       this.state.resetContent = this.props.noteContent;
       this.state.resetTitle = this.props.noteTitle;
+      this.state.noteContent = this.props.noteContent;
+      this.state.noteTitle = this.props.noteTitle
       this.state.editNote = true;
       console.log("estoy en el true de edition note container!");
     }
