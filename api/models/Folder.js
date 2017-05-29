@@ -6,4 +6,4 @@ const folderSchema = new moongose.Schema({
     }
 });
 
-module.exports = mongoose.model('Store', folderSchema);
+module.exports = mongoose.model('folderSchema', folderSchema);

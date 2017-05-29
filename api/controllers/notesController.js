@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// mode lo brete
 const Note = require('../models/Note');
 
 
@@ -49,10 +48,24 @@ function updateNote(req, res) {
     });
 }
 
+//delete Note
+function deleteNote (req, res) {
+    console.log('Deleteeee')
+    note.findByIdAndRemove(req.params.id, (err, data) => {
+    if (!err) {
+      res.status(204).json({});
+    }
+    else {
+      res.status(500).json({});
+    }
+  });
+};
+
 const actions = {
     getNotes,
     addNote,
-    updateNote
+    updateNote,
+    deleteNote
 }
 
 module.exports = actions;
