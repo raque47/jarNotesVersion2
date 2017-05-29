@@ -3,7 +3,7 @@ import EditionBar from '../Components/EditionBar/EditionBar';
 
 
 class EditionBarContainer extends React.Component {
-    constructor(props) {
+constructor(props) {
         super(props);
         this.state = { displayEvent: false };
     }

@@ -52,7 +52,8 @@ class NoteEditionContainer extends React.Component {
       getNoteContent={this.getNoteContent} 
       getNoteTitle={this.getNoteTitle} 
       onClickAddNote={this.addNoteEvent}
-      idNoteSelected = {this.props.idNoteSelected} />
+      idNoteSelected = {this.props.idNoteSelected}
+      modalId = {"foldersModal"} />
     );
   }
 };
