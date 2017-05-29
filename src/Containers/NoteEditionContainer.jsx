@@ -27,13 +27,13 @@ class NoteEditionContainer extends React.Component {
     else{
        this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "add")
     }
-    this.setState({ resetContent: "", resetTitle: "", noteContent:"", noteTitle:""});
+    this.setState({ resetContent: "", resetTitle: "", noteContent:"", noteTitle:"", resetControl:true});
   }
   getNoteContent(textAreaValue) {
-    this.setState({ noteContent: textAreaValue, resetContent: textAreaValue });
+    this.setState({ noteContent: textAreaValue, resetContent: textAreaValue, resetControl:true });
   }
   getNoteTitle(title) {
-    this.setState({ noteTitle: title, resetTitle:title });
+    this.setState({ noteTitle: title, resetTitle:title, resetControl:true });
   }
   render() {
     console.log("action type en note edition cont vale: " + this.props.actionType );

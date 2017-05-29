@@ -41,24 +41,28 @@ class InformationPanel extends React.Component {
                 idAction={this.props.idAction}
                 actionType="viewNotes"
                 onClickEditNote = {this.props.onClickEditNote}
+                idNoteSelected={this.props.idNoteSelected}
+                
               />
             )}
             />
-
             
             <Route path="/addNote" render={() => (
-              this.state.showAddNote ? (             
+               (             
                 <NotesContainer
                 noteTitle={this.props.noteTitle}
                 noteContent={this.props.noteContent}
                 addNoteEvent={this.props.addNoteEvent}
                 showAllNotes={this.props.showAllNotes}
                 actionType={this.props.actionType}
-              />) : (
-                <Redirect to="/"/>              )
+                onClickEditNote = {this.props.onClickEditNote}
+                idNoteSelected={this.props.idNoteSelected}
+              />)            
   
             )}
             />
+    
+         
 
           <Route path='/add tags' render={() => (
             <AddNewElement
@@ -77,16 +81,17 @@ class InformationPanel extends React.Component {
               idAction={this.props.idAction} />
           )}
           />  
-          <Route path="/" render={() => (
+        { /* <Route path="/" render={() => (
             <NotesContainer
               noteTitle={this.props.noteTitle}
               noteContent={this.props.noteContent}
               addNoteEvent={this.props.addNoteEvent}
               showAllNotes={this.props.showAllNotes}
               actionType={this.props.actionType}
+              onClickEditNote = {this.props.onClickEditNote}
             />
           )}
-          />
+          />  */}
         </Switch>
       </div>
     )

@@ -7,7 +7,7 @@ const notesSchema = new mongoose.Schema({
     noteContent:{
         type: String
     },
-    tagsId:{
+    tagsIds:{
         type: Array
     },
     folderId: {

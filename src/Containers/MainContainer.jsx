@@ -91,7 +91,7 @@ class MainContainer extends React.Component {
   
   }
   editNote(noteTitle, noteContent, idNoteSelected){
-    console.log("estoy en editNote en note container!");
+    console.log("estoy en editNote en note container! con id " + idNoteSelected);
     this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected  });
   }
   render() {

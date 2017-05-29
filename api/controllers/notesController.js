@@ -12,14 +12,13 @@ function getNotes(req, res) {
         }
         else {
             res.status(404);
-
+            res.json(err);
         }
     });
 };
 
 //post Note
 function addNote(req, res) {
-    console.log('post: crear nota!!');
     const note = new Note(req.body);
     note.save(err => {
         if (!err) {
@@ -33,9 +32,27 @@ function addNote(req, res) {
     });
 }
 
+//put Note
+function updateNote(req, res) {
+    console.log("UPPPPDATEEEEE!!!");
+    const note = new Note(req.body);
+   // console.log("this is the body" + req.body);
+    note.update(err => {
+        if (!err) {
+            res.status(201);
+            res.json(note);
+        }
+        else {
+            res.status(404);
+            res.json(err);
+        }
+    });
+}
+
 const actions = {
     getNotes,
-    addNote
+    addNote,
+    updateNote
 }
 
 module.exports = actions;

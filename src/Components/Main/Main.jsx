@@ -38,10 +38,15 @@ class Main extends React.Component {
                       <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                         noteTitle={this.props.noteTitle}
                         noteContent={this.props.noteContent}
+                        noteTitle={this.props.noteTitle}
+                        noteContent={this.props.noteContent}
                         actionType={this.props.actionType} 
+                        onClickEditNote = {this.props.onClickEditNote}
+                        idNoteSelected = {this.props.idNoteSelected}
                       />
                     )}/>
-           
+               
+
                   <Route exact path="/" render={() => (
                       <NoteEditionContainer 
                       onClickAddNote={this.props.onClickAddNote} 
