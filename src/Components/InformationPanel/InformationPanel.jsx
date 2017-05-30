@@ -44,7 +44,7 @@ class InformationPanel extends React.Component {
                 actionType="viewNotes"
                 onClickEditNote = {this.props.onClickEditNote}
                 idNoteSelected={this.props.idNoteSelected}
-                
+                showEditionBar = {this.props.showEditionBar}
               />
             )}
             />
@@ -59,6 +59,8 @@ class InformationPanel extends React.Component {
                 actionType={this.props.actionType}
                 onClickEditNote = {this.props.onClickEditNote}
                 idNoteSelected={this.props.idNoteSelected}
+                idSelectedFolder = {this.props.idSelectedFolder}
+                showEditionBar = {this.props.showEditionBar}
               />)            
   
             )}

@@ -7,19 +7,20 @@ constructor(props) {
         super(props);
         this.state = { displayEvent: false };
     }
-    showItemsName() {
-        if (this.state.displayEvent === true) {
+  /*  showItemsName() {
+        if (this.props.editionBarVisible === true) {
             this.setState({ displayEvent: false });
         }
         else {
             this.setState({ displayEvent: true });
         }
-    }
+    } */
     render() {
         return (
             <EditionBar
-                onClickButton={this.showItemsName}
-                displayEvent={this.state.displayEvent} />
+                displayEvent={this.props.editionBarVisible}
+                noteTitle = "This is my first note and I am so happy!"
+                />
         );
     }
 };

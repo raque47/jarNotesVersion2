@@ -3,7 +3,7 @@ const Folder = require('../models/Folder');
 
 
 // get Folders
-exports.getFolders = (req, res) => {
+function getFolders(req, res) {
   console.log('get folderss!!');
   Folder.find().exec(function (err, data) {
     res.status(200);
@@ -12,7 +12,7 @@ exports.getFolders = (req, res) => {
 };
 
 //post Folder
-exports.addFolder = (req, res) => {
+function addFolder(req, res) {
   console.log('Post: Create folder!!');
   const folder = new Folder(req.body);
   folder.save(err => {
@@ -25,3 +25,11 @@ exports.addFolder = (req, res) => {
     }
   });
 };
+
+const actions = {
+    getFolders,
+    addFolder
+}
+
+module.exports = actions;
+
