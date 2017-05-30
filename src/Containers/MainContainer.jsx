@@ -18,10 +18,12 @@ class MainContainer extends React.Component {
       tagName: "",
       actionType: "viewTags",
       actionTypeElement: "viewElement",
+      action: "",
       showAllNotes: true,
       showAllTags: false,
       idNoteSelected: "",
-      idTagSelected: ""
+      idTagSelected: "",
+      showModal: false
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -32,10 +34,11 @@ class MainContainer extends React.Component {
     this.addTag = this.addTag.bind(this);
     this.getTagName= this.getTagName.bind(this);
     //this.addFolder = this.addFolder.bind(this);
+    this.chooseFolder = this.chooseFolder.bind(this);
 
   }
   mainButtonEvent(id) {
-    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id});
+    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id });
   }
 
   searchEvent(id) {
@@ -81,25 +84,27 @@ class MainContainer extends React.Component {
     }
     this.setState({ activeSearch: false, activeView: false, activeAddElement: true, idAction: id, showAllNotes: false, actionType: event });
   }
-  addNote(noteContent, noteTitle, action) {
-    console.log("add note main container!: ");
+  chooseFolder(noteContent, noteTitle, action) {
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
-    if(action=="edit"){
-        this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote" });
-    }
-    else{
-        console.log("estoy en el action type add note!!");
-        this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "addNote" });
-    }
+    console.log("add note main container!: ");
+    this.setState({ action: action, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "chooseFolder", showModal: true });
 
- // console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent + "este id: " + this.state.idNoteSelected );
-  
   }
-  editNote(noteTitle, noteContent, idNoteSelected){
+  addNote() {
+
+    if (this.state.action == "edit") {
+      this.setState({ showAllNotes: true, actionType: "editNote", showModal: false });
+    }
+    else {
+      console.log("estoy en el action type add note!!");
+      this.setState({ showAllNotes: true, actionType: "addNote", showModal: false });
+    }
+  }
+  editNote(noteTitle, noteContent, idNoteSelected) {
     console.log("estoy en editNote en note container! con id " + idNoteSelected);
-    this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected  });
+    this.setState({ noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected });
   }
 
   getTagName(name) {
@@ -122,8 +127,6 @@ class MainContainer extends React.Component {
         this.setState({tagName: tagName, showAllTags: true, actionType: "addTag" });
   }
 
- // console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent + "este id: " + this.state.idNoteSelected );
-  
   }
   render() {
     return (
@@ -134,8 +137,8 @@ class MainContainer extends React.Component {
           onClickSearchEvent={this.searchEvent}
           onClickViewEvent={this.viewEvent}
           onClickAddEvent={this.addElementEvent}
-          onClickAddNote={this.addNote}
-          onClickAddElement={this.props.addElement} 
+          onClickAddNote={this.chooseFolder}
+          onClickAddElement={this.props.addElement}
           activeSearch={this.state.activeSearch}
           activeView={this.state.activeView}
           activeAddElement={this.state.activeAddElement}
@@ -152,6 +155,9 @@ class MainContainer extends React.Component {
           tagName= {this.state.tagName}
           showAllTags= {this.state.showAllTags}
           getTagName={this.getTagName} 
+          showModal={this.state.showModal}
+          onClickAcceptFolder={this.addNote}
+
         />)}
       />
 

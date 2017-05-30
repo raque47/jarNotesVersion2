@@ -1,7 +1,7 @@
 import React from 'react';
-import noteEditionStyle from'./_noteEdition.scss';
+import noteEditionStyle from './_noteEdition.scss';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class NoteEdition extends React.Component {
@@ -9,14 +9,19 @@ class NoteEdition extends React.Component {
     super(props);
     this.sendNoteContent = this.sendNoteContent.bind(this);
     this.sendNoteTitle = this.sendNoteTitle.bind(this);
+    this.addNote = this.addNote.bind(this);
   }
-  sendNoteContent(event){
-    const textAreaValue=event.target.value;
+  sendNoteContent(event) {
+    const textAreaValue = event.target.value;
     this.props.getNoteContent(textAreaValue);
   }
-  sendNoteTitle(event){
-    const noteTitle=event.target.value;
+  sendNoteTitle(event) {
+    const noteTitle = event.target.value;
     this.props.getNoteTitle(noteTitle);
+  }
+  addNote() {
+    this.props.onClickAddNote();
+    this.props.modalId.modal('show');
   }
   render() {
     return (
@@ -26,8 +31,8 @@ class NoteEdition extends React.Component {
         <div className="editionNotesControl">
           <button className="editionButtonControls"><img src={require('../../images/paint-button.svg')} className="navBar__images" data-toggle="tooltip" data-placement="top" title="Font Color" /></button>
           <button className="editionButtonControls"><img src={require('../../images/upload-button.svg')} className="navBar__images" data-toggle="tooltip" data-placement="top" title="Load Image" /></button>
-         <Link to={'/addNote'}>  
-          <button onClick={this.props.onClickAddNote} id="addNoteButton" className="editionButtonControls textButton"><span className="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Save Note</span></button>
+          <Link to={'/addNote'}>
+            <button onClick={this.props.onClickAddNote} id="addNoteButton" className="editionButtonControls textButton"><span className="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Save Note</span></button>
           </Link>
         </div>
       </div>

@@ -7,6 +7,7 @@ const tagController =  require('../controllers/tagsController');
 router.get('/notes', noteAPI.getNotes);
 router.post('/notes', noteAPI.addNote);
 router.put('/notes', noteAPI.updateNote);
+router.delete('/notes', noteAPI.deleteNote);
 
 router.get('/tags', tagController.getTags);
 router.post('/tags', tagController.addTag);

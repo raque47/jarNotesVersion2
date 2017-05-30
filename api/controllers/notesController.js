@@ -47,13 +47,14 @@ function updateNote(req, res) {
 
 //delete Note
 function deleteNote (req, res) {
-    console.log('Deleteeee')
-    note.findByIdAndRemove(req.params.id, (err, data) => {
+    Note.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
     if (!err) {
-      res.status(204).json({});
+      res.status(204);
+      res.json(data);
     }
     else {
-      res.status(500).json({});
+      res.status(500);
+      res.json(err);
     }
   });
 };
