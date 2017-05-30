@@ -17,14 +17,8 @@ class NotesContainer extends React.Component {
     };
     this.showSpecificNote = this.showSpecificNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   } //Close the constructor
-
-  componentWillMount() {
-
-    console.log("action type es:" + this.props.actionType);
-    console.log("ESTOY EN NOTES CONTAINER!!!!");
-
-  }
 
   getAllNotes(showNotes) {
     const self = this;
@@ -45,10 +39,6 @@ class NotesContainer extends React.Component {
 
       //Se realiza un get de todas las notas 
       self.getNotes();
-
-     /* axios.get('http://localhost:3000/api/notes').then(function (response) {
-        self.setState({ allNotes: response.data, noteEvent: false }); 
-      }) */
     });
   }
 
@@ -71,7 +61,15 @@ class NotesContainer extends React.Component {
        self.getNotes();
     })
   }
-
+  deleteNote(idNote){
+     const self = this;
+    const note = {_id: idNote};
+     console.log("id es: " + note + " con id: " + note._id);
+    axios.delete('http://localhost:3000/api/notes',  {data: note}).then(function (response) {
+       //Se realiza un get de todas las notas 
+      self.getNotes();
+    })
+  }
   render() {
     const notes = this.state.allNotes;
     const self = this;
@@ -131,7 +129,8 @@ class NotesContainer extends React.Component {
         textNote={item.noteContent}
         showAllNotes={self.props.showAllNotes}
         onClickShowEvent={self.showSpecificNote}
-        onClickEditEvent={self.editNote} />
+        onClickEditEvent={self.editNote}
+        onClickDeleteEvent = {this.deleteNote} />
     })}</div>;
   }
 }

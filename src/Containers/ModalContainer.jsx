@@ -9,7 +9,8 @@ class ModalContainer extends React.Component {
   }
   render() {
     return (
-      <Modal/>  
+      <Modal  showModal={this.props.showModal}
+      onClickAcceptFolder={this.props.onClickAcceptFolder}/>  
     );
   }
 };

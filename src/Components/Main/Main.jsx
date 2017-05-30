@@ -5,7 +5,7 @@ import NavBar from '../NavBar/NavBar';
 import NoteEditionContainer from '../../Containers/NoteEditionContainer';
 import EditionBarContainer from '../../Containers/EditionBarContainer';
 import InformationPanel from '../InformationPanel/InformationPanel';
-import Modal from '../Modal/Modal'
+import ModalContainer from '../../Containers/ModalContainer'
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
@@ -94,7 +94,8 @@ class Main extends React.Component {
           </div>
 
         </div>
-        <Modal />
+        <ModalContainer showModal={this.props.showModal}
+        onClickAcceptFolder={this.props.onClickAcceptFolder} />
       </div>
 
     );

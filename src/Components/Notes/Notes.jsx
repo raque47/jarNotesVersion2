@@ -7,6 +7,7 @@ class Notes extends React.Component {
     super(props);
     this.showNote = this.showNote.bind(this);
     this.editNote = this.editNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
  showNote(event) {
     const idNoteSelected = this.props.noteId;
@@ -18,6 +19,10 @@ class Notes extends React.Component {
     const noteTitleSelected = this.props.titleNote;
     const noteContentSelected = this.props.textNote;
     this.props.onClickEditEvent(idNoteSelected, noteTitleSelected, noteContentSelected);
+  }
+  deleteNote(event){
+    const idNoteSelected = this.props.noteId;
+    this.props.onClickDeleteEvent(idNoteSelected);
   }
   render() {
     return (
@@ -35,6 +40,10 @@ class Notes extends React.Component {
                   src={require("../../images/edit-button.svg")}
                   className="navBar__images" /></button>
           </Link>
+            <button className="buttons infoPanelButtons"
+                onClick={this.deleteNote}><img
+                  src={require("../../images/trash-orange-button.svg")}
+                  className="navBar__images" /></button>
         </div>
         <p className={"noteContentFont " + (this.props.showNote ?
           "showComponent showNoteAnimation" :
