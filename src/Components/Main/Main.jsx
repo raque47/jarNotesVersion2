@@ -72,9 +72,6 @@ class Main extends React.Component {
                 )} />
 
               </Switch>
-
-
-
             </div>
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
               <InformationPanelContainer

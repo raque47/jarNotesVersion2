@@ -130,7 +130,6 @@ class MainContainer extends React.Component {
   }
   render() {
     return (
-
       <Route path="/" render={() => (
         <Main
           onClickMainButtonEvent={this.mainButtonEvent.bind(this)}
