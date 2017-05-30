@@ -74,7 +74,8 @@ class InformationPanel extends React.Component {
               activeAddElement={this.props.activeAddElement}
               buttonName=""
               noteTitle={this.props.noteTitle}
-              idAction={this.props.idAction} />
+              idAction={this.props.idAction}
+              getTagName={this.getTagName}  />
           )}
           />
 
@@ -85,11 +86,13 @@ class InformationPanel extends React.Component {
               activeAddElement={this.props.activeAddElement}
               buttonName=""
               noteTitle={this.props.noteTitle}
-              idAction={this.props.idAction} />
+              idAction={this.props.idAction}
+               getTagName={this.getTagName}  />
           )}
           />
           
           <Route path='/addTags' render={() => (
+            console.log("ENTREE A addtags"),
             <TagsContainer
                 tagName={this.props.tagName}
                 addTagEvent={this.props.addTagEvent}
@@ -97,6 +100,7 @@ class InformationPanel extends React.Component {
                 actionType={this.props.actionType}
                 onClickEditTag = {this.props.onClickEditTag}
                 idTagSelected={this.props.idTagSelected}
+                onClickAddTag={this.props.onClickAddTag}
                />
           )}
           />
@@ -113,6 +117,7 @@ class InformationPanel extends React.Component {
           />
 
           <Route path="/" render={() => (
+            console.log("ENTREE AQUIIII"),
             <NotesContainer
               noteTitle={this.props.noteTitle}
               noteContent={this.props.noteContent}

@@ -9,10 +9,10 @@ class AddNewElement extends React.Component {
   }
   sendTagName(event){
     const tagName=event.target.value;
-   this.props.getTagName(tagName);
+    console.log("tagName ESS: " +tagName );
+    this.props.getTagName(tagName);
+
   }
-
-
 
   render() {
     return (
@@ -21,8 +21,7 @@ class AddNewElement extends React.Component {
           <h4>{"Add " + this.props.idAction}</h4>
         </div>
         <div className="formAddNewElement">
-          <input type="text" onChange={this.sendTagName} value={this.props.resetName} placeholder="Title" className="titleNoteControl"  id="addNewElementTittle"  />
-          <textarea id="addNewElementContent" className="textAreaAddElement"></textarea>
+          <textarea type="text" onChange={this.sendTagName} value={this.props.resetName} placeholder="Title"  id="addNewElementTittle" className="textAreaAddElement"></textarea>
           <Link to={"/add"+this.props.idAction}>  
            <button onClick={this.props.onClickAddElement} id="addElementButton" className="addNewElementControlButton addNewElementButton"><span className="editionTextControl">{"Add " + this.props.idAction}</span></button>
           </Link>

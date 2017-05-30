@@ -13,9 +13,8 @@ class TagsContainer extends React.Component {
       allTags: [],
       tagEvent: true,
       showSpecificTag: false,
-      idTagSelected: ""
     };
-    this.showSpecificTag = this.showSpecificTag.bind(this);
+    this.deleteSpecificTag = this.deleteSpecificTag.bind(this);
     // this.editTag = this.editTag.bind(this);
   } //Close the constructor
 
@@ -24,29 +23,39 @@ class TagsContainer extends React.Component {
     console.log("ESTOY EN TAGSS* CONTAINER!!!!");
   }
 
+  componentDidMount() {   
+
+    this.getAllTags();
+  }
+
   getAllTags(showTags) {
     const self = this;
     let result;
 
   }
 
-  showSpecificTag(id) {
+  deleteSpecificTag(id) {
     console.log("show specific tag***!");
     this.setState({ showSpecificTag: true, idTagSelected: id, tagEvent: false });
 
   }
 
   addTag() {
-      console.log("Entre a addTag() en TagContainer")
-    const newTag = { tagName: this.props.tagName }
+    console.log("Entre a addTag() en TagContainer")
+    console.log("ESTE SI DEBE SALIR "+ this.props.tagName  )
+    const newTag = { name: this.props.tagName }
     const self = this;
-    console.log("ANTES DE POST en addTag() en TagContainer")
+    console.log("DESPUES **"+ newTag )
+    console.log("ESTE SI DEBE SALIR "+ this.props.tagName  )
+    console.log("DESPUES  this.props.tagName**"+  this.props.tagName )
     axios.post('http://localhost:3000/api/tags', newTag).then(() => {
-       console.log("DESPUESS DE POST en addTag() en TagContainer")
+    console.log("DESPUESS DE POST en addTag() en TagContainer")
+       console.log("DESPUES neee tagg**"+ newTag )
       //Se realiza un get de todas los tags 
       self.getTags();
     });
   }
+
 
   getTags() {
     console.log("GET en addTag() en TagContainer")
@@ -126,7 +135,7 @@ class TagsContainer extends React.Component {
         showTag={showTag}
         tagName={item.tagName}
         showAllTags={self.props.showAllTags}
-        onClickShowEvent={self.showSpecificTag}
+        onClickDeleteEvent={self.deleteSpecificTag}
         onClickEditEvent={self.editTag} />
     })}</div>;
   }

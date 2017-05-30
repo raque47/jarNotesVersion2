@@ -14,7 +14,7 @@ class AddNewElementContainer extends React.Component {
       deleteTag: false
     }
     this.addTagEvent = this.addTagEvent.bind(this);
-    this.getTag = this.getTag.bind(this);
+    this.getTagName = this.getTagName.bind(this);
   }
   addTagEvent() {
     console.log("!!!!EEEEstoy en add tag/folder de note adenewelement container! !");
@@ -22,16 +22,17 @@ class AddNewElementContainer extends React.Component {
       this.props.onClickAddElement(this.state.tagName, "edit")
     }
     else{
-        if (this.props.actionType=="editTag"){
-            this.props.onClickAddElement(this.state.tagName, "add")
+        if (this.props.actionType=="deleteTag"){
+            this.props.onClickAddElement(this.state.tagName, "delete")
         }
         else{ //delete tag
-            this.props.onClickAddElement(this.state.tagName, "delete")   
+            this.props.onClickAddElement(this.state.tagName, "add")   
         }
     }
     this.setState({ resetName: "", tagName:"", resetControl:true});
   }
-  getTag(name) {
+  getTagName(name) {
+    console.log("ESTOY EN ADD NEW ELEMENT CONTAINER");
     this.setState({ tagName: name, resetName:name, resetControl:true });
   }
   render() {
@@ -47,7 +48,7 @@ class AddNewElementContainer extends React.Component {
     return (
       <AddNewElement 
         resetName={this.state.resetName} 
-        getTagName={this.getTag} 
+        getTagName={this.getTagName} 
         onClickAddElement={this.addTagEvent}
         idTagSelected = {this.props.idTagSelected} 
         onClickAddElement={this.props.onClickAddElement} 

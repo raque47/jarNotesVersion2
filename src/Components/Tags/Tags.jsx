@@ -22,7 +22,7 @@ class Tags extends React.Component {
       <div id= {this.props.tagId} className={"infoPanelElements borderStyle " +
         (this.props.showAllTags ? "showComponent" : "hideComponent")} >
         <div className= "headerNoteContainer" >
-          <span className="noteAddedTitle">{this.props.name}</span>
+          <span className="noteAddedTitle">{this.props.tagName}</span>
           <button className="buttons infoPanelButtons"
             onClick={this.deleteTag}><img
               src={require("../../images/trash-button.svg")}

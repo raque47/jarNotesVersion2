@@ -30,6 +30,7 @@ class MainContainer extends React.Component {
     this.addNote = this.addNote.bind(this);
     this.editNote = this.editNote.bind(this);
     this.addTag = this.addTag.bind(this);
+    this.getTagName= this.getTagName.bind(this);
     //this.addFolder = this.addFolder.bind(this);
 
   }
@@ -101,16 +102,23 @@ class MainContainer extends React.Component {
     this.setState({noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected  });
   }
 
+  getTagName(name) {
+    console.log("ESTOY EN MAIN CONTAINER" + tagName );
+    this.setState({ tagName: name, resetName:name, resetControl:true });
+  }
+
   addTag(tagName, action) {
-    console.log("ADDD TAGG main container!: ");
-    if (tagName === "") {
-      noteTitle = "No Title"
+    console.log("aaaaaa!: ");
+    if (tagtagName === "") {
+      tagName = "No Title"
+       console.log("bbbbb!: ");
     }
     if(action=="edit"){
         this.setState({tagName: tagName, showAllNotes: true, actionType: "editTag" });
+         console.log("cccccccccc!: ");
     }
     else{
-        console.log("estoy en el action type ADDD TAGG!!");
+        console.log("dddddd EN MAINCONTAINER!: " + tagName);
         this.setState({tagName: tagName, showAllTags: true, actionType: "addTag" });
   }
 
@@ -139,6 +147,11 @@ class MainContainer extends React.Component {
           showAllNotes={this.state.showAllNotes}
           onClickEditNote={this.editNote}
           idNoteSelected={this.state.idNoteSelected}
+          onClickAddTag={this.addTag}
+          idTagSelected = {this.state.idTagSelected}
+          tagName= {this.state.tagName}
+          showAllTags= {this.state.showAllTags}
+          getTagName={this.getTagName} 
         />)}
       />
 

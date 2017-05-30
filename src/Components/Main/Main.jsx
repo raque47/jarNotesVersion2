@@ -5,7 +5,8 @@ import NavBar from '../NavBar/NavBar';
 import NoteEditionContainer from '../../Containers/NoteEditionContainer';
 import EditionBarContainer from '../../Containers/EditionBarContainer';
 import InformationPanel from '../InformationPanel/InformationPanel';
-
+import AddNewElementContainer from '../../Containers/AddNewElementContainer';
+import InformationPanelContainer from '../../Containers/InformationPanelContainer';
 import {Link, Route, Switch, BrowserRouter} from 'react-router-dom';
 
 
@@ -35,7 +36,8 @@ class Main extends React.Component {
 
                 <Switch>
                   <Route path="/editNote" render={() => (
-                      <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
+                      <NoteEditionContainer 
+                        onClickAddNote={this.props.onClickAddNote}
                         noteTitle={this.props.noteTitle}
                         noteContent={this.props.noteContent}
                         noteTitle={this.props.noteTitle}
@@ -46,16 +48,7 @@ class Main extends React.Component {
                       />
                     )}/>
 
-             <Route path='/add folders' render={() => (
-            <AddNewElementContainer
-              onClickAddElement={this.props.onClickAddElement} 
-              actionType={this.props.actionType} 
-              activeAddElement={this.props.activeAddElement}
-              buttonName=""
-              noteTitle={this.props.noteTitle}
-              idAction={this.props.idAction} />
-          )}
-          />
+          
 
                   <Route exact path="/" render={() => (
                       <NoteEditionContainer 
@@ -74,7 +67,7 @@ class Main extends React.Component {
                 </Switch>
                 </div>
                 <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
-                  <InformationPanel
+                  <InformationPanelContainer
                     onClickMainButtonEvent={this.props.mainButtonEvent}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
@@ -85,8 +78,15 @@ class Main extends React.Component {
                     actionType={this.props.actionType}
                     showAllNotes={this.props.showAllNotes}
                     onClickEditNote = {this.props.onClickEditNote}
-                    idNoteSelected = {this.props.idNoteSelected}>
-                    </InformationPanel>
+                    idNoteSelected = {this.props.idNoteSelected}
+                    onClickAddTag={this.props.onClickAddTag}
+                    idTagSelected = {this.props.idTagSelected}
+                    tagName= {this.props.tagName}
+                    showAllTags= {this.props.showAllTags} 
+                    getTagName={this.props.getTagName} 
+                    onClickAddTag = {this.props.onClickAddTag}
+                    >
+                    </InformationPanelContainer>
                 </div>
               </div>
             </div>
