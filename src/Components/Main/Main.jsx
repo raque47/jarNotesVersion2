@@ -4,9 +4,13 @@ import image from '../../images/logo.png';
 import NavBar from '../NavBar/NavBar';
 import NoteEditionContainer from '../../Containers/NoteEditionContainer';
 import EditionBarContainer from '../../Containers/EditionBarContainer';
-import InformationPanel from '../InformationPanel/InformationPanel';
+import AddNewElementContainer from '../../Containers/AddNewElementContainer';
+import InformationPanelContainer from '../../Containers/InformationPanelContainer';
 import ModalContainer from '../../Containers/ModalContainer'
+<<<<<<< HEAD
 import mainStyle from './_main.scss'
+=======
+>>>>>>> 0d7d447012939a858b8bb29c4f48606e6d46fa41
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
@@ -35,7 +39,6 @@ class Main extends React.Component {
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
-                    noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
                     actionType={this.props.actionType}
                     onClickEditNote={this.props.onClickEditNote}
@@ -56,7 +59,6 @@ class Main extends React.Component {
                 )}
                 />
 
-
                 <Route exact path="/" render={() => (
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
@@ -76,7 +78,7 @@ class Main extends React.Component {
 
 
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
-              <InformationPanel
+              <InformationPanelContainer
                 onClickMainButtonEvent={this.props.mainButtonEvent}
                 activeSearch={this.props.activeSearch}
                 activeView={this.props.activeView}
@@ -88,22 +90,32 @@ class Main extends React.Component {
                 showAllNotes={this.props.showAllNotes}
                 onClickEditNote={this.props.onClickEditNote}
                 idNoteSelected={this.props.idNoteSelected}
+                onClickAddTag={this.props.onClickAddTag}
+                idTagSelected={this.props.idTagSelected}
+                tagName={this.props.tagName}
+                showAllTags={this.props.showAllTags}
+                getTagName={this.props.getTagName}
+                onClickAddTag={this.props.onClickAddTag}
                 idSelectedFolder = {this.props.idSelectedFolder}
                 showEditionBar = {this.props.showEditionBar}>
-              </InformationPanel>
+              </InformationPanelContainer>
             </div>
 
 
 <div className="col-md-1 firstElement">
               <EditionBarContainer editionBarVisible = {this.props.editionBarVisible} />
+            </div> 
+              
+
             </div>
 
           </div>
 
-        </div>
+
         <ModalContainer showModal={this.props.showModal}
         onClickAcceptFolder={this.props.onClickAcceptFolder}
-        actionType={this.props.actionType} />
+        actionType={this.props.actionType}/>
+
       </div>
 
     );

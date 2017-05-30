@@ -34,6 +34,8 @@ class MainContainer extends React.Component {
     this.addNote = this.addNote.bind(this);
     this.editNote = this.editNote.bind(this);
     this.addTag = this.addTag.bind(this);
+    this.getTagName= this.getTagName.bind(this);
+    //this.addFolder = this.addFolder.bind(this);
     this.chooseFolder = this.chooseFolder.bind(this);
     this.showEditionBar = this.showEditionBar.bind(this);
 
@@ -108,20 +110,25 @@ class MainContainer extends React.Component {
     this.setState({ noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "editNote", idNoteSelected: idNoteSelected });
   }
 
-  addTag(tagName, action) {
-    console.log("ADDD TAGG main container!: ");
-    if (tagName === "") {
-      noteTitle = "No Title"
-    }
-    if (action == "edit") {
-      this.setState({ tagName: tagName, showAllNotes: true, actionType: "editTag" });
-    }
-    else {
-      console.log("estoy en el action type ADDD TAGG!!");
-      this.setState({ tagName: tagName, showAllTags: true, actionType: "addTag" });
-    }
+  getTagName(name) {
+    console.log("ESTOY EN MAIN CONTAINER" + tagName );
+    this.setState({ tagName: name, resetName:name, resetControl:true });
+  }
 
-    // console.log("El titulo de la nota a editar es: " + noteTitle + " con este contenido: " + noteContent + "este id: " + this.state.idNoteSelected );
+  addTag(tagName, action) {
+    console.log("aaaaaa!: ");
+    if (tagtagName === "") {
+      tagName = "No Title"
+       console.log("bbbbb!: ");
+    }
+    if(action=="edit"){
+        this.setState({tagName: tagName, showAllNotes: true, actionType: "editTag" });
+         console.log("cccccccccc!: ");
+    }
+    else{
+        console.log("dddddd EN MAINCONTAINER!: " + tagName);
+        this.setState({tagName: tagName, showAllTags: true, actionType: "addTag" });
+  }
 
   }
   showEditionBar(){
@@ -130,7 +137,6 @@ class MainContainer extends React.Component {
   }
   render() {
     return (
-
       <Route path="/" render={() => (
         <Main
           onClickMainButtonEvent={this.mainButtonEvent.bind(this)}
@@ -150,6 +156,11 @@ class MainContainer extends React.Component {
           showAllNotes={this.state.showAllNotes}
           onClickEditNote={this.editNote}
           idNoteSelected={this.state.idNoteSelected}
+          onClickAddTag={this.addTag}
+          idTagSelected = {this.state.idTagSelected}
+          tagName= {this.state.tagName}
+          showAllTags= {this.state.showAllTags}
+          getTagName={this.getTagName} 
           showModal={this.state.showModal}
           onClickAcceptFolder={this.addNote}
           idSelectedFolder = {this.state.idSelectedFolder}

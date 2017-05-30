@@ -13,26 +13,39 @@ class AddNewElementContainer extends React.Component {
       editTag:false,
       deleteTag: false
     }
-    this.addTagEvent = this.addTagEvent.bind(this);
-    this.getTag = this.getTag.bind(this);
+    this.addEvent = this.addEvent.bind(this);
+    this.setTagName = this.setTagName.bind(this);
   }
-  addTagEvent() {
-    console.log("!!!!EEEEstoy en add tag/folder de note adenewelement container! !");
-    if(this.props.actionType=="editTag"){
-      this.props.onClickAddElement(this.state.tagName, "edit")
+  addEvent() {
+    if(this.props.idAction === 'Tags'){
+        console.log("!!AddEvent (tags) Entre a"+this.props.idAction);
+        this.props.onClickAddElement(this.state.tagName, "add");
+        //this.onClickAddElement(this.state.tagName, "add");
+        console.log("AddEvent y mi tagName es:" + this.state.tagName);
     }
-    else{
-        if (this.props.actionType=="editTag"){
-            this.props.onClickAddElement(this.state.tagName, "add")
-        }
-        else{ //delete tag
-            this.props.onClickAddElement(this.state.tagName, "delete")   
-        }
+    else{ // es Folders
+        console.log("!!AddEvent(folder)Entre a"+this.props.idAction);
     }
-    this.setState({ resetName: "", tagName:"", resetControl:true});
+    // if(this.props.actionType=="editTag"){
+    //   this.props.onClickAddElement(this.state.tagName, "edit")
+    // }
+    // else{
+    //     if (this.props.actionType=="deleteTag"){
+    //         this.props.onClickAddElement(this.state.tagName, "delete")
+    //     }
+    //     else{ //delete tag
+    //         this.props.onClickAddElement(this.state.tagName, "add")   
+    //     }
+    // }
+    // this.setState({ resetName: "", tagName:"", resetControl:true});
   }
-  getTag(name) {
+  setTagName(name) {
+    console.log("Entre a setTagName y mi name ANTES es::" + name);
+    console.log("Entre a setTagName y mi tagName ANTES es:" + this.state.tagName);
     this.setState({ tagName: name, resetName:name, resetControl:true });
+    this.state.tagName = name;
+    console.log("Entre a setTagName y mi name DESPUES es::" + name);
+    console.log("Entre a setTagName y mi tagName DESPUES es:" + this.state.tagName);
   }
   render() {
     console.log("EN ADD NEW ELEMENTE ACTIONTYPE vale: " + this.props.actionType );
@@ -45,17 +58,16 @@ class AddNewElementContainer extends React.Component {
 
     }
     return (
-      <AddNewElement 
+      <AddNewElement
         resetName={this.state.resetName} 
-        getTagName={this.getTag} 
-        onClickAddElement={this.addTagEvent}
+        getTagName={this.getTagName} 
+        onClickAddElement={this.addEvent}
         idTagSelected = {this.props.idTagSelected} 
-        onClickAddElement={this.props.onClickAddElement} 
         actionType={this.props.actionType} 
         activeAddElement={this.props.activeAddElement}
         buttonName=""
-        noteTitle={this.props.noteTitle}
         idAction={this.props.idAction} 
+        setTagName = {this.setTagName}
       />
 
     
