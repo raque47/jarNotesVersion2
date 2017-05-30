@@ -7,10 +7,8 @@ import EditionBarContainer from '../../Containers/EditionBarContainer';
 import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import InformationPanelContainer from '../../Containers/InformationPanelContainer';
 import ModalContainer from '../../Containers/ModalContainer'
-<<<<<<< HEAD
 import mainStyle from './_main.scss'
-=======
->>>>>>> 0d7d447012939a858b8bb29c4f48606e6d46fa41
+
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
