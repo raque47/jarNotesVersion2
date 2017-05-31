@@ -5,7 +5,6 @@ const tagController =  require('../controllers/tagsController');
 const foldersController =  require('../controllers/foldersController');
 const folderController =  require('../controllers/foldersController');
 
-
 router.get('/notes', noteAPI.getNotes);
 router.post('/notes', noteAPI.addNote);
 router.put('/notes', noteAPI.updateNote);

@@ -64,8 +64,6 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/folders' render={() => (
-            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
-            console.log("WIWIIWIWIWI elementName" +this.props.elementName),
             <FoldersContainer
               elementName={this.props.elementName}
               addFolderEvent={false}
@@ -132,7 +130,6 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/addFolders' render={() => (
-            console.log("WIWIIWIWIW elementName" +this.props.elementName),
             <FoldersContainer
               elementName={this.props.elementName}
               addFolderEvent={this.props.addTagEvent}

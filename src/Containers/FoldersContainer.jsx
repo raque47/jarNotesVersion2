@@ -15,7 +15,7 @@ class FoldersContainer extends React.Component {
     this.getAllFolders = this.getAllFolders.bind(this);
     this.addFolder = this.addFolder.bind(this);
     this.getFolders = this.getFolders.bind(this);
-    this.editFolder = this.editFolder.bind(this);
+   // this.editFolder = this.editFolder.bind(this);
     this.updateFolder = this.updateFolder.bind(this);
     this.deleteFolder = this.deleteFolder.bind(this);
     this.addEvent = this.addEvent.bind(this);
@@ -42,12 +42,12 @@ class FoldersContainer extends React.Component {
     })
   }
 
-  editFolder(idFolderSelected, elementName) {
-    this.props.onClickEditFolder(elementName, idFolderSelected);
-    console.log("Edit folder");
-  }
-  updateFolder() {
-    const newFolder = { _id: this.props.idFolderSelected, elementName: this.props.elementName }
+  // editFolder(idFolderSelected, elementName) {
+  //   this.props.onClickEditFolder(elementName, idFolderSelected);
+  //   console.log("Edit folder");
+  // }
+  updateFolder(idFolderSelected, elementName) {
+    const newFolder = { _id: idFolderSelected, elementName: elementName }
     const self = this;
     axios.put('http://localhost:3000/api/folders', newFolder).then(function (response) {
       self.getFolders();
@@ -81,15 +81,8 @@ class FoldersContainer extends React.Component {
     const folders = this.state.allFolders;
     const self = this;
     let showFolder = false;
-    console.log("VIEWWWWW WOWOW");
-    console.log("Folders:" + folders);
-    console.log("id:" + folders.id);
-    console.log("idAction" + folders.idAction);
-    console.log("idFolderSelected" + folders.idFolderSelected);
-    console.log("item" + folders.item);
     switch (this.props.actionType) {
       case "viewFolders":
-        console.log("VIEWWWWW WOWOW");
         if (this.state.folderEvent === true) {
           this.getFolders();
           console.log("Hice el getFolders");
@@ -136,7 +129,7 @@ class FoldersContainer extends React.Component {
                 showAllFolders={self.props.showAllFolders}
                 onClickShowEvent={self.showSpecificFolder}
                 onClickDeleteEvent={this.deleteFolder}
-                onClickEditEvent={self.editFolder}
+                onClickEditEvent={self.updateFolder}
                 setFolderName={this.setFolderName}
               />
             );

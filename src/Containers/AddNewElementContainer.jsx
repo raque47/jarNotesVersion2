@@ -49,8 +49,6 @@ class AddNewElementContainer extends React.Component {
         idAction={this.props.idAction} 
         setTagName = {this.setTagName}
       />
-
-    
     );
   }
 };
