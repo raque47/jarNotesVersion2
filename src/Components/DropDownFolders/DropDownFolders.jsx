@@ -8,14 +8,13 @@ class DropDownFolders extends React.Component {
     this.getFolder = this.getFolder.bind(this);
   }
   getFolder(event) {
-   this.props.getFolderId(event.target.id);
-    console.log("el id en DROP DOWN FOLDER es: " + event.target.id);
+   this.props.getFolderId(event.target.id, event.target.value );
   }
   render() {
     return (
       <ul className="dropdown-menu">
         {this.props.folders.map((item) => {
-          return <li key={item._id}><button id={item._id} onClick={this.getFolder} className="btnDropDown">{item.name}</button> </li>
+          return <li key={item._id}><button id={item._id} onClick={this.getFolder} value={item.name} className="btnDropDown">{item.name}</button> </li>
         })}
       </ul>
     );

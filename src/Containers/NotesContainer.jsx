@@ -27,6 +27,7 @@ class NotesContainer extends React.Component {
   }
 
   addNote() {
+    console.log("el id del folder a agregar con nota es: " + this.props.idSelectedFolder);
     const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: this.props.idSelectedFolder }
     const self = this;
     axios.post('http://localhost:3000/api/notes', newNote).then(() => {
@@ -116,8 +117,6 @@ class NotesContainer extends React.Component {
     return <div className="containerOfElements">{notes.map((item) => {
       showNote = false;
       if (this.state.showSpecificNote === true) {
-        //    console.log("el id es: " + this.state.idNoteSelected);
-        //    console.log("entre a show specific note!! verdadero")
         if (item._id === this.state.idNoteSelected) {
           showNote = true;
         }
@@ -132,7 +131,9 @@ class NotesContainer extends React.Component {
         showAllNotes={self.props.showAllNotes}
         onClickShowEvent={self.showSpecificNote}
         onClickEditEvent={self.editNote}
-        showEditionBar={self.props.showEditionBar} />
+        showEditionBar={self.props.showEditionBar}
+        idFolder={item.folderId} 
+        getFolderName={this.props.getFolderName}/>
     })}</div>;
   }
 }

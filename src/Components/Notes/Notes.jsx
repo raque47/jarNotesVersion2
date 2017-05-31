@@ -12,9 +12,11 @@ class Notes extends React.Component {
     const noteTitleSelected = this.props.titleNote;
     const noteContentSelected = this.props.textNote;
     this.props.onClickShowEvent(idNoteSelected);
-    
+   // this.props.getNoteInfo(idNoteSelected);
+   console.log("El folder al que pertenece esa nota es: " + this.props.idFolder);
     //Se debe llamar a la barra de edición
-    this.props.showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected );
+   // this.props.getFolderName(this.props.idFolder);
+    this.props.showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected, this.props.idFolder);
   }
   render() {
     return (

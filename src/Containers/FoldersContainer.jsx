@@ -19,6 +19,7 @@ class FoldersContainer extends React.Component {
     this.updateFolder = this.updateFolder.bind(this);
     this.deleteFolder = this.deleteFolder.bind(this);
     this.addEvent = this.addEvent.bind(this);
+    this.getFolderName = this.getFolderName.bind(this);
   }
   getAllFolders(showFolders) {
     const self = this;
@@ -69,6 +70,9 @@ class FoldersContainer extends React.Component {
       console.log("AddEvent y mi folderName es:" + this.state.folderName);
     }
   }
+  getFolderName(){
+    console.log("ESTOY EN OBTENER NOMBRE DEL FOLDER CON ESTE ID: " + this.props.idSelectedFolder );
+  }
 
   render() {
 
@@ -82,6 +86,7 @@ class FoldersContainer extends React.Component {
     console.log("idFolderSelected" + folders.idFolderSelected);
     console.log("item" + folders.item);
     switch (this.props.actionType) {
+
       case "viewFolders":
         console.log("VIEWWWWW WOWOW");
         if (this.state.folderEvent === true) {
@@ -115,9 +120,19 @@ class FoldersContainer extends React.Component {
           this.state.folderEvent = true;
         }
         break;
+      case "editFolderNote":
+        if (this.state.folderEvent === true) {
+          this.getFolderName(this.props.idSelectedFolder);
+          this.state.folderEvent = false;
+        }
+        else {
+          this.state.folderEvent = true;
+        }
+        break;
     }
 
     return (
+
       <div className="containerOfElements">
         {
           folders.map((item) => {

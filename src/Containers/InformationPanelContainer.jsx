@@ -12,10 +12,12 @@ class InformationPanelContainer extends React.Component {
       resetName: "",
       resetControl: false,
       editTag:false,
-      deleteTag: false
+      deleteTag: false,
+      idFolderNoteEdited:""
     }
     this.addElement = this.addElement.bind(this);
     this.setTagName = this.setTagName.bind(this);
+    this.getFolderName = this.getFolderName.bind(this);
   }
   setTagName (name){
     console.log("Entre a setTagName y mi name ANTES es::" + name);
@@ -38,6 +40,9 @@ class InformationPanelContainer extends React.Component {
    // else{ // es Folders
       // console.log("!!AddEvent(folder)Entre a"+ this.idAction);
    // }
+  }
+  getFolderName(idFolder){
+    this.setState({idFolderNoteEdited: idFolder});
   }
   render() {
     return (
@@ -65,6 +70,9 @@ class InformationPanelContainer extends React.Component {
           addTagEvent={this.props.addTagEvent}
           onClickEditTag={this.props.onClickEditTag}
           showEditionBar={this.props.showEditionBar}
+          idSelectedFolder={this.props.idSelectedFolder}
+          getFolderName={this.getFolderName}
+          idFolderNoteEdited = {this.state.idFolderNoteEdited}
            >
 
         </InformationPanel>
