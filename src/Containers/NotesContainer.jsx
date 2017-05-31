@@ -52,25 +52,23 @@ class NotesContainer extends React.Component {
     console.log("ENTRE A HACER UPDATE!" + this.props.idNoteSelected);
     const self = this;
     axios.put('http://localhost:3000/api/notes', newNote).then(function (response) {
-       self.getNotes();
+      self.getNotes();
     })
   }
-  deleteNote(idNote){
-     const self = this;
-    const note = {_id: idNote};
-     console.log("id es: " + note + " con id: " + note._id);
-    axios.delete('http://localhost:3000/api/notes',  {data: note}).then(function (response) {
-       //Se realiza un get de todas las notas 
+  deleteNote() {
+    const self = this;
+    const note = { _id: this.props.idNoteSelected };
+    console.log("id es: " + note + " con id: " + note._id);
+    axios.delete('http://localhost:3000/api/notes', { data: note }).then(function (response) {
+      //Se realiza un get de todas las notas 
       self.getNotes();
     })
   }
   render() {
     const notes = this.state.allNotes;
     const self = this;
-    console.log("ENTRE A RENDER DE UNA VEZ!");
-
     let showNote = false;
-
+    console.log("el action type en notes container es: " + this.props.actionType);
     switch (this.props.actionType) {
       case "viewNotes":
         console.log("VIEW NOTES EVENT!!");
@@ -95,9 +93,19 @@ class NotesContainer extends React.Component {
       case "searchNotes":
         break;
       case "editNote":
-        console.log("ID EN ACTION NOTES CONTAINER ES: " + this.props.idNoteSelected);
+        //  console.log("ID EN ACTION NOTES CONTAINER ES: " + this.props.idNoteSelected);
         if (this.state.noteEvent === true) {
           this.updateNote();
+          this.state.noteEvent = false;
+        }
+        else {
+          this.state.noteEvent = true;
+        }
+        break;
+      case "deleteNote":
+        console.log("VOY A ELIMINAR NOTA!!!!!");
+        if (this.state.noteEvent === true) {
+          this.deleteNote();
           this.state.noteEvent = false;
         }
         else {
@@ -108,13 +116,13 @@ class NotesContainer extends React.Component {
     return <div className="containerOfElements">{notes.map((item) => {
       showNote = false;
       if (this.state.showSpecificNote === true) {
-        console.log("el id es: " + this.state.idNoteSelected);
-        console.log("entre a show specific note!! verdadero")
+        //    console.log("el id es: " + this.state.idNoteSelected);
+        //    console.log("entre a show specific note!! verdadero")
         if (item._id === this.state.idNoteSelected) {
           showNote = true;
         }
       }
-      console.log("showNote vale: " + showNote);
+      //    console.log("showNote vale: " + showNote + " SHOW EDITION BAR VALE: " + self.props.showEditionBar );
       return <Notes
         key={item._id}
         noteId={item._id}
@@ -124,8 +132,7 @@ class NotesContainer extends React.Component {
         showAllNotes={self.props.showAllNotes}
         onClickShowEvent={self.showSpecificNote}
         onClickEditEvent={self.editNote}
-        onClickDeleteEvent = {this.deleteNote}
-        showEditionBar={this.props.showEditionBar} />
+        showEditionBar={self.props.showEditionBar} />
     })}</div>;
   }
 }

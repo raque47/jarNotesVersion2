@@ -34,23 +34,23 @@ class InformationPanel extends React.Component {
           )}
           />
 
-            <Route path="/view" render={() => (
-              <NotesContainer
-                noteTitle={this.props.noteTitle}
-                noteContent={this.props.noteContent}
-                addNoteEvent={false}
-                showAllNotes={this.props.showAllNotes}
-                idAction={this.props.idAction}
-                actionType="viewNotes"
-                onClickEditNote = {this.props.onClickEditNote}
-                idNoteSelected={this.props.idNoteSelected}
-                showEditionBar = {this.props.showEditionBar}
-              />
-            )}
+          <Route path="/view" render={() => (
+            <NotesContainer
+              noteTitle={this.props.noteTitle}
+              noteContent={this.props.noteContent}
+              addNoteEvent={false}
+              showAllNotes={this.props.showAllNotes}
+              idAction={this.props.idAction}
+              actionType={this.props.actionType}
+              onClickEditNote={this.props.onClickEditNote}
+              idNoteSelected={this.props.idNoteSelected}
+              showEditionBar={this.props.showEditionBar}
             />
+          )}
+          />
 
           <Route path='/tags' render={() => (
-          console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
+            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <TagsContainer
               tagName={this.props.tagName}
               addTagEvent={false}
@@ -74,13 +74,13 @@ class InformationPanel extends React.Component {
                 actionType={this.props.actionType}
                 onClickEditNote={this.props.onClickEditNote}
                 idNoteSelected={this.props.idNoteSelected}
-                idSelectedFolder = {this.props.idSelectedFolder}
-                showEditionBar = {this.props.showEditionBar}
-              />)            
-  
-            )}
-            />
-        
+                idSelectedFolder={this.props.idSelectedFolder}
+                showEditionBar={this.props.showEditionBar}
+              />)
+
+          )}
+          />
+
           <Route path='/add tags' render={() => (
             <AddNewElementContainer
               onClickAddElement={this.props.onClickAddElement}
@@ -138,6 +138,9 @@ class InformationPanel extends React.Component {
               showAllNotes={this.props.showAllNotes}
               actionType={this.props.actionType}
               onClickEditNote={this.props.onClickEditNote}
+              idNoteSelected={this.props.idNoteSelected}
+              idSelectedFolder={this.props.idSelectedFolder}
+              showEditionBar={this.props.showEditionBar}
             />
           )}
           />
