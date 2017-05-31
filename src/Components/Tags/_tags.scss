@@ -1,0 +1,113 @@
+@import '../../scss/helpers/variables.scss';
+.infoPanelElements
+{
+    align-self: stretch;
+    margin-right: 1rem;
+        order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+}
+
+.borderStyle
+{
+    background: #F8F8F8;
+    margin-bottom: 1rem;
+    border: 0.2rem solid #E7E7E7;  
+}
+
+.tagAddedName {
+    font-family: $font-stack;
+    font-size: 2.2rem;
+    //    font-weight: bold;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    flex: 1 1 auto;
+}
+
+
+.infoPanelButtons {
+    display: inline;
+    padding: 0.5rem;
+}
+
+.hideComponent {
+    display: none;
+    opacity: 0;
+}
+.showComponent {
+    display: block;
+    opacity: 1;
+}
+
+.containerOfElements {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 1.3rem 1rem;
+    overflow: auto;
+    /* padding-top: 10rem; */
+}
+.tagContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.editionButtonControls:hover {
+    background-color: #F5A9D0;
+    color: #FF7138;
+    border: none;
+}
+.editionButtonControls {
+    margin: 0.4rem;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Media Queries */
+/* Mobile Styles */
+
+@media only screen and (max-width: 780px) {
+    .tagAddedName {
+        font-size: 1.75rem;
+        margin-left: 1rem;
+    }
+     .buttons {
+        margin-right: 0;
+    }
+}
+
+
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+   .tagAddedName {
+        font-size: 1.3rem;
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 750) {
+
+}

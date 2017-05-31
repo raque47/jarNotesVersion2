@@ -34,7 +34,7 @@ function addTag(req, res) {
 
 //put Tag
 function updateTag(req, res) {
-    Note.findOneAndUpdate({ _id: req.body._id }, req.body, (err, tag) => {
+    Tag.findOneAndUpdate({ _id: req.body._id }, req.body, (err, tag) => {
         if (!err) {
             res.status(201);
             res.json(tag);
@@ -47,10 +47,25 @@ function updateTag(req, res) {
 }
 
 
+//delete Tag
+function deleteTag (req, res) {
+    Tag.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
+    if (!err) {
+      res.status(204);
+      res.json(data);
+    }
+    else {
+      res.status(500);
+      res.json(err);
+    }
+  });
+};
+
 const actions = {
     getTags,
     addTag,
-    updateTag
+    updateTag,
+    deleteTag
 }
 
 module.exports = actions;

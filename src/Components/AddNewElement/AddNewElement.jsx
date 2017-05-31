@@ -9,7 +9,6 @@ class AddNewElement extends React.Component {
   }
   sendTagName(event){
     const tagName=event.target.value;
-    console.log("tagName ESS: " +tagName );
     this.props.setTagName(tagName);
   }
 
