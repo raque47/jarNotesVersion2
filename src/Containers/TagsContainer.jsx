@@ -29,6 +29,15 @@ class TagsContainer extends React.Component {
 
   } //Close the constructor
 
+  // //Sets true/false variables to show Menu of Tags
+  // showTags() {
+  //   if (this.state.showTag) {
+  //     this.setState({ showTag: false });
+  //   } else {
+  //     this.setState({ showTag: true });
+  //   }
+  // }
+
   getAllTags(showTags) {
     const self = this;
     let result;

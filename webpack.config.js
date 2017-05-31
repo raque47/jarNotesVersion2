@@ -14,6 +14,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.join(__dirname, '/dist'),
   },
+  devServer: {
+    historyApiFallback: true,
+    },
   resolve: {
     // add alias for application code directory
     alias:{

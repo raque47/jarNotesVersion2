@@ -9,7 +9,7 @@ import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import informationPanelStyle from './_informationPanel.scss';
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
-
+//import { Redirect } from 'react-router';
 
 class InformationPanel extends React.Component {
   constructor(props) {
@@ -50,7 +50,6 @@ class InformationPanel extends React.Component {
             />
 
           <Route path='/tags' render={() => (
-          console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <TagsContainer
               tagName={this.props.tagName}
               addTagEvent={false}
@@ -60,6 +59,21 @@ class InformationPanel extends React.Component {
               onClickEditTag={this.props.onClickEditTag}
               idTagSelected={this.props.idTagSelected}
               onClickAddTag={this.props.onClickAddTag}
+            />
+          )}
+          />
+
+          <Route path='/folders' render={() => (
+          console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
+            <FoldersContainer
+              folderName={this.props.folderName}
+              addFolderEvent={false}
+              showAllFolders={this.props.showAllFolders}
+              idAction={this.props.idAction}
+              actionType="viewFolders"
+              onClickEditFolder={this.props.onClickEditFolder}
+              idFolderSelected={this.props.idFolderSelected}
+              onClickAddFolder={this.props.onClickAddFolder}
             />
           )}
           />
@@ -96,16 +110,14 @@ class InformationPanel extends React.Component {
           <Route path='/add folders' render={() => (
             <AddNewElementContainer
               onClickAddElement={this.props.onClickAddElement}
+              setFolderName={this.props.setFolderName}
               actionType={this.props.actionType}
               activeAddElement={this.props.activeAddElement}
               buttonName=""
-              noteTitle={this.props.noteTitle}
-              idAction={this.props.idAction}
-              getTagName={this.getTagName} />
+              idAction={this.props.idAction} />
           )}
           />
           <Route path='/addTags' render={() => (
-            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <TagsContainer
               tagName={this.props.tagName}
               addTagEvent={this.props.addTagEvent}
@@ -119,13 +131,16 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/addFolders' render={() => (
+            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <FoldersContainer
-              onClickAddElement={this.props.onClickAddElement}
+              folderName={this.props.folderName}
+              addFolderEvent={this.props.addFolderEvent}
+              showAllFolders={this.props.showAllFolders}
               actionType={this.props.actionType}
-              activeAddElement={this.props.activeAddElement}
-              buttonName=""
-              noteTitle={this.props.noteTitle}
-              idAction={this.props.idAction} />
+              onClickEditFolder={this.props.onClickEditFolder}
+              idFolderSelected={this.props.idFolderSelected}
+              onClickAddFolder={this.props.onClickAddFolder}
+            />
           )}
           />
 
