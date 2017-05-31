@@ -7,6 +7,8 @@ import EditionBarContainer from '../../Containers/EditionBarContainer';
 import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import InformationPanelContainer from '../../Containers/InformationPanelContainer';
 import ModalContainer from '../../Containers/ModalContainer'
+import mainStyle from './_main.scss'
+
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
@@ -27,13 +29,9 @@ class Main extends React.Component {
         />
         <div className="container-fluid container-fluid-fix createOpacity  ">
           <div className="row edition secondContainer">
-            <div className="col-md-1 firstElement">
-              <EditionBarContainer />
-            </div>
-            <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
+                
 
-
-
+              <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
               <Switch>
                 <Route path="/editNote" render={() => (
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
@@ -43,6 +41,7 @@ class Main extends React.Component {
                     actionType={this.props.actionType}
                     onClickEditNote={this.props.onClickEditNote}
                     idNoteSelected={this.props.idNoteSelected}
+                    idSelectedFolder = {this.props.idSelectedFolder}
                   />
                 )} />
 
@@ -53,7 +52,8 @@ class Main extends React.Component {
                     activeAddElement={this.props.activeAddElement}
                     buttonName=""
                     noteTitle={this.props.noteTitle}
-                    idAction={this.props.idAction} />
+                    idAction={this.props.idAction}
+                 />
                 )}
                 />
 
@@ -73,6 +73,8 @@ class Main extends React.Component {
 
               </Switch>
             </div>
+
+
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
               <InformationPanelContainer
                 onClickMainButtonEvent={this.props.mainButtonEvent}
@@ -92,15 +94,26 @@ class Main extends React.Component {
                 showAllTags={this.props.showAllTags}
                 getTagName={this.props.getTagName}
                 onClickAddTag={this.props.onClickAddTag}
-              >
+                idSelectedFolder = {this.props.idSelectedFolder}
+                showEditionBar = {this.props.showEditionBar}>
               </InformationPanelContainer>
             </div>
+
+
+<div className="col-md-1 firstElement">
+              <EditionBarContainer editionBarVisible = {this.props.editionBarVisible} />
+            </div> 
+              
+
+            </div>
+
           </div>
 
-        </div>
 
         <ModalContainer showModal={this.props.showModal}
-          onClickAcceptFolder={this.props.onClickAcceptFolder} />
+        onClickAcceptFolder={this.props.onClickAcceptFolder}
+        actionType={this.props.actionType}/>
+
       </div>
 
     );

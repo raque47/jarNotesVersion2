@@ -3,7 +3,7 @@ const Folder = require('../models/Folder');
 
 
 // get Folders
-exports.getFolders = (req, res) => {
+function getFolders(req, res) {
   console.log('get folderss!!');
   Folder.find().exec(function (err, data) {
     res.status(200);
@@ -12,7 +12,7 @@ exports.getFolders = (req, res) => {
 };
 
 //post Folder
-exports.addFolder = (req, res) => {
+function addFolder(req, res) {
   console.log('Post: Create folder!!');
   const folder = new Folder(req.body);
   folder.save(err => {
@@ -25,3 +25,42 @@ exports.addFolder = (req, res) => {
     }
   });
 };
+
+
+//put folder*
+function updateFolder(req, res) {
+    Folder.findOneAndUpdate({ _id: req.body._id }, req.body, (err, folder) => {
+        if (!err) {
+            res.status(201);
+            res.json(folder);
+        }
+        else {
+            res.status(404);
+            res.json(err);
+        }
+    });
+}
+
+
+//delete folder*
+function deleteFolder (req, res) {
+    Folder.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
+    if (!err) {
+      res.status(204);
+      res.json(data);
+    }
+    else {
+      res.status(500);
+      res.json(err);
+    }
+  });
+};
+const actions = {
+    getFolders,
+    addFolder,
+    updateFolder,
+    deleteFolder
+}
+
+module.exports = actions;
+

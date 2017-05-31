@@ -23,7 +23,9 @@ class MainContainer extends React.Component {
       showAllTags: false,
       idNoteSelected: "",
       idTagSelected: "",
-      showModal: false
+      showModal: false,
+      idSelectedFolder: "",
+      editionBarVisible:false
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -35,6 +37,7 @@ class MainContainer extends React.Component {
     this.getTagName= this.getTagName.bind(this);
     //this.addFolder = this.addFolder.bind(this);
     this.chooseFolder = this.chooseFolder.bind(this);
+    this.showEditionBar = this.showEditionBar.bind(this);
 
   }
   mainButtonEvent(id) {
@@ -88,18 +91,18 @@ class MainContainer extends React.Component {
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
-    console.log("add note main container!: ");
+    console.log("ESTOY EN CHOOSE FOLDER!!!!!");
     this.setState({ action: action, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "chooseFolder", showModal: true });
 
   }
-  addNote() {
-
+  addNote(idFolder) {
+    console.log("el id del folder perteneciente a la nota es: " + idFolder );
     if (this.state.action == "edit") {
-      this.setState({ showAllNotes: true, actionType: "editNote", showModal: false });
+      this.setState({ idSelectedFolder: idFolder, showAllNotes: true, actionType: "editNote", showModal: false });
     }
     else {
       console.log("estoy en el action type add note!!");
-      this.setState({ showAllNotes: true, actionType: "addNote", showModal: false });
+      this.setState({ idSelectedFolder: idFolder, showAllNotes: true, actionType: "addNote", showModal: false });
     }
   }
   editNote(noteTitle, noteContent, idNoteSelected) {
@@ -127,6 +130,10 @@ class MainContainer extends React.Component {
         this.setState({tagName: tagName, showAllTags: true, actionType: "addTag" });
   }
 
+  }
+  showEditionBar(){
+     console.log("ESTOY EN SHOW EDITION BAAAAAR");
+      this.setState({editionBarVisible:true});
   }
   render() {
     return (
@@ -156,7 +163,9 @@ class MainContainer extends React.Component {
           getTagName={this.getTagName} 
           showModal={this.state.showModal}
           onClickAcceptFolder={this.addNote}
-
+          idSelectedFolder = {this.state.idSelectedFolder}
+          showEditionBar = {this.showEditionBar}
+          editionBarVisible = {this.state.editionBarVisible}
         />)}
       />
 

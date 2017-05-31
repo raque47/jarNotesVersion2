@@ -12,6 +12,9 @@ class Notes extends React.Component {
  showNote(event) {
     const idNoteSelected = this.props.noteId;
     this.props.onClickShowEvent(idNoteSelected);
+    
+    //Se debe llamar a la barra de edición
+    this.props.showEditionBar();
   }
   editNote(event) {
     console.log("EDIT!! NOTEEEE!!");
@@ -34,16 +37,6 @@ class Notes extends React.Component {
             onClick={this.showNote}><img
               src={require("../../images/view-button.svg")}
               className="navBar__images" /></button>
-          <Link to={'/editNote'}>    
-            <button className="buttons infoPanelButtons"
-                onClick={this.editNote}><img
-                  src={require("../../images/edit-button.svg")}
-                  className="navBar__images" /></button>
-          </Link>
-            <button className="buttons infoPanelButtons"
-                onClick={this.deleteNote}><img
-                  src={require("../../images/trash-orange-button.svg")}
-                  className="navBar__images" /></button>
         </div>
         <p className={"noteContentFont " + (this.props.showNote ?
           "showComponent showNoteAnimation" :

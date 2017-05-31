@@ -20,12 +20,6 @@ class NotesContainer extends React.Component {
     this.deleteNote = this.deleteNote.bind(this);
   } //Close the constructor
 
-  getAllNotes(showNotes) {
-    const self = this;
-    let result;
-
-  }
-
   showSpecificNote(id) {
     console.log("show specific!!!");
     this.setState({ showSpecificNote: true, idNoteSelected: id, noteEvent: false });
@@ -33,7 +27,7 @@ class NotesContainer extends React.Component {
   }
 
   addNote() {
-    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: 2 }
+    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: this.props.idSelectedFolder }
     const self = this;
     axios.post('http://localhost:3000/api/notes', newNote).then(() => {
 
@@ -54,7 +48,7 @@ class NotesContainer extends React.Component {
     console.log();
   }
   updateNote() {
-    const newNote = { _id: this.props.idNoteSelected, noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: 2 }
+    const newNote = { _id: this.props.idNoteSelected, noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: this.props.idSelectedFolder }
     console.log("ENTRE A HACER UPDATE!" + this.props.idNoteSelected);
     const self = this;
     axios.put('http://localhost:3000/api/notes', newNote).then(function (response) {
@@ -130,7 +124,8 @@ class NotesContainer extends React.Component {
         showAllNotes={self.props.showAllNotes}
         onClickShowEvent={self.showSpecificNote}
         onClickEditEvent={self.editNote}
-        onClickDeleteEvent = {this.deleteNote} />
+        onClickDeleteEvent = {this.deleteNote}
+        showEditionBar={this.props.showEditionBar} />
     })}</div>;
   }
 }
