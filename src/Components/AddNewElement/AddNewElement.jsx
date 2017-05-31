@@ -29,7 +29,9 @@ class AddNewElement extends React.Component {
             <button onClick={this.props.onClickAddElement} 
                     id="addElementButton" 
                     className="addNewElementControlButton addNewElementButton">
-                        <span className="editionTextControl">{"Add " + this.props.idAction}</span>
+                        <span 
+                          className="editionTextControl">{"Add " + this.props.idAction}
+                        </span>
               </button>
           </Link>
         

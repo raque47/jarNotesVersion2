@@ -8,6 +8,7 @@ class AddNewElementContainer extends React.Component {
     super(props);
     this.state = {
       tagName: "",
+      folderName: "",
       resetName: "",
       resetControl: false,
       editTag:false,
@@ -22,22 +23,15 @@ class AddNewElementContainer extends React.Component {
         this.props.onClickAddElement(this.state.tagName, "add");
         console.log("AddEvent y mi tagName es:" + this.state.tagName);
     }
-    else{ // es Folders
-        console.log("!!AddEvent(folder)Entre a"+this.props.idAction);
-    }
-    // if(this.props.actionType=="editTag"){
-    //   this.props.onClickAddElement(this.state.tagName, "edit")
-    // }
-    // else{
-    //     if (this.props.actionType=="deleteTag"){
-    //         this.props.onClickAddElement(this.state.tagName, "delete")
-    //     }
-    //     else{ //delete tag
-    //         this.props.onClickAddElement(this.state.tagName, "add")   
-    //     }
-    // }
-    // this.setState({ resetName: "", tagName:"", resetControl:true});
   }
+
+  addEventFolder() {
+    if (this.props.idAction === 'Folders'){
+        console.log("!!AddEvent(folder)Entre a"+this.props.idAction);
+        this.props.onClickAddElement(this.state.tagName, "add");
+    }// es Folders
+  }
+
   setTagName(name) {
     this.setState({ tagName: name, resetName:name, resetControl:true });
     this.state.tagName = name;

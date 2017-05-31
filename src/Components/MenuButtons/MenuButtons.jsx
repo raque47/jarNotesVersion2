@@ -26,7 +26,7 @@ class MenuButtons extends React.Component {
         this.props.onClickMainButtonEvent("Tags");
         break;
       case "folders":
-     this.props.onClickMainButtonEvent("Tags");
+     this.props.onClickMainButtonEvent("Folders");
        break;
     }
 

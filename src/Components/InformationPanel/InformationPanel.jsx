@@ -66,7 +66,7 @@ class InformationPanel extends React.Component {
           <Route path='/folders' render={() => (
           console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <FoldersContainer
-              folderName={this.props.folderName}
+              folderName={this.props.tagName}
               addFolderEvent={false}
               showAllFolders={this.props.showAllFolders}
               idAction={this.props.idAction}
@@ -110,7 +110,7 @@ class InformationPanel extends React.Component {
           <Route path='/add folders' render={() => (
             <AddNewElementContainer
               onClickAddElement={this.props.onClickAddElement}
-              setFolderName={this.props.setFolderName}
+              setTagName={this.props.setTagName}
               actionType={this.props.actionType}
               activeAddElement={this.props.activeAddElement}
               buttonName=""
@@ -133,7 +133,7 @@ class InformationPanel extends React.Component {
           <Route path='/addFolders' render={() => (
             console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
             <FoldersContainer
-              folderName={this.props.folderName}
+              folderName={this.props.tagName}
               addFolderEvent={this.props.addFolderEvent}
               showAllFolders={this.props.showAllFolders}
               actionType={this.props.actionType}

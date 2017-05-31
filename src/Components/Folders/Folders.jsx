@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 class Folders extends React.Component {
 
-
  constructor(props) {
     super(props);
     this.deleteFolder = this.deleteFolder.bind(this);
@@ -22,12 +21,21 @@ class Folders extends React.Component {
   }
   render() {
     return (
-      <div id= {this.props.folderId} className={"infoPanelElements borderStyle " +
-        (this.props.showAllFolders ? "showComponent" : "hideComponent")} >
-       
-          <li className="noteAddedTitle">{this.props.name}</li>
-  
-        
+      <div id={this.props.folderId} 
+        className={"infoPanelElements borderStyle "} >
+        <div className="tagContainer" >
+          <span className="tagAddedName">{this.props.folderName}</span>
+          <button className="buttons infoPanelButtons"
+            onClick={this.deleteFolder}><img
+              src={require("../../images/trash-button.svg")}
+              className="navBar__images" /></button>
+          <Link to={'/editFolder'}>
+            <button className="buttons infoPanelButtons"
+              onClick={this.editFolder}><img
+                src={require("../../images/edit-button.svg")}
+                className="navBar__images" /></button>
+          </Link>
+        </div>
       </div>
     );
   }
