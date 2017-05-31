@@ -19,7 +19,9 @@ constructor(props) {
         return (
             <EditionBar
                 displayEvent={this.props.editionBarVisible}
-                noteTitle = "This is my first note and I am so happy!"
+                noteTitleSelected={this.props.noteTitleSelected}
+                onClickEditEvent={this.props.onClickEditEvent}
+                onClickDeleteEvent = {this.props.onClickDeleteEvent}
                 />
         );
     }

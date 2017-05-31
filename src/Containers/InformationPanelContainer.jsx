@@ -43,7 +43,8 @@ class InformationPanelContainer extends React.Component {
     return (
       console.log("VOY A RENDEREAR ESTOOOOO " + this.state.tagName ),
       <div>
-        <InformationPanel
+        {console.log("el action type en information panel container vale: " + this.props.actionType)}
+        <InformationPanel  
           tagName = {this.state.tagName}
           onClickMainButtonEvent={this.props.mainButtonEvent}
           activeSearch={this.props.activeSearch}
@@ -63,6 +64,7 @@ class InformationPanelContainer extends React.Component {
           onClickAddElement={this.addElement}
           addTagEvent={this.props.addTagEvent}
           onClickEditTag={this.props.onClickEditTag}
+          showEditionBar={this.props.showEditionBar}
            >
 
         </InformationPanel>

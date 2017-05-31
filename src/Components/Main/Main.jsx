@@ -29,9 +29,9 @@ class Main extends React.Component {
         />
         <div className="container-fluid container-fluid-fix createOpacity  ">
           <div className="row edition secondContainer">
-                
 
-              <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
+
+            <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
               <Switch>
                 <Route path="/editNote" render={() => (
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
@@ -41,7 +41,7 @@ class Main extends React.Component {
                     actionType={this.props.actionType}
                     onClickEditNote={this.props.onClickEditNote}
                     idNoteSelected={this.props.idNoteSelected}
-                    idSelectedFolder = {this.props.idSelectedFolder}
+                    idSelectedFolder={this.props.idSelectedFolder}
                   />
                 )} />
 
@@ -53,7 +53,7 @@ class Main extends React.Component {
                     buttonName=""
                     noteTitle={this.props.noteTitle}
                     idAction={this.props.idAction}
-                 />
+                  />
                 )}
                 />
 
@@ -76,6 +76,7 @@ class Main extends React.Component {
 
 
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
+              {console.log("el action type en main vale: " + this.props.actionType)}
               <InformationPanelContainer
                 onClickMainButtonEvent={this.props.mainButtonEvent}
                 activeSearch={this.props.activeSearch}
@@ -94,25 +95,28 @@ class Main extends React.Component {
                 showAllTags={this.props.showAllTags}
                 getTagName={this.props.getTagName}
                 onClickAddTag={this.props.onClickAddTag}
-                idSelectedFolder = {this.props.idSelectedFolder}
-                showEditionBar = {this.props.showEditionBar}>
+                idSelectedFolder={this.props.idSelectedFolder}
+                showEditionBar={this.props.showEditionBar}
+                noteTitleSelected={this.props.noteTitleSelected}>
               </InformationPanelContainer>
             </div>
 
 
-<div className="col-md-1 firstElement">
-              <EditionBarContainer editionBarVisible = {this.props.editionBarVisible} />
-            </div> 
-              
-
+            <div className="col-md-1 firstElement">
+              <EditionBarContainer editionBarVisible={this.props.editionBarVisible}
+                onClickEditEvent={this.props.onClickEditEvent} noteTitleSelected={this.props.noteTitleSelected}
+                onClickDeleteEvent={this.props.onClickDeleteEvent} />
             </div>
+
 
           </div>
 
+        </div>
+
 
         <ModalContainer showModal={this.props.showModal}
-        onClickAcceptFolder={this.props.onClickAcceptFolder}
-        actionType={this.props.actionType}/>
+          onClickAcceptFolder={this.props.onClickAcceptFolder}
+          actionType={this.props.actionType} />
 
       </div>
 
