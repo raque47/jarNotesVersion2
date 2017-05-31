@@ -17,7 +17,6 @@ class TagsContainer extends React.Component {
     };
     this.getAllTags = this.getAllTags.bind(this);
     this.showSpecificTag= this.showSpecificTag.bind(this);
-    this.deleteSpecificTag = this.deleteSpecificTag.bind(this);
     this.addTag = this.addTag.bind(this);
     this.getTags = this.getTags.bind(this);
     this.editTags = this.editTags.bind(this);
@@ -36,42 +35,31 @@ class TagsContainer extends React.Component {
 
   }
   showSpecificTag(id) {
-    console.log("SHOWWW!!");
-    this.setState({ showSpecificTag: true, idTagSelected: id, tagEvent: false });
-
-  }
-  deleteSpecificTag(id) {
-    console.log("show specific tag***!");
+    console.log("SHOWWWSPECIFIC!!");
     this.setState({ showSpecificTag: true, idTagSelected: id, tagEvent: false });
 
   }
 
   addTag() {
-    console.log("ESTE SI DEBE SALIR "+ this.props.tagName  )
     const newTag = { name: this.props.tagName }
     const self = this;
     axios.post('http://localhost:3000/api/tags', newTag).then(() => {
-          console.log("ESTE SI DEBE SALIR "+ this.props.tagName  )
       self.getTags();
     });
   }
 
-
   getTags() {
-    console.log("GET en addTag() en TagContainer")
     const self = this;
     axios.get('http://localhost:3000/api/tags').then(function (response) {
       self.setState({ allTags: response.data, tagEvent: false });
     })
   }
   editTags(idTagSelected, tagName) {
-    console.log("EDITAR tagg!!!! " + idTagSelected + " " + tagName );
     this.props.onClickEditTag(tagName, idTagSelected);
     console.log();
   }
   updateTag() {
     const newTag= { _id: this.props.idTagSelected, tagName: this.props.tagName }
-    console.log("ENTRE A HACER UPDATE!" + this.props.idTagSelected);
     const self = this;
     axios.put('http://localhost:3000/api/tags', newTag).then(function (response) {
        self.getTags();
@@ -81,7 +69,8 @@ class TagsContainer extends React.Component {
     const self = this;
     const  deleteTag= {_id: idTag};
      console.log("BORRARR id es: " + deleteTag + " con id: " + deleteTag._id);
-    axios.delete('http://localhost:3000/api/tags',  {data: deleteTag}).then(function (response) {
+    axios.delete('http://localhost:3000/api/tags',  {data: deleteTag}).
+    then(function (response) {
        //Se realiza un get de todas las notas 
       self.getTags();
     })
@@ -117,12 +106,18 @@ class TagsContainer extends React.Component {
     const tags = this.state.allTags;
     const self = this;
     let showTag = false;
-
+    console.log("VIEWWWWW WOWOW");
+    console.log("tags:" +tags);
+    console.log("id:" +tags.id);
+    console.log("idAction" +tags.idAction);
+    console.log("idTagSelected" +tags.idTagSelected);
+    console.log("item" +tags.item);
     switch (this.props.actionType) {
       case "viewTags":
         console.log("VIEWWWWW WOWOW");
         if (this.state.tagEvent === true) {
           this.getTags();
+          console.log("Hice el getTags");
           this.state.tagEvent = false;
         }
         else {
@@ -153,29 +148,27 @@ class TagsContainer extends React.Component {
         break;
     }
     
-    return <div className="containerOfElements">{tags.map((item) => {
-      console.log("WAAAAAAAAAA YA VOY A RETORNAR"),
-      showTag = false;
-      if (this.state.showSpecificTag === true) {
-        console.log("el id es: " + this.state.idTagSelected);
-        console.log("ENTROOO")
-        if (item._id === this.state.idTagSelected) {
-          showTag = true;
-        }
-      }
-      console.log("showTag vale: " + showTag);
-      return <Tags
-        key={item._id}
-        tagId={item._id}
-        showTag={true}
-        tagName={item.tagName}
-        showAllTags={self.props.showAllTags}
-        onClickShowEvent ={self.showSpecificTag}
-        onClickDeleteEvent={self.deleteSpecificTag}
-        onClickEditEvent={self.editTag}
-        setTagName = {this.setTagName} />
-    })}</div>;
+      return (
+    <div className="containerOfElements">
+      {
+      tags.map((item) => {
+        return (
+          <Tags
+            key={item._id}
+            tagId={item._id}
+            showTag={true}
+            tagName={item.name}
+            showAllTags={self.props.showAllTags}
+            onClickShowEvent ={self.showSpecificTag}
+            onClickDeleteEvent={this.deleteTag}
+            onClickEditEvent={self.editTag}
+            setTagName = {this.setTagName}
+          />
+        );
+      })
+    }
+    </div>
+    );
   }
-}
-
+  };
 export default TagsContainer;

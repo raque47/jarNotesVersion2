@@ -26,9 +26,40 @@ function addFolder(req, res) {
   });
 };
 
+
+//put folder*
+function updateFolder(req, res) {
+    Folder.findOneAndUpdate({ _id: req.body._id }, req.body, (err, folder) => {
+        if (!err) {
+            res.status(201);
+            res.json(folder);
+        }
+        else {
+            res.status(404);
+            res.json(err);
+        }
+    });
+}
+
+
+//delete folder*
+function deleteFolder (req, res) {
+    Folder.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
+    if (!err) {
+      res.status(204);
+      res.json(data);
+    }
+    else {
+      res.status(500);
+      res.json(err);
+    }
+  });
+};
 const actions = {
     getFolders,
-    addFolder
+    addFolder,
+    updateFolder,
+    deleteFolder
 }
 
 module.exports = actions;

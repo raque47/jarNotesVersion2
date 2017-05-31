@@ -20,7 +20,6 @@ class AddNewElementContainer extends React.Component {
     if(this.props.idAction === 'Tags'){
         console.log("!!AddEvent (tags) Entre a"+this.props.idAction);
         this.props.onClickAddElement(this.state.tagName, "add");
-        //this.onClickAddElement(this.state.tagName, "add");
         console.log("AddEvent y mi tagName es:" + this.state.tagName);
     }
     else{ // es Folders
@@ -40,19 +39,13 @@ class AddNewElementContainer extends React.Component {
     // this.setState({ resetName: "", tagName:"", resetControl:true});
   }
   setTagName(name) {
-    console.log("Entre a setTagName y mi name ANTES es::" + name);
-    console.log("Entre a setTagName y mi tagName ANTES es:" + this.state.tagName);
     this.setState({ tagName: name, resetName:name, resetControl:true });
     this.state.tagName = name;
-    console.log("Entre a setTagName y mi name DESPUES es::" + name);
-    console.log("Entre a setTagName y mi tagName DESPUES es:" + this.state.tagName);
   }
   render() {
-    console.log("EN ADD NEW ELEMENTE ACTIONTYPE vale: " + this.props.actionType );
     if(this.props.actionType === "editNote" && this.state.resetControl === false){
       this.state.resetName = this.props.tagName;
       this.state.editNote = true;
-      console.log("estoy en el true de edition note container!");
     }
     if(this.props.actionType === "deleteNote"){
 
