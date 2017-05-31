@@ -8,7 +8,7 @@ class InformationPanelContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tagName: "",
+      elementName: "",
       resetName: "",
       resetControl: false,
       editTag:false,
@@ -21,21 +21,22 @@ class InformationPanelContainer extends React.Component {
   }
   setTagName (name){
     console.log("Entre a setTagName y mi name ANTES es::" + name);
-    console.log("Entre a setTagName y mi tagName ANTES es:" + this.state.tagName);
-    this.setState({ tagName: name, resetName:name, resetControl:true });
-    this.state.tagName = name;
+    console.log("Entre a setTagName y mi elementName ANTES es:" + this.state.elementName);
+    this.setState({ elementName: name, resetName:name, resetControl:true });
+    this.state.elementName = name;
     console.log("Entre a setTagName y mi name DESPUES es::" + name);
-    console.log("Entre a setTagName y mi tagName DESPUES es:" + this.state.tagName);
+    console.log("Entre a setTagName y mi elementName DESPUES es:" + this.state.elementName);
   }
-  addElement(tagName, action){
+  addElement(elementName, action){
   //  if(this.idAction == 'Tags'){
         console.log("YEEEEEIII");
         console.log("InfoPanelCont AddEvent(tags) Entre a"+ this.idAction);
-     //   this.onClickAddElement(tagName, "add");
-       console.log("EL NAME DEL TAG ES: " + tagName);
-        this.setState({ tagName: tagName});
-        //this.state.tagName = name;
-        console.log("InfoPanCon AddEvent y mi tagName esSsS:" + tagName);
+     //   this.onClickAddElement(elementName, "add");
+       console.log("EL NAME DEL TAG ES: " + elementName);
+        this.setState({ elementName: elementName});
+        
+        //this.state.elementName = name;
+        console.log("CHIWI  InfoPanCon AddEvent y mi elementName esSsS:" + elementName);
    // }
    // else{ // es Folders
       // console.log("!!AddEvent(folder)Entre a"+ this.idAction);
@@ -46,11 +47,11 @@ class InformationPanelContainer extends React.Component {
   }
   render() {
     return (
-      console.log("VOY A RENDEREAR ESTOOOOO " + this.state.tagName ),
+      console.log("VOY A RENDEREAR ESTOOOOO " + this.state.elementName ),
       <div>
         {console.log("el action type en information panel container vale: " + this.props.actionType)}
         <InformationPanel  
-          tagName = {this.state.tagName}
+          elementName = {this.state.elementName}
           onClickMainButtonEvent={this.props.mainButtonEvent}
           activeSearch={this.props.activeSearch}
           activeView={this.props.activeView}

@@ -17,7 +17,7 @@ class InformationPanel extends React.Component {
   }
 
   render() {
-    console.log("estoy en information panel!! con tag name de: " + this.props.tagName);
+    console.log("estoy en information panel!! con tag name de: " + this.props.elementName);
     return (
       <div id="panelInformation" className="infoPanel">
 
@@ -52,7 +52,7 @@ class InformationPanel extends React.Component {
 
           <Route path='/tags' render={() => (
             <TagsContainer
-              tagName={this.props.tagName}
+              elementName={this.props.elementName}
               addTagEvent={false}
               showAllTags={this.props.showAllTags}
               idAction={this.props.idAction}
@@ -65,9 +65,10 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/folders' render={() => (
-          console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
+            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
+            console.log("WIWIIWIWIWI elementName" +this.props.elementName),
             <FoldersContainer
-              folderName={this.props.tagName}
+              elementName={this.props.elementName}
               addFolderEvent={false}
               showAllFolders={this.props.showAllFolders}
               idAction={this.props.idAction}
@@ -124,7 +125,7 @@ class InformationPanel extends React.Component {
           />
           <Route path='/addTags' render={() => (
             <TagsContainer
-              tagName={this.props.tagName}
+              elementName={this.props.elementName}
               addTagEvent={this.props.addTagEvent}
               showAllTags={this.props.showAllTags}
               actionType={this.props.actionType}
@@ -136,16 +137,16 @@ class InformationPanel extends React.Component {
           />
 
           <Route path='/addFolders' render={() => (
-            console.log("WIWIIWIWIWIWWIWIWIWIWIW"),
+            console.log("WIWIIWIWIW elementName" +this.props.elementName),
             <FoldersContainer
-              folderName={this.props.tagName}
-              addFolderEvent={this.props.addFolderEvent}
-              showAllFolders={this.props.showAllFolders}
+              elementName={this.props.elementName}
+              addFolderEvent={this.props.addTagEvent}
+              showAllFolders={this.props.showAllTags}
               actionType={this.props.actionType}
-              onClickEditFolder={this.props.onClickEditFolder}
-              idFolderSelected={this.props.idFolderSelected}
-              onClickAddFolder={this.props.onClickAddFolder}
               editFolderNote={this.props.editFolderNote}
+              onClickEditFolder={this.props.onClickEditTag}
+              idFolderSelected={this.props.idTagSelected}
+              onClickAddFolder={this.props.onClickAddTag}
             />
           )}
           />

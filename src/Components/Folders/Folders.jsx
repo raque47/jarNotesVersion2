@@ -9,7 +9,7 @@ class Folders extends React.Component {
     this.deleteFolder = this.deleteFolder.bind(this);
     this.editFolder = this.editFolder.bind(this);
   }
- deleteFolder(event) {
+  deleteFolder(event) {
     const idFolderSelected = this.props.folderId;
     this.props.onClickDeleteEvent(idFolderSelected);
   }
@@ -17,14 +17,14 @@ class Folders extends React.Component {
     console.log("EDIT ** folderr!!");
     const idFolderSelected = this.props.folderId;
     const folderNameSelected = this.props.name;
-    this.props.onClickEditEvent(idFolderSelected, folderNameSelected);
+    //this.props.onClickEditEvent(idFolderSelected, folderNameSelected);
   }
   render() {
     return (
       <div id={this.props.folderId} 
         className={"infoPanelElements borderStyle "} >
         <div className="tagContainer" >
-          <span className="tagAddedName">{this.props.folderName}</span>
+          <span className="tagAddedName">{this.props.elementName}</span>
           <button className="buttons infoPanelButtons"
             onClick={this.deleteFolder}><img
               src={require("../../images/trash-button.svg")}

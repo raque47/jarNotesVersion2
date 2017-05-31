@@ -1,8 +1,6 @@
 import React from 'react';
 import AddNewElement from '../Components/AddNewElement/AddNewElement';
 
-
-
 class AddNewElementContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -19,19 +17,14 @@ class AddNewElementContainer extends React.Component {
   }
   addEvent() {
     if(this.props.idAction === 'Tags'){
-        console.log("!!AddEvent (tags) Entre a"+this.props.idAction);
         this.props.onClickAddElement(this.state.tagName, "add");
-        console.log("AddEvent y mi tagName es:" + this.state.tagName);
+    }
+    else{
+      if (this.props.idAction === 'Folders'){
+        this.props.onClickAddElement(this.state.tagName, "add");
+      }
     }
   }
-
-  addEventFolder() {
-    if (this.props.idAction === 'Folders'){
-        console.log("!!AddEvent(folder)Entre a"+this.props.idAction);
-        this.props.onClickAddElement(this.state.tagName, "add");
-    }// es Folders
-  }
-
   setTagName(name) {
     this.setState({ tagName: name, resetName:name, resetControl:true });
     this.state.tagName = name;
