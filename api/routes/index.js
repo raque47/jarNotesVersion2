@@ -16,13 +16,9 @@ router.post('/tags', tagController.addTag);
 router.put('/tags', tagController.updateTag);
 router.delete('/tags', tagController.deleteTag);
 
-
 router.get('/folders', folderController.getFolders);
-// router.post('/folders', foldersController.addFolder);
-// router.put('/folders', foldersController.updateaFolder);
-// router.put('/folders', foldersController.deleteFolder);
-
-
-router.get('/folders', folderController.getFolders);
+router.post('/folders', foldersController.addFolder);
+router.put('/folders', foldersController.updateFolder);
+router.delete('/folders', foldersController.deleteFolder);
 
 module.exports = router;

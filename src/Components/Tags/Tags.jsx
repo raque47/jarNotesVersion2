@@ -8,13 +8,7 @@ class Tags extends React.Component {
     this.deleteTag = this.deleteTag.bind(this);
     this.editTag = this.editTag.bind(this);
   }
-  showTag(event) {
-    console.log("SHOW ** TAAAGGGGGG!!");
-    const idTagSelected = this.props.tagId;
-    this.props.onClickShowEvent(idTagSelected);
-  }
   deleteTag(event) {
-        console.log("DELETE ** TAAAGGGGGG!!");
     const idTagSelected = this.props.tagId;
     this.props.onClickDeleteEvent(idTagSelected);
   }
@@ -22,14 +16,14 @@ class Tags extends React.Component {
     console.log("EDIT ** TAAAGGGGGG!!");
     const idTagSelected = this.props.tagId;
     const tagNameSelected = this.props.name;
-    this.props.onClickEditEvent(idTagSelected, tagNameSelected);
+    //this.props.onClickEditEvent(idTagSelected, tagNameSelected);
   }
   render() {
     return (
       <div id={this.props.tagId} 
         className={"infoPanelElements borderStyle "} >
         <div className="tagContainer" >
-          <span className="tagAddedName">{this.props.tagName}</span>
+          <span className="tagAddedName">{this.props.elementName}</span>
           <button className="buttons infoPanelButtons"
             onClick={this.deleteTag}><img
               src={require("../../images/trash-button.svg")}
