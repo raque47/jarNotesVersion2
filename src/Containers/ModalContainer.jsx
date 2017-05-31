@@ -6,7 +6,7 @@ import Modal from '../Components/Modal/Modal';
 class ModalContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { allFolders: [], folderEvent: true };
+        this.state = { allFolders: [], folderEvent: true, folderId:"" };
     }
     getFolders() {
         const self = this;
@@ -27,7 +27,8 @@ class ModalContainer extends React.Component {
         return (
             <Modal showModal={this.props.showModal}
                 onClickAcceptFolder={this.props.onClickAcceptFolder}
-                actionType={this.props.actionType} folders={this.state.allFolders}  />
+                actionType={this.props.actionType} folders={this.state.allFolders}
+             />
         );
     }
 };

@@ -27,7 +27,7 @@ function addFolder(req, res) {
 };
 
 
-//put folder*
+//put folder
 function updateFolder(req, res) {
     Folder.findOneAndUpdate({ _id: req.body._id }, req.body, (err, folder) => {
         if (!err) {
@@ -42,7 +42,7 @@ function updateFolder(req, res) {
 }
 
 
-//delete folder*
+//delete folder
 function deleteFolder (req, res) {
     Folder.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
     if (!err) {
@@ -55,6 +55,18 @@ function deleteFolder (req, res) {
     }
   });
 };
+
+//get folder by Id
+function getFolderById(req, res) {
+  console.log('get folder by Id!!');
+  Folder.findById({ _id: req.body._id }).exec(function (err, data) {
+    res.status(200);
+    res.json(data);
+  });
+};
+
+
+
 const actions = {
     getFolders,
     addFolder,

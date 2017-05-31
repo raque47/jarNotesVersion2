@@ -22,6 +22,7 @@ constructor(props) {
                 noteTitleSelected={this.props.noteTitleSelected}
                 onClickEditEvent={this.props.onClickEditEvent}
                 onClickDeleteEvent = {this.props.onClickDeleteEvent}
+                onClickEditNoteFolder={this.props.onClickEditNoteFolder}
                 />
         );
     }

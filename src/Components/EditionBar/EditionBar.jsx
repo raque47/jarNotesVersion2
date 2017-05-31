@@ -16,6 +16,9 @@ class EditionBar extends React.Component {
     console.log("EDIT!! NOTEEEE!!");
     this.props.onClickEditEvent();
   }
+  editNoteFolder(){
+   // this.props.onClickEditNoteFolder();
+  }
   render() {
 
     return (
@@ -28,6 +31,13 @@ class EditionBar extends React.Component {
               src={require("../../images/edit-green-button.svg")}
               className="navBar__images" /><span className={"editionBar__span buttonFont " + (this.props.displayEvent ? 'showControl' : 'hiddenControl')}><strong>Edit</strong> <br /> {this.props.noteTitleSelected}</span></button>
         </Link>
+        <Link to={'/editFolderNote'}>
+          <button disabled = {this.props.displayEvent ? false : true} className="editionBar__button buttons"
+            onClick={this.editNoteFolder}><img
+              src={require("../../images/edit-folder-button.svg")}
+              className="navBar__images" /><span className={"editionBar__span buttonFont " + (this.props.displayEvent ? 'showControl' : 'hiddenControl')}><strong>Edit Folder from </strong> <br /> {this.props.noteTitleSelected}</span></button>
+        </Link>
+
       </nav>
     );
   }

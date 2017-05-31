@@ -22,7 +22,8 @@ class NoteEditionContainer extends React.Component {
     console.log("estoy en add note wuuuuu de note edition container! !");
    
     if(this.props.actionType=="editNote"){
-      this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "edit")
+      this.props.onClickAcceptFolder(null, this.state.noteContent, this.state.noteTitle);
+    //  this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "edit")
     }
     else{
        this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "add")
@@ -53,7 +54,9 @@ class NoteEditionContainer extends React.Component {
       getNoteTitle={this.getNoteTitle} 
       onClickAddNote={this.addNoteEvent}
       idNoteSelected = {this.props.idNoteSelected}
-      modalId = {"foldersModal"} />
+      modalId = {"foldersModal"}
+      actionType={this.props.actionType}
+      onClickAcceptFolder={this.props.onClickAcceptFolder} />
     );
   }
 };

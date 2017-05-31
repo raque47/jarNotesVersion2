@@ -9,7 +9,7 @@ class NoteEdition extends React.Component {
     super(props);
     this.sendNoteContent = this.sendNoteContent.bind(this);
     this.sendNoteTitle = this.sendNoteTitle.bind(this);
-    this.addNote = this.addNote.bind(this);
+   // this.addNote = this.addNote.bind(this);
   }
   sendNoteContent(event) {
     const textAreaValue = event.target.value;
@@ -19,10 +19,19 @@ class NoteEdition extends React.Component {
     const noteTitle = event.target.value;
     this.props.getNoteTitle(noteTitle);
   }
-  addNote() {
-    this.props.onClickAddNote();
-    this.props.modalId.modal('show');
-  }
+ /* addNote() {
+    if(this.props.actionType=="editNote"){
+      console.log("ESTOY EN EL TRUE DE EDIT NOOOOTE EN NOTE EDITION!!!");
+      this.props.onClickAcceptFolder();
+    }
+    else{
+       console.log("ESTOY EN EL FAAAALSE DE EDIT NOOOOTE EN NOTE EDITION!!!");
+       this.props.onClickAddNote();
+    } 
+
+  
+   // this.props.modalId.modal('show');
+  } */
   render() {
     return (
       <div className="form-group noteText">

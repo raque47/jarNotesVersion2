@@ -12,10 +12,12 @@ class InformationPanelContainer extends React.Component {
       resetName: "",
       resetControl: false,
       editTag:false,
-      deleteTag: false
+      deleteTag: false,
+      idFolderNoteEdited:""
     }
     this.addElement = this.addElement.bind(this);
     this.setTagName = this.setTagName.bind(this);
+    this.getFolderName = this.getFolderName.bind(this);
   }
   setTagName (name){
     this.setState({ elementName: name, resetName:name, resetControl:true });
@@ -23,6 +25,9 @@ class InformationPanelContainer extends React.Component {
   }
   addElement(elementName, action){
     this.setState({ elementName: elementName});
+  }
+  getFolderName(idFolder){
+    this.setState({idFolderNoteEdited: idFolder});
   }
   render() {
     return (
@@ -50,6 +55,9 @@ class InformationPanelContainer extends React.Component {
           addTagEvent={this.props.addTagEvent}
           onClickEditTag={this.props.onClickEditTag}
           showEditionBar={this.props.showEditionBar}
+          idSelectedFolder={this.props.idSelectedFolder}
+          getFolderName={this.getFolderName}
+          idFolderNoteEdited = {this.state.idFolderNoteEdited}
            >
 
         </InformationPanel>

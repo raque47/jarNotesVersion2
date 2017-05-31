@@ -34,6 +34,7 @@ class Main extends React.Component {
             <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
               <Switch>
                 <Route path="/editNote" render={() => (
+                  console.log("estoy en edit nooooteee path!!!!!!"),
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
@@ -42,6 +43,10 @@ class Main extends React.Component {
                     onClickEditNote={this.props.onClickEditNote}
                     idNoteSelected={this.props.idNoteSelected}
                     idSelectedFolder={this.props.idSelectedFolder}
+                    activeSearch={this.props.activeSearch}
+                    activeView={this.props.activeView}
+                    activeAddElement={this.props.activeAddElement}
+                    onClickAcceptFolder={this.props.onClickAcceptFolder}
                   />
                 )} />
 
@@ -49,6 +54,10 @@ class Main extends React.Component {
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
                     actionType={this.props.actionType}
+                    activeSearch={this.props.activeSearch}
+                    activeView={this.props.activeView}
+                    activeAddElement={this.props.activeAddElement}
+                    onClickAcceptFolder={this.props.onClickAcceptFolder}
                   />
                 )} />
 
@@ -56,6 +65,10 @@ class Main extends React.Component {
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
                     actionType={this.props.actionType}
+                    activeSearch={this.props.activeSearch}
+                    activeView={this.props.activeView}
+                    activeAddElement={this.props.activeAddElement}
+                    onClickAcceptFolder={this.props.onClickAcceptFolder}
                   />
                 )} />
 
@@ -85,7 +98,9 @@ class Main extends React.Component {
                 onClickAddTag={this.props.onClickAddTag}
                 idSelectedFolder={this.props.idSelectedFolder}
                 showEditionBar={this.props.showEditionBar}
-                noteTitleSelected={this.props.noteTitleSelected}>
+                noteTitleSelected={this.props.noteTitleSelected}
+                setFolderName = {this.props.setFolderName}
+                 >
               </InformationPanelContainer>
             </div>
 
@@ -93,7 +108,8 @@ class Main extends React.Component {
             <div className="col-md-1 firstElement">
               <EditionBarContainer editionBarVisible={this.props.editionBarVisible}
                 onClickEditEvent={this.props.onClickEditEvent} noteTitleSelected={this.props.noteTitleSelected}
-                onClickDeleteEvent={this.props.onClickDeleteEvent} />
+                onClickDeleteEvent={this.props.onClickDeleteEvent}
+                onClickEditNoteFolder={this.props.onClickEditNoteFolder} />
             </div>
 
 
