@@ -29,7 +29,7 @@ class InfoNote extends React.Component {
           <div className="infoContainer">
             <span className="itemsTitleTags">Note's Tags:</span>
             <div className="dropdown foldersDropdown">
-              <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">Tags <span className="caret"></span></button>
+              <button className="btn btn-primary dropdown-toggle btnInfo" type="button" data-toggle="dropdown" data-hover="dropdown">Tags <span className="caret"></span></button>
               <DropDownItems items={this.props.tagsNameNote} getItemId={this.getFolderId} />
             </div>
           </div>
