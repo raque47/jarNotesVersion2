@@ -20,27 +20,11 @@ class InformationPanelContainer extends React.Component {
     this.getFolderName = this.getFolderName.bind(this);
   }
   setTagName (name){
-    console.log("Entre a setTagName y mi name ANTES es::" + name);
-    console.log("Entre a setTagName y mi elementName ANTES es:" + this.state.elementName);
     this.setState({ elementName: name, resetName:name, resetControl:true });
     this.state.elementName = name;
-    console.log("Entre a setTagName y mi name DESPUES es::" + name);
-    console.log("Entre a setTagName y mi elementName DESPUES es:" + this.state.elementName);
   }
   addElement(elementName, action){
-  //  if(this.idAction == 'Tags'){
-        console.log("YEEEEEIII");
-        console.log("InfoPanelCont AddEvent(tags) Entre a"+ this.idAction);
-     //   this.onClickAddElement(elementName, "add");
-       console.log("EL NAME DEL TAG ES: " + elementName);
-        this.setState({ elementName: elementName});
-        
-        //this.state.elementName = name;
-        console.log("CHIWI  InfoPanCon AddEvent y mi elementName esSsS:" + elementName);
-   // }
-   // else{ // es Folders
-      // console.log("!!AddEvent(folder)Entre a"+ this.idAction);
-   // }
+    this.setState({ elementName: elementName});
   }
   getFolderName(idFolder){
     this.setState({idFolderNoteEdited: idFolder});

@@ -16,7 +16,7 @@ class TagsContainer extends React.Component {
     this.getAllTags = this.getAllTags.bind(this);
     this.addTag = this.addTag.bind(this);
     this.getTags = this.getTags.bind(this);
-    this.editTags = this.editTags.bind(this);
+    //this.editTag = this.editTag.bind(this);
     this.updateTag = this.updateTag.bind(this);
     this.deleteTag = this.deleteTag.bind(this);
     this.addEvent = this.addEvent.bind(this);
@@ -41,12 +41,11 @@ class TagsContainer extends React.Component {
       self.setState({ allTags: response.data, tagEvent: false });
     })
   }
-  editTags(idTagSelected, elementName) {
-    this.props.onClickEditTag(elementName, idTagSelected);
-  }
-  updateTag() {
-    const newTag= { _id: this.props.idTagSelected, elementName: this.props.elementName }
+  updateTag(idTagSelected, elementName) {
+    const newTag= { _id: idTagSelected, name: elementName }
     const self = this;
+    console.log("ESTOY EN EL UPDATE YYY TENGO " +  newTag );
+    console.log("ESTOY EN EL UPDATE YYY TENGO " + idTagSelected + " ELEMENT:" + elementName );
     axios.put('http://localhost:3000/api/tags', newTag).then(function (response) {
        self.getTags();
     })
@@ -121,7 +120,7 @@ class TagsContainer extends React.Component {
             elementName={item.name}
             showAllTags={self.props.showAllTags}
             onClickDeleteEvent={this.deleteTag}
-            onClickEditEvent={self.editTag}
+            onClickEditEvent={self.updateTag}
             setTagName = {this.setTagName}
           />
         );

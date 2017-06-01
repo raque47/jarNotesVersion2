@@ -1,39 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import InlineEdit from 'react-edit-inline';
 
 class Tags extends React.Component {
+  
   constructor(props) {
     super(props);
-    this.showTag = this.showTag.bind(this);
     this.deleteTag = this.deleteTag.bind(this);
-    this.editTag = this.editTag.bind(this);
+    this.dataChanged = this.dataChanged.bind(this);
+    this.state = {
+      message: '',
+      name: ''
+    }
   }
   deleteTag(event) {
     const idTagSelected = this.props.tagId;
     this.props.onClickDeleteEvent(idTagSelected);
   }
-  editTag(event) {
-    console.log("EDIT ** TAAAGGGGGG!!");
+  dataChanged(data) {
     const idTagSelected = this.props.tagId;
-    const tagNameSelected = this.props.name;
-    //this.props.onClickEditEvent(idTagSelected, tagNameSelected);
+    this.setState({data})
+    this.setState({name:data.message});
+    this.props.onClickEditEvent(idTagSelected, data.message);
+  }
+  customValidateText(text) {
+    return (text.length > 0 && text.length < 64);
   }
   render() {
     return (
-      <div id={this.props.tagId} 
+      <div id={this.props.tagId}
         className={"infoPanelElements borderStyle "} >
         <div className="tagContainer" >
-          <span className="tagAddedName">{this.props.elementName}</span>
+          <InlineEdit
+            validate={this.customValidateText}
+            activeClassName="editing"
+            text={this.props.elementName}
+            paramName="message"
+            change={this.dataChanged}
+            className="tagAddedName"
+            style={{ minWidth: 150, display: 'inline-block', outline: 0,borderColor: 'E7E7E7'}}
+          />
           <button className="buttons infoPanelButtons"
             onClick={this.deleteTag}><img
               src={require("../../images/trash-button.svg")}
-              className="navBar__images" /></button>
-          <Link to={'/editTag'}>
-            <button className="buttons infoPanelButtons"
-              onClick={this.editTag}><img
-                src={require("../../images/edit-button.svg")}
-                className="navBar__images" /></button>
-          </Link>
+              className="navBar__images" />
+          </button>
         </div>
       </div>
     );
