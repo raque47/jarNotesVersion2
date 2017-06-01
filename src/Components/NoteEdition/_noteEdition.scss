@@ -48,10 +48,7 @@
     font-family: 'Fanwood Text', serif;
     font-size: 2rem;
 }
-.textButton{
-    position: absolute;
-    right: 0;
-}
+
 textarea.form-control {
     height: 75vh;
 }
@@ -78,7 +75,10 @@ textarea.form-control {
     font-size: 3rem;
 }
 
-
+.textButtons{
+    position: absolute;
+    right: 0;
+}
 /* Media Queries */
 /* Mobile Styles */
 

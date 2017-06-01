@@ -15,7 +15,6 @@ class FoldersContainer extends React.Component {
     this.getAllFolders = this.getAllFolders.bind(this);
     this.addFolder = this.addFolder.bind(this);
     this.getFolders = this.getFolders.bind(this);
-    // this.editFolder = this.editFolder.bind(this);
     this.updateFolder = this.updateFolder.bind(this);
     this.deleteFolder = this.deleteFolder.bind(this);
     this.addEvent = this.addEvent.bind(this);
@@ -27,7 +26,6 @@ class FoldersContainer extends React.Component {
     let result;
 
   }
-
   addFolder() {
     const newFolder = { name: this.props.elementName }
     const self = this;
@@ -43,10 +41,6 @@ class FoldersContainer extends React.Component {
     })
   }
 
-  // editFolder(idFolderSelected, elementName) {
-  //   this.props.onClickEditFolder(elementName, idFolderSelected);
-  //   console.log("Edit folder");
-  // }
   updateFolder(idFolderSelected, elementName) {
     const newFolder = { _id: idFolderSelected, elementName: elementName }
     const self = this;
@@ -59,7 +53,6 @@ class FoldersContainer extends React.Component {
     const deleteFolder = { _id: idFolder };
     axios.delete('http://localhost:3000/api/folders', { data: deleteFolder }).
       then(function (response) {
-        //Se realiza un get de todas las notas 
         self.getFolders();
       })
   }

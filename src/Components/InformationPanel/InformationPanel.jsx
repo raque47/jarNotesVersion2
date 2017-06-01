@@ -39,11 +39,16 @@ class InformationPanel extends React.Component {
 
         <Switch>
           <Route path="/search" render={() => (
-            <Search
-              activeSearch={this.props.activeSearch}
+            <TagsContainer
+              elementName={this.props.elementName}
+              addTagEvent={false}
+              showAllTags={this.props.showAllTags}
               idAction={this.props.idAction}
-              actionType={this.props.actionType}
-              onClickEditNote={this.props.onClickEditNote}
+              actionType="viewTags"
+              onClickEditTag={this.props.onClickEditTag}
+              idTagSelected={this.props.idTagSelected}
+              onClickAddTag={this.props.onClickAddTag}
+              search = {true}              
             />
           )}
           />
@@ -75,6 +80,7 @@ class InformationPanel extends React.Component {
               onClickEditTag={this.props.onClickEditTag}
               idTagSelected={this.props.idTagSelected}
               onClickAddTag={this.props.onClickAddTag}
+              search = {false}
             />
           )}
           />
@@ -85,7 +91,7 @@ class InformationPanel extends React.Component {
               addFolderEvent={false}
               showAllFolders={this.props.showAllFolders}
               idAction={this.props.idAction}
-              actionType={this.props.actionType}
+              actionType="viewFolders"
               onClickEditFolder={this.props.onClickEditFolder}
               idFolderSelected={this.props.idFolderSelected}
               onClickAddFolder={this.props.onClickAddFolder}
@@ -146,6 +152,7 @@ class InformationPanel extends React.Component {
               onClickEditTag={this.props.onClickEditTag}
               idTagSelected={this.props.idTagSelected}
               onClickAddTag={this.props.onClickAddTag}
+              search = {false}
             />
           )}
           />

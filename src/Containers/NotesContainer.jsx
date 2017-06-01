@@ -37,6 +37,7 @@ class NotesContainer extends React.Component {
   }
 
   getNotes() {
+
     const self = this;
     axios.get('http://localhost:3000/api/notes').then(function (response) {
       self.setState({ allNotes: response.data, noteEvent: false });
@@ -66,6 +67,8 @@ class NotesContainer extends React.Component {
     const notes = this.state.allNotes;
     const self = this;
     let showNote = false;
+    console.log("el action type en notes container es: " + this.props.actionType);
+    console.log("el action type en notes container es: " + notes);
     switch (this.props.actionType) {
       case "viewNotes":
         if (this.state.noteEvent === true) {
@@ -116,6 +119,9 @@ class NotesContainer extends React.Component {
         break;
       default:
         this.state.noteEvent = true;
+      //case "chooseTag":
+        //this.getTagsOfNote();
+      //break;
     }
     return <div className="containerOfElements">{notes.map((item) => {
       showNote = false;

@@ -28,12 +28,19 @@ class MainContainer extends React.Component {
       editionBarVisible: false,
       noteTitleSelected: "",
       noteContentSelected: "",
+<<<<<<< HEAD
       folderNameNoteEdited: "",
       noteTitleSelectedEdit: "",
       showInfoPanel: false,
       tagsNoteEdited: [],
       getTagsEvent: false,
       tagsNameNote: []
+=======
+      folderNameNoteEdited:"",
+      noteTitleSelectedEdit:"",
+      showModalTagSelection: false,
+      tagNameNoteEdited: "",
+>>>>>>> 6d8c19d84d8a1ce536dd06b3cdf65716bfd0d12b
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -45,6 +52,7 @@ class MainContainer extends React.Component {
     this.getTagName = this.getTagName.bind(this);
     //this.addFolder = this.addFolder.bind(this);
     this.chooseFolder = this.chooseFolder.bind(this);
+    this.chooseTag = this.chooseTag.bind(this);
     this.showEditionBar = this.showEditionBar.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
     this.editNoteFolder = this.editNoteFolder.bind(this);
@@ -134,12 +142,17 @@ class MainContainer extends React.Component {
     console.log("Estoy en edit note de main container!!");
     this.setState({ noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, showAllNotes: true, actionType: "editNote", action: "edit", idNoteSelected: this.state.idNoteSelected, editionBarVisible: true, showInfoPanel: false, getTagsEvent: false });
   }
-
   getTagName(name) {
     console.log("ESTOY EN MAIN CONTAINER" + tagName);
     this.setState({ tagName: name, resetName: name, resetControl: true, getTagsEvent: false });
   }
-
+  chooseTag(noteContent, noteTitle) {
+    if (noteTitle === "") {
+      noteTitle = "No Title"
+    }
+     this.setState({ actionType: "chooseTag", showModalTagSelection: true, editionBarVisible: false, showAllNotes:false });
+     this.state.showModalTagSelection = true;
+  }
   addTag(tagName, action) {
     console.log("aaaaaa!: ");
     if (tagtagName === "") {
@@ -212,6 +225,7 @@ class MainContainer extends React.Component {
           onClickViewEvent={this.viewEvent}
           onClickAddEvent={this.addElementEvent}
           onClickAddNote={this.chooseFolder}
+          onClickAssignTag={this.chooseTag}
           onClickAddElement={this.props.addElement}
           activeSearch={this.state.activeSearch}
           activeView={this.state.activeView}
@@ -248,6 +262,9 @@ class MainContainer extends React.Component {
           getTagsEvent={this.state.getTagsEvent}
           tagsNameNote={this.state.tagsNameNote}
           closeInfoNotePanel={this.closeInfoNotePanel}
+          showModalTagSelection = {this.state.showModalTagSelection}
+          onClickAcceptTag={this.addNote}
+          tagNameNoteEdited = {this.state.tagNameNoteEdited}
         />)}
       />
 

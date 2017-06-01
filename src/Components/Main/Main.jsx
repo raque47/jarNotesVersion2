@@ -9,6 +9,8 @@ import InformationPanelContainer from '../../Containers/InformationPanelContaine
 import ModalContainer from '../../Containers/ModalContainer'
 import InfoNote from '../InfoNote/InfoNote'
 import mainStyle from './_main.scss'
+import TagsSelectionContainer from '../../Containers/TagsSelectionContainer';
+
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
@@ -47,28 +49,33 @@ class Main extends React.Component {
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
                 <Route exact path="/" render={() => (
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
+                    onClickAssignTag={this.props.onClickAssignTag}
                     actionType={this.props.actionType}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
                 <Route path="/" render={() => (
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
+                    onClickAssignTag={this.props.onClickAssignTag}
                     actionType={this.props.actionType}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
@@ -130,7 +137,13 @@ class Main extends React.Component {
         noteTitle={this.props.noteTitle} tagsNameNote={this.props.tagsNameNote}
         closeInfoNotePanel = {this.props.closeInfoNotePanel}/>
 
-      </div>
+    
+        <TagsSelectionContainer showModalTagSelection={this.props.showModalTagSelection}
+          onClickAcceptTag={this.props.onClickAcceptTag}
+          actionType={this.props.actionType}
+          tagNameNoteEdited={this.props.tagNameNoteEdited} />
+     </div>
+
     );
   }
 };
