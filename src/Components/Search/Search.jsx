@@ -23,6 +23,7 @@ class Search extends React.Component {
                         </button>
 
                     </div>
+                    
                 </div>
                 { /*<input onChange={this.handleSearchTermChange} value={this.state.searchTerm} type='text' placeholder='Search' /> */}
             </div>
@@ -32,3 +33,4 @@ class Search extends React.Component {
     
 export default Search;
 
+                
