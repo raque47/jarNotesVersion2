@@ -33,7 +33,7 @@ class Modal extends React.Component {
                     <div className="containerElectionFolder">
                         <img src={require('../../images/folder-button.svg')} className="folderImage" />
                         <div className="dropdown foldersDropdown">
-                            <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">{this.state.title} <span className="caret"></span></button>
+                            <button className="btn btn-primary dropdown-toggle btnModal" type="button" data-toggle="dropdown" data-hover="dropdown">{this.state.title} <span className="caret"></span></button>
                             <DropDownItems items={this.props.folders} getItemId={this.getFolderId} />
                         </div>
                     </div>

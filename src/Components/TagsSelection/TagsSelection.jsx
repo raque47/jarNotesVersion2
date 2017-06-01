@@ -42,7 +42,7 @@ class TagsSelection extends React.Component {
   
                             />
                             <div className="dropdown tagsDropdown">
-                                <button className="btn btn-primary dropdown-toggle"
+                                <button className="btn btn-primary dropdown-toggle btnTagsSelection"
                                     type="button"
                                     data-toggle="dropdown"
                                     data-hover="dropdown">
