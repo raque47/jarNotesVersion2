@@ -28,19 +28,14 @@ class MainContainer extends React.Component {
       editionBarVisible: false,
       noteTitleSelected: "",
       noteContentSelected: "",
-<<<<<<< HEAD
       folderNameNoteEdited: "",
       noteTitleSelectedEdit: "",
       showInfoPanel: false,
       tagsNoteEdited: [],
       getTagsEvent: false,
-      tagsNameNote: []
-=======
-      folderNameNoteEdited:"",
-      noteTitleSelectedEdit:"",
+      tagsNameNote: [],
       showModalTagSelection: false,
       tagNameNoteEdited: "",
->>>>>>> 6d8c19d84d8a1ce536dd06b3cdf65716bfd0d12b
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
