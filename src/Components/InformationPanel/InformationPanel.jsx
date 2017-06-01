@@ -74,7 +74,7 @@ class InformationPanel extends React.Component {
               onClickEditFolder={this.props.onClickEditFolder}
               idFolderSelected={this.props.idFolderSelected}
               onClickAddFolder={this.props.onClickAddFolder}
-              onClickEditFolderNote={this.props.onClickEditFolderNote}
+              onClickEditNoteFolder={this.props.onClickEditNoteFolder}
               idSelectedFolder={this.props.idSelectedFolder}
             />
           )}
@@ -158,7 +158,7 @@ class InformationPanel extends React.Component {
               onClickEditFolder={this.props.onClickEditFolder}
               idFolderSelected={this.props.idFolderSelected}
               onClickAddFolder={this.props.onClickAddFolder}
-              onClickEditFolderNote={this.props.onClickEditFolderNote}
+              onClickEditNoteFolder={this.props.onClickEditNoteFolder}
               idSelectedFolder={this.props.idSelectedFolder}
             />
           )}

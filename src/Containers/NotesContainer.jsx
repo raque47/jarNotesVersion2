@@ -93,7 +93,7 @@ class NotesContainer extends React.Component {
         break;
       case "searchNotes":
         break;
-      case "editNote":
+      case "editNote","editNoteFolder":
         //  console.log("ID EN ACTION NOTES CONTAINER ES: " + this.props.idNoteSelected);
         if (this.state.noteEvent === true) {
           this.updateNote();

@@ -28,6 +28,8 @@ class MainContainer extends React.Component {
       editionBarVisible: false,
       noteTitleSelected: "",
       noteContentSelected: "",
+      folderNameNoteEdited:"",
+      noteTitleSelectedEdit:""
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -41,6 +43,7 @@ class MainContainer extends React.Component {
     this.chooseFolder = this.chooseFolder.bind(this);
     this.showEditionBar = this.showEditionBar.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+    this.editNoteFolder = this.editNoteFolder.bind(this);
 
   }
   mainButtonEvent(id) {
@@ -104,8 +107,12 @@ class MainContainer extends React.Component {
     if (this.state.action == "add") {
       this.setState({ idSelectedFolder:idFolder, showAllNotes: true, actionType: "addNote", showModal: false, editionBarVisible: false });
     }
-    else {
+    else if(this.state.action=="edit") {
       this.setState({ showAllNotes: true, noteContent: noteContent, noteTitle: noteTitle, actionType: "editNote", showModal: false, editionBarVisible: false });
+    }
+    else{
+      console.log("ESTOY ENTRANDO AL ELSE DE ADD NOOOOOTEEEEE!!!!!" + this.state.noteContentSelected);
+      this.setState({ showAllNotes: true, idSelectedFolder:idFolder, noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, actionType: "editNoteFolder", idNoteSelected: this.state.idNoteSelected, showModal: false, editionBarVisible: false });
     }
   }
   editNote() {
@@ -141,18 +148,28 @@ class MainContainer extends React.Component {
     this.state.noteTitleSelected = noteTitleSelected;
     this.state.noteContentSelected = noteContentSelected;
     this.state.idSelectedFolder = idFolder;
-    console.log("El titulo de la nota a mostrar barra es: " + noteTitleSelected + " con contenido: " + noteContentSelected);
+
+    //Se controla el tamaño del título
+    if(noteTitleSelected.length>15){
+      console.log("ENTRE AL IF DE TAMANO 12!!!");
+      this.state.noteTitleSelectedEdit = noteTitleSelected.slice(0,15);
+      this.state.noteTitleSelectedEdit = this.state.noteTitleSelectedEdit + "..."
+      console.log("el titulo ya con slice es: " + this.state.noteTitleSelectedEdit);
+    }
+    else{
+       this.state.noteTitleSelectedEdit = noteTitleSelected;
+    }
+    console.log("El titulo de la nota a mostrar barra es: " + noteTitleSelected + "con esta longitud: " + noteTitleSelected.length + " con contenido: " + noteContentSelected);
     this.setState({ editionBarVisible: true, noteTitle: "", noteContent: "",   });
   }
-  setFolderName(folderName) {
-    this.state.folderNameNoteEdited = folderName;
-  }
+
   deleteNote() {
     console.log("ESTOY EN DELETE NOTE DE MAIN CONTAINER!!");
     this.setState({ showAllNotes: true, actionType: "deleteNote", idNoteSelected: this.state.idNoteSelected, editionBarVisible: false });
   }
-  editNoteFolder(){
-
+  editNoteFolder(folderName){
+    console.log("EL NOMBRE DEL FOLDER ES: " +  folderName);
+     this.setState({showModal: true, actionType: "editNoteFolder", folderNameNoteEdited:folderName });
   }
   render() {
     return (
@@ -186,11 +203,11 @@ class MainContainer extends React.Component {
           idSelectedFolder={this.state.idSelectedFolder}
           showEditionBar={this.showEditionBar}
           editionBarVisible={this.state.editionBarVisible}
-          noteTitleSelected={this.state.noteTitleSelected}
+          noteTitleSelected={this.state.noteTitleSelectedEdit}
           onClickDeleteEvent={this.deleteNote}
-          setFolderName={this.setFolderName}
           folderName={this.state.folderNameNoteEdited}
           onClickEditNoteFolder={this.editNoteFolder}
+          folderNameNoteEdited = {this.state.folderNameNoteEdited}
         />)}
       />
 

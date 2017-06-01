@@ -58,6 +58,7 @@ class InformationPanelContainer extends React.Component {
           idSelectedFolder={this.props.idSelectedFolder}
           getFolderName={this.getFolderName}
           idFolderNoteEdited = {this.state.idFolderNoteEdited}
+          onClickEditNoteFolder={this.props.onClickEditNoteFolder}
            >
 
         </InformationPanel>
