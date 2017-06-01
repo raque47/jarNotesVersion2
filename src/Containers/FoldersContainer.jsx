@@ -72,13 +72,16 @@ class FoldersContainer extends React.Component {
     }
   }
 
-  getFolderName(){
-    console.log("ESTOY EN OBTENER NOMBRE DEL FOLDER CON ESTE ID: " + this.props.idSelectedFolder );
+  getFolderName() {
+    console.log("ESTOY EN OBTENER NOMBRE DEL FOLDER CON ESTE ID: " + this.props.idSelectedFolder);
+    const getFolder = { _id: "592d9bc2f27766bad685834e" };
+    axios.get('http://localhost:3000/api/folders/'+ getFolder._id).then(function (response) {
+        console.log("response fue: " + response.data.name);
+      })
   }
-
-   setFolderName(name) {
+  setFolderName(name) {
     console.log("Entre a SETFOLDERNAME y mi elementName ANTES es:" + this.state.elementName);
-    this.setState({ elementName: name, resetName:name, resetControl:true });
+    this.setState({ elementName: name, resetName: name, resetControl: true });
     this.state.elementName = name;
     console.log("Entre a SETFOLDERNAME y mi elementName DESPUES es:" + this.state.elementName);
   }

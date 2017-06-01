@@ -45,23 +45,29 @@ function updateFolder(req, res) {
 //delete folder
 function deleteFolder (req, res) {
     Folder.findByIdAndRemove({ _id: req.body._id }, req.body, (err, data) => {
-    if (!err) {
-      res.status(204);
-      res.json(data);
-    }
-    else {
-      res.status(500);
-      res.json(err);
-    }
+      if (!err) {
+            res.status(201);
+            res.json(data);
+        }
+        else {
+            res.status(404);
+            res.json(err);
+        }
   });
 };
 
 //get folder by Id
 function getFolderById(req, res) {
-  console.log('get folder by Id!!');
-  Folder.findById({ _id: req.body._id }).exec(function (err, data) {
-    res.status(200);
-    res.json(data);
+  console.log("params es: " + req.params._id);
+ Folder.findById({ _id: req.params._id }, req.body, (err, data) => {
+      if (!err) {
+            res.status(201);
+            res.json(data);
+        }
+        else {
+            res.status(404);
+            res.json(err);
+        }
   });
 };
 
@@ -71,7 +77,8 @@ const actions = {
     getFolders,
     addFolder,
     updateFolder,
-    deleteFolder
+    deleteFolder,
+    getFolderById
 }
 
 module.exports = actions;
