@@ -31,9 +31,7 @@ class InformationPanelContainer extends React.Component {
   }
   render() {
     return (
-      console.log("VOY A RENDEREAR ESTOOOOO " + this.state.elementName ),
       <div>
-        {console.log("el action type en information panel container vale: " + this.props.actionType)}
         <InformationPanel  
           elementName = {this.state.elementName}
           onClickMainButtonEvent={this.props.mainButtonEvent}
@@ -59,6 +57,11 @@ class InformationPanelContainer extends React.Component {
           getFolderName={this.getFolderName}
           idFolderNoteEdited = {this.state.idFolderNoteEdited}
           onClickEditNoteFolder={this.props.onClickEditNoteFolder}
+          onClickNoteFolderInfo={this.props.onClickNoteFolderInfo}
+          setActionGetTag={this.props.setActionGetTag}         
+          idTagsNote={this.props.idTagsNote}
+          setTagsName={this.props.setTagsName}
+          getTagsEvent={this.props.getTagsEvent}
            >
 
         </InformationPanel>

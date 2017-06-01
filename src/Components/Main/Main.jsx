@@ -7,6 +7,7 @@ import EditionBarContainer from '../../Containers/EditionBarContainer';
 import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import InformationPanelContainer from '../../Containers/InformationPanelContainer';
 import ModalContainer from '../../Containers/ModalContainer'
+import InfoNote from '../InfoNote/InfoNote'
 import mainStyle from './_main.scss'
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
@@ -34,7 +35,6 @@ class Main extends React.Component {
             <div className="col-md-8 col-sm-11  col-xs-12 secondElement">
               <Switch>
                 <Route path="/editNote" render={() => (
-                  console.log("estoy en edit nooooteee path!!!!!!"),
                   <NoteEditionContainer onClickAddNote={this.props.onClickAddNote}
                     noteTitle={this.props.noteTitle}
                     noteContent={this.props.noteContent}
@@ -77,7 +77,6 @@ class Main extends React.Component {
 
 
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
-              {console.log("el action type en main vale: " + this.props.actionType)}
               <InformationPanelContainer
                 onClickMainButtonEvent={this.props.mainButtonEvent}
                 activeSearch={this.props.activeSearch}
@@ -99,9 +98,14 @@ class Main extends React.Component {
                 idSelectedFolder={this.props.idSelectedFolder}
                 showEditionBar={this.props.showEditionBar}
                 noteTitleSelected={this.props.noteTitleSelected}
-                setFolderName = {this.props.setFolderName}
+                setFolderName={this.props.setFolderName}
                 onClickEditNoteFolder={this.props.onClickEditNoteFolder}
-                 >
+                onClickNoteFolderInfo = {this.props.onClickNoteFolderInfo}
+                setActionGetTag={this.props.setActionGetTag}
+                setTagsName={this.props.setTagsName}
+                idTagsNote={this.props.idTagsNote}
+                getTagsEvent={this.props.getTagsEvent}
+              >
               </InformationPanelContainer>
             </div>
 
@@ -110,21 +114,23 @@ class Main extends React.Component {
               <EditionBarContainer editionBarVisible={this.props.editionBarVisible}
                 onClickEditEvent={this.props.onClickEditEvent} noteTitleSelected={this.props.noteTitleSelected}
                 onClickDeleteEvent={this.props.onClickDeleteEvent}
-                onClickEditNoteFolder={this.props.onClickEditNoteFolder} />
+                onClickEditNoteFolder={this.props.onClickEditNoteFolder}
+                showInfoNote={this.props.showInfoNote} />
             </div>
-
-
           </div>
-
         </div>
-
 
         <ModalContainer showModal={this.props.showModal}
           onClickAcceptFolder={this.props.onClickAcceptFolder}
-          actionType={this.props.actionType} 
-          folderNameNoteEdited={this.props.folderNameNoteEdited}/>
-      </div>
+          actionType={this.props.actionType}
+          folderNameNoteEdited={this.props.folderNameNoteEdited} />
 
+        <InfoNote showInfoPanel={this.props.showInfoPanel}  
+        folderNameNoteEdited={this.props.folderNameNoteEdited} 
+        noteTitle={this.props.noteTitle} tagsNameNote={this.props.tagsNameNote}
+        closeInfoNotePanel = {this.props.closeInfoNotePanel}/>
+
+      </div>
     );
   }
 };

@@ -17,11 +17,25 @@ class InformationPanel extends React.Component {
   }
 
   render() {
-    console.log("estoy en information panel!! con tag name de: " + this.props.elementName);
     return (
       <div id="panelInformation" className="infoPanel">
 
         <Title panelTitle={this.props.idAction} />
+
+        <TagsContainer
+          elementName={this.props.elementName}
+          addTagEvent={false}
+          showAllTags={this.props.showAllTags}
+          idAction={this.props.idAction}
+          actionType={"infoTagsNote"}
+          onClickEditTag={this.props.onClickEditTag}
+          idTagSelected={this.props.idTagSelected}
+          onClickAddTag={this.props.onClickAddTag}
+          idTagsNote={this.props.idTagsNote}
+          getTagsName={this.props.getTagsName}
+          setTagsName={this.props.setTagsName}
+          getTagsEvent={this.props.getTagsEvent}
+        />
 
         <Switch>
           <Route path="/search" render={() => (
@@ -46,6 +60,7 @@ class InformationPanel extends React.Component {
               idNoteSelected={this.props.idNoteSelected}
               showEditionBar={this.props.showEditionBar}
               getFolderName={this.props.getFolderName}
+              setActionGetTag={this.props.setActionGetTag}
             />
           )}
           />
@@ -93,6 +108,7 @@ class InformationPanel extends React.Component {
                 idSelectedFolder={this.props.idSelectedFolder}
                 showEditionBar={this.props.showEditionBar}
                 getFolderName={this.props.getFolderName}
+                setActionGetTag={this.props.setActionGetTag}
               />)
 
           )}
@@ -148,8 +164,7 @@ class InformationPanel extends React.Component {
           )}
           />
 
-            <Route path='/editFolderNote' render={() => (
-            console.log("ESTOY ENTRANDO A CONTENEDOR DE FOLDERS!!!"),
+          <Route path='/editFolderNote' render={() => (
             <FoldersContainer
               folderName={this.props.tagName}
               addFolderEvent={this.props.addFolderEvent}
@@ -163,6 +178,22 @@ class InformationPanel extends React.Component {
             />
           )}
           />
+
+          <Route path='/infoNote' render={() => (
+            <FoldersContainer
+              folderName={this.props.tagName}
+              addFolderEvent={this.props.addFolderEvent}
+              showAllFolders={this.props.showAllFolders}
+              actionType={"infoNote"}
+              onClickEditFolder={this.props.onClickEditFolder}
+              idFolderSelected={this.props.idFolderSelected}
+              onClickAddFolder={this.props.onClickAddFolder}
+              idSelectedFolder={this.props.idSelectedFolder}
+              onClickNoteFolderInfo={this.props.onClickNoteFolderInfo}
+            />
+          )}
+          />
+
           <Route path="/" render={() => (
             <NotesContainer
               noteTitle={this.props.noteTitle}
@@ -175,6 +206,8 @@ class InformationPanel extends React.Component {
               idSelectedFolder={this.props.idSelectedFolder}
               showEditionBar={this.props.showEditionBar}
               getFolderName={this.props.getFolderName}
+              getTagsName={this.props.getTagsName}
+              setActionGetTag= {this.props.setActionGetTag}
             />
           )}
           />

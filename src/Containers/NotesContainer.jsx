@@ -21,14 +21,13 @@ class NotesContainer extends React.Component {
   } //Close the constructor
 
   showSpecificNote(id) {
-    console.log("show specific!!!");
     this.setState({ showSpecificNote: true, idNoteSelected: id, noteEvent: false });
-
   }
 
   addNote() {
-    console.log("el id del folder a agregar con nota es: " + this.props.idSelectedFolder);
-    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: this.props.idSelectedFolder }
+    const tag1 = "592fe7c94a1c6e2e50b1e446";
+    const tag2 = "592fe7ed4a1c6e2e50b1e447";
+    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [tag1, tag2], folderId: this.props.idSelectedFolder }
     const self = this;
     axios.post('http://localhost:3000/api/notes', newNote).then(() => {
 
@@ -44,13 +43,12 @@ class NotesContainer extends React.Component {
     })
   }
   editNote(idNoteSelected, noteTitleSelected, noteContentSelected) {
-    console.log("TENGO QUE EDITAR NOTA!!!! " + idNoteSelected + " " + noteTitleSelected + " " + noteContentSelected);
     this.props.onClickEditNote(noteTitleSelected, noteContentSelected, idNoteSelected);
-    console.log();
   }
   updateNote() {
-    const newNote = { _id: this.props.idNoteSelected, noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [1, 2], folderId: this.props.idSelectedFolder }
-    console.log("ENTRE A HACER UPDATE!" + this.props.idNoteSelected);
+    const tag1 = "592fe7c94a1c6e2e50b1e446";
+    const tag2 = "592fe7ed4a1c6e2e50b1e447";
+    const newNote = { _id: this.props.idNoteSelected, noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [tag1, tag2], folderId: this.props.idSelectedFolder }
     const self = this;
     axios.put('http://localhost:3000/api/notes', newNote).then(function (response) {
       self.getNotes();
@@ -59,7 +57,6 @@ class NotesContainer extends React.Component {
   deleteNote() {
     const self = this;
     const note = { _id: this.props.idNoteSelected };
-    console.log("id es: " + note + " con id: " + note._id);
     axios.delete('http://localhost:3000/api/notes', { data: note }).then(function (response) {
       //Se realiza un get de todas las notas 
       self.getNotes();
@@ -69,10 +66,8 @@ class NotesContainer extends React.Component {
     const notes = this.state.allNotes;
     const self = this;
     let showNote = false;
-    console.log("el action type en notes container es: " + this.props.actionType);
     switch (this.props.actionType) {
       case "viewNotes":
-        console.log("VIEW NOTES EVENT!!");
         if (this.state.noteEvent === true) {
           this.getNotes();
           this.state.noteEvent = false;
@@ -82,7 +77,6 @@ class NotesContainer extends React.Component {
         }
         break;
       case "addNote":
-        console.log("ADD NOTE EVENT!!");
         if (this.state.noteEvent === true) {
           this.addNote();
           this.state.noteEvent = false;
@@ -93,8 +87,7 @@ class NotesContainer extends React.Component {
         break;
       case "searchNotes":
         break;
-      case "editNote","editNoteFolder":
-        //  console.log("ID EN ACTION NOTES CONTAINER ES: " + this.props.idNoteSelected);
+      case "editNote":
         if (this.state.noteEvent === true) {
           this.updateNote();
           this.state.noteEvent = false;
@@ -104,7 +97,6 @@ class NotesContainer extends React.Component {
         }
         break;
       case "deleteNote":
-        console.log("VOY A ELIMINAR NOTA!!!!!");
         if (this.state.noteEvent === true) {
           this.deleteNote();
           this.state.noteEvent = false;
@@ -113,6 +105,17 @@ class NotesContainer extends React.Component {
           this.state.noteEvent = true;
         }
         break;
+      case "editNoteFolder":
+        if (this.state.noteEvent === true) {
+          this.updateNote();
+          this.state.noteEvent = false;
+        }
+        else {
+          this.state.noteEvent = true;
+        }
+        break;
+      default:
+        this.state.noteEvent = true;
     }
     return <div className="containerOfElements">{notes.map((item) => {
       showNote = false;
@@ -121,7 +124,6 @@ class NotesContainer extends React.Component {
           showNote = true;
         }
       }
-      //    console.log("showNote vale: " + showNote + " SHOW EDITION BAR VALE: " + self.props.showEditionBar );
       return <Notes
         key={item._id}
         noteId={item._id}
@@ -132,8 +134,10 @@ class NotesContainer extends React.Component {
         onClickShowEvent={self.showSpecificNote}
         onClickEditEvent={self.editNote}
         showEditionBar={self.props.showEditionBar}
-        idFolder={item.folderId} 
-        getFolderName={this.props.getFolderName}/>
+        idFolder={item.folderId}
+        idTags={item.tagsIds}
+        getFolderName={this.props.getFolderName}
+        setActionGetTag={this.props.setActionGetTag} />
     })}</div>;
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import mainStyle from './_modal.scss'
+import modalStyle from './_modal.scss'
 import FoldersContainer from '../../Containers/FoldersContainer'
-import DropDownFolders from '../DropDownFolders/DropDownFolders'
+import DropDownItems from '../DropDownItems/DropDownItems'
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 
@@ -14,6 +14,7 @@ class Modal extends React.Component {
     }
 
     acceptFolder() {
+        console.log("el folder elegido es: " + this.state.idFolder);
         this.props.onClickAcceptFolder(this.state.idFolder, null, null);
     }
     getFolderId(idSelectedFolder, nameSelectedFolder) {
@@ -22,7 +23,6 @@ class Modal extends React.Component {
     }
     render() {
       if (this.props.actionType == "editNoteFolder" && this.state.modalEvent === false) {
-            console.log("ESTOY EN EDIT NOTE FOLDER!!");
             this.state.title = this.props.folderNameNoteEdited;
             this.state.modalEvent = true;         
         }
@@ -34,7 +34,7 @@ class Modal extends React.Component {
                         <img src={require('../../images/folder-button.svg')} className="folderImage" />
                         <div className="dropdown foldersDropdown">
                             <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">{this.state.title} <span className="caret"></span></button>
-                            <DropDownFolders folders={this.props.folders} getFolderId={this.getFolderId} />
+                            <DropDownItems items={this.props.folders} getItemId={this.getFolderId} />
                         </div>
                     </div>
                     <Link to='/editNote'>

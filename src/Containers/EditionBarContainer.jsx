@@ -23,6 +23,7 @@ constructor(props) {
                 onClickEditEvent={this.props.onClickEditEvent}
                 onClickDeleteEvent = {this.props.onClickDeleteEvent}
                 onClickEditNoteFolder={this.props.onClickEditNoteFolder}
+                showInfoNote={this.props.showInfoNote}
                 />
         );
     }

@@ -19,8 +19,7 @@ class NoteEditionContainer extends React.Component {
     this.getNoteTitle = this.getNoteTitle.bind(this);
   }
   addNoteEvent() {
-    console.log("estoy en add note wuuuuu de note edition container! !");
-   
+    console.log("el action type en add note event BOTON es: " + this.props.actionType);
     if(this.props.actionType=="editNote"){
       this.props.onClickAcceptFolder(null, this.state.noteContent, this.state.noteTitle);
     //  this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "edit")
@@ -37,14 +36,12 @@ class NoteEditionContainer extends React.Component {
     this.setState({ noteTitle: title, resetTitle:title, resetControl:true });
   }
   render() {
-    console.log("action type en note edition cont vale: " + this.props.actionType );
     if(this.props.actionType === "editNote" && this.state.resetControl === false){
       this.state.resetContent = this.props.noteContent;
       this.state.resetTitle = this.props.noteTitle;
       this.state.noteContent = this.props.noteContent;
       this.state.noteTitle = this.props.noteTitle
       this.state.editNote = true;
-      console.log("estoy en el true de edition note container!");
     }
     return (
       <NoteEdition 

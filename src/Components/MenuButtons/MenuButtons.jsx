@@ -16,7 +16,6 @@ class MenuButtons extends React.Component {
   activateHiddenButtons(event) {
     //Get the id of the button
     const idButton = event.target.id;
-    console.log("ESTEEEEEE "+ idButton);
     switch(idButton)
     {
       case "notes":
@@ -35,7 +34,6 @@ class MenuButtons extends React.Component {
   activateSearchHiddenEvent(event){
     //Get the id of the hidden button
     const idHiddenButton = event.target.id;
-    console.log('el id es: ' +event.target.id);
     switch(idHiddenButton)
     {
       case "search notes":
@@ -51,7 +49,6 @@ class MenuButtons extends React.Component {
   }
   activateAddHiddenEvent(event){
     const idHiddenButton = event.target.id;
-    console.log('el id es: ' +event.target.id);
     switch(idHiddenButton)
     {
       case "view":

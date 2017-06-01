@@ -1,0 +1,198 @@
+.infoNotePanel{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 1;
+    position:absolute;
+    left:0; 
+    right:0;
+    top:0; 
+    bottom:0;
+    margin:auto;
+    z-index: 1;
+
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+
+    border: 2px dashed #2BC382;
+
+}
+
+.infoNoteContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.showPanel{
+    display:block;
+}
+
+.hidePanel{
+    display:none;
+}
+
+.infoImage{
+    width: 4rem;
+    height: 4rem;
+  //  margin-left: 50%;
+    margin-top:2%;
+
+    order: 0;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+.infoStyle{
+    font-family: 'Kreon', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top:5vh;
+    color: #878787;
+    border-bottom:2px solid gray;
+    padding-bottom: 0.2rem;
+}
+
+.titleStyle{
+    text-align: center;
+    color: #383838;
+    word-break: break-word;
+    word-wrap: break-word;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 44px;
+    width:60rem;
+    margin-top:5vh;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    margin-top:5vh;
+}
+
+.itemsTitle{
+    font-family: 'Kreon', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top:1rem;
+    color: #878787;
+    padding-bottom: 0.2rem;
+  //  margin-left:-22rem;
+}
+
+.items{
+    color: #4a4a4a;
+    font-family: 'Kreon', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+   margin-top:2vh;
+    padding-bottom: 0.2rem;
+    margin-left: 0.5rem;
+}
+
+.itemsTitleTags{
+    font-family: 'Kreon', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top:2vh;
+    color: #878787;
+    padding-bottom: 0.2rem;
+  //  margin-left:-34%;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 30vw;
+    margin-top: -30%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: -14% 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+
+.btnCancel{
+    width:8rem;
+    height: 5rem;
+    margin-top:20vh;
+}
+
+/* Media Queries */
+/* Mobile Styles */
+
+@media only screen and (max-width: 500px) {
+   .btnCancel{
+    width:8rem;
+    height: 5rem;
+    margin-top:20vh;
+} 
+}
+@media only screen and (max-width: 400px) and (max-width: 960px) {
+  .btnCancel{
+    width:8rem;
+    height: 5rem;
+    margin-top:20vh;
+} 
+
+   
+}
+
+@media only screen and (max-width: 750) {
+ .btnCancel{
+    width:8rem;
+    height: 5rem;
+    margin-top:20vh;
+}
+}
+

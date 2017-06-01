@@ -15,7 +15,7 @@ class FoldersContainer extends React.Component {
     this.getAllFolders = this.getAllFolders.bind(this);
     this.addFolder = this.addFolder.bind(this);
     this.getFolders = this.getFolders.bind(this);
-   // this.editFolder = this.editFolder.bind(this);
+    // this.editFolder = this.editFolder.bind(this);
     this.updateFolder = this.updateFolder.bind(this);
     this.deleteFolder = this.deleteFolder.bind(this);
     this.addEvent = this.addEvent.bind(this);
@@ -57,7 +57,6 @@ class FoldersContainer extends React.Component {
   deleteFolder(idFolder) {
     const self = this;
     const deleteFolder = { _id: idFolder };
-    console.log("BORRARR id es: " + deleteFolder + " con id: " + deleteFolder._id);
     axios.delete('http://localhost:3000/api/folders', { data: deleteFolder }).
       then(function (response) {
         //Se realiza un get de todas las notas 
@@ -66,27 +65,26 @@ class FoldersContainer extends React.Component {
   }
   addEvent() {
     if (this.props.idAction === 'Folders') {
-      console.log("!!AddEvent (folders) Entre a" + this.props.idAction);
       this.props.onClickAddElement(this.state.elementName, "add");
-      console.log("AddEvent y mi elementName es:" + this.state.elementName);
     }
   }
 
   getFolderName() {
-    console.log("ESTOY EN OBTENER NOMBRE DEL FOLDER CON ESTE ID: " + this.props.idSelectedFolder);
     const self = this;
     const getFolder = { _id: this.props.idSelectedFolder };
-    axios.get('http://localhost:3000/api/folders/'+ getFolder._id).then(function (response) {
-           self.props.onClickEditNoteFolder(response.data.name);
-      })
+    axios.get('http://localhost:3000/api/folders/' + getFolder._id).then(function (response) {
+      if(self.props.actionType=="editFolderNote"){
+        self.props.onClickEditNoteFolder(response.data.name);
+      }
+      else{
+        self.props.onClickNoteFolderInfo(response.data.name);
+      } 
+    })
   }
   setFolderName(name) {
-    console.log("Entre a SETFOLDERNAME y mi elementName ANTES es:" + this.state.elementName);
     this.setState({ elementName: name, resetName: name, resetControl: true });
     this.state.elementName = name;
-    console.log("Entre a SETFOLDERNAME y mi elementName DESPUES es:" + this.state.elementName);
   }
-
   render() {
 
     const folders = this.state.allFolders;
@@ -97,7 +95,6 @@ class FoldersContainer extends React.Component {
       case "viewFolders":
         if (this.state.folderEvent === true) {
           this.getFolders();
-          console.log("Hice el getFolders");
           this.state.folderEvent = false;
         }
         else {
@@ -105,7 +102,6 @@ class FoldersContainer extends React.Component {
         }
         break;
       case "addFolder":
-        console.log("ADDD WOWOW!!");
         if (this.state.folderEvent === true) {
           this.addFolder();
           this.state.folderEvent = false;
@@ -117,7 +113,6 @@ class FoldersContainer extends React.Component {
       case "searchFolders":
         break;
       case "editFolder":
-        console.log("EDITTTTT WOWOWOWWOW: " + this.props.idFolderSelected);
         if (this.state.folderEvent === true) {
           this.updateFolder();
           this.state.folderEvent = false;
@@ -128,7 +123,16 @@ class FoldersContainer extends React.Component {
         break;
       case "editFolderNote":
         if (this.state.folderEvent === true) {
-          this.getFolderName(this.props.idSelectedFolder);
+         this.getFolderName(this.props.idSelectedFolder);
+          this.state.folderEvent = false;
+        }
+        else {
+          this.state.folderEvent = true;
+        }
+        break;
+        case "infoNote": 
+          if (this.state.folderEvent === true) {
+         this.getFolderName(this.props.idSelectedFolder);
           this.state.folderEvent = false;
         }
         else {

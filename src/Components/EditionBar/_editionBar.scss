@@ -62,9 +62,6 @@
 /* Mobile Styles */
 
 @media only screen and (max-width: 500px) {
-    body{
-        background-color:yellow;
-    }
     .editionBar__nav {
         display: block;
         display: flex;
@@ -98,9 +95,6 @@
 }
 
 @media only screen and (max-width: 400px) and (max-width: 960px) {
-     body{
-        background-color:green;
-    }
     .editionBar__nav {
         display: block;
         display: flex;
