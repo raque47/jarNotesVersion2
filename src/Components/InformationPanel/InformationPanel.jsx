@@ -70,7 +70,7 @@ class InformationPanel extends React.Component {
               addFolderEvent={false}
               showAllFolders={this.props.showAllFolders}
               idAction={this.props.idAction}
-              actionType={this.props.actionType}
+              actionType="viewFolders"
               onClickEditFolder={this.props.onClickEditFolder}
               idFolderSelected={this.props.idFolderSelected}
               onClickAddFolder={this.props.onClickAddFolder}
@@ -148,7 +148,7 @@ class InformationPanel extends React.Component {
           )}
           />
 
-            <Route path='/editFolderNote' render={() => (
+          <Route path='/editFolderNote' render={() => (
             console.log("ESTOY ENTRANDO A CONTENEDOR DE FOLDERS!!!"),
             <FoldersContainer
               folderName={this.props.tagName}
