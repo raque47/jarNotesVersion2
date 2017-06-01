@@ -33,7 +33,6 @@ class InformationPanelContainer extends React.Component {
     return (
       console.log("VOY A RENDEREAR ESTOOOOO " + this.state.elementName ),
       <div>
-        {console.log("el action type en information panel container vale: " + this.props.actionType)}
         <InformationPanel  
           elementName = {this.state.elementName}
           onClickMainButtonEvent={this.props.mainButtonEvent}

@@ -6,8 +6,9 @@ import NoteEditionContainer from '../../Containers/NoteEditionContainer';
 import EditionBarContainer from '../../Containers/EditionBarContainer';
 import AddNewElementContainer from '../../Containers/AddNewElementContainer';
 import InformationPanelContainer from '../../Containers/InformationPanelContainer';
-import ModalContainer from '../../Containers/ModalContainer'
-import mainStyle from './_main.scss'
+import ModalContainer from '../../Containers/ModalContainer';
+import TagsSelectionContainer from '../../Containers/TagsSelectionContainer';
+import mainStyle from './_main.scss';
 
 import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
 
@@ -47,28 +48,33 @@ class Main extends React.Component {
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
                 <Route exact path="/" render={() => (
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
+                    onClickAssignTag={this.props.onClickAssignTag}
                     actionType={this.props.actionType}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
                 <Route path="/" render={() => (
                   <NoteEditionContainer
                     onClickAddNote={this.props.onClickAddNote}
+                    onClickAssignTag={this.props.onClickAssignTag}
                     actionType={this.props.actionType}
                     activeSearch={this.props.activeSearch}
                     activeView={this.props.activeView}
                     activeAddElement={this.props.activeAddElement}
                     onClickAcceptFolder={this.props.onClickAcceptFolder}
+                    onClickAcceptTag={this.props.onClickAcceptTag}
                   />
                 )} />
 
@@ -77,7 +83,6 @@ class Main extends React.Component {
 
 
             <div className="col-md-3 col-sm-11 col-xs-12 thirthElement">
-              {console.log("el action type en main vale: " + this.props.actionType)}
               <InformationPanelContainer
                 onClickMainButtonEvent={this.props.mainButtonEvent}
                 activeSearch={this.props.activeSearch}
@@ -99,9 +104,9 @@ class Main extends React.Component {
                 idSelectedFolder={this.props.idSelectedFolder}
                 showEditionBar={this.props.showEditionBar}
                 noteTitleSelected={this.props.noteTitleSelected}
-                setFolderName = {this.props.setFolderName}
+                setFolderName={this.props.setFolderName}
                 onClickEditNoteFolder={this.props.onClickEditNoteFolder}
-                 >
+              >
               </InformationPanelContainer>
             </div>
 
@@ -121,9 +126,16 @@ class Main extends React.Component {
 
         <ModalContainer showModal={this.props.showModal}
           onClickAcceptFolder={this.props.onClickAcceptFolder}
-          actionType={this.props.actionType} 
-          folderNameNoteEdited={this.props.folderNameNoteEdited}/>
+          actionType={this.props.actionType}
+          folderNameNoteEdited={this.props.folderNameNoteEdited} />
+
+
+        <TagsSelectionContainer showModalTagSelection={this.props.showModalTagSelection}
+          onClickAcceptTag={this.props.onClickAcceptTag}
+          actionType={this.props.actionType}
+          tagNameNoteEdited={this.props.tagNameNoteEdited} />
       </div>
+
 
     );
   }

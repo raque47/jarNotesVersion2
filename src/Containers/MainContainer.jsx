@@ -29,7 +29,9 @@ class MainContainer extends React.Component {
       noteTitleSelected: "",
       noteContentSelected: "",
       folderNameNoteEdited:"",
-      noteTitleSelectedEdit:""
+      noteTitleSelectedEdit:"",
+      showModalTagSelection: false,
+      tagNameNoteEdited: "",
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -41,6 +43,7 @@ class MainContainer extends React.Component {
     this.getTagName = this.getTagName.bind(this);
     //this.addFolder = this.addFolder.bind(this);
     this.chooseFolder = this.chooseFolder.bind(this);
+    this.chooseTag = this.chooseTag.bind(this);
     this.showEditionBar = this.showEditionBar.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
     this.editNoteFolder = this.editNoteFolder.bind(this);
@@ -108,7 +111,8 @@ class MainContainer extends React.Component {
       this.setState({ idSelectedFolder:idFolder, showAllNotes: true, actionType: "addNote", showModal: false, editionBarVisible: false });
     }
     else if(this.state.action=="edit") {
-      this.setState({ showAllNotes: true, noteContent: noteContent, noteTitle: noteTitle, actionType: "editNote", showModal: false, editionBarVisible: false });
+      this.setState({ showAllNotes: true, 
+                      noteContent: noteContent, noteTitle: noteTitle, actionType: "editNote", showModal: false, editionBarVisible: false });
     }
     else{
       console.log("ESTOY ENTRANDO AL ELSE DE ADD NOOOOOTEEEEE!!!!!" + this.state.noteContentSelected);
@@ -119,12 +123,17 @@ class MainContainer extends React.Component {
     console.log("Estoy en edit note de main container!!");
     this.setState({ noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, showAllNotes: true, actionType: "editNote", idNoteSelected: this.state.idNoteSelected, editionBarVisible: true });
   }
-
   getTagName(name) {
     console.log("ESTOY EN MAIN CONTAINER" + tagName);
     this.setState({ tagName: name, resetName: name, resetControl: true });
   }
-
+  chooseTag(noteContent, noteTitle) {
+    if (noteTitle === "") {
+      noteTitle = "No Title"
+    }
+     this.setState({ actionType: "chooseTag", showModalTagSelection: true, editionBarVisible: false, showAllNotes:false });
+     this.state.showModalTagSelection = true;
+  }
   addTag(tagName, action) {
     console.log("aaaaaa!: ");
     if (tagtagName === "") {
@@ -174,13 +183,14 @@ class MainContainer extends React.Component {
   render() {
     return (
       <Route path="/" render={() => (
-        console.log("ID DEL FOLDER A RENDEREAR!!!!" +  this.state.idSelectedFolder),
+        console.log("ID DEL FOLDER A RENDEREAR!!!!" +  this.state.showModalTagSelection ),
         <Main
           onClickMainButtonEvent={this.mainButtonEvent.bind(this)}
           onClickSearchEvent={this.searchEvent}
           onClickViewEvent={this.viewEvent}
           onClickAddEvent={this.addElementEvent}
           onClickAddNote={this.chooseFolder}
+          onClickAssignTag={this.chooseTag}
           onClickAddElement={this.props.addElement}
           activeSearch={this.state.activeSearch}
           activeView={this.state.activeView}
@@ -208,6 +218,11 @@ class MainContainer extends React.Component {
           folderName={this.state.folderNameNoteEdited}
           onClickEditNoteFolder={this.editNoteFolder}
           folderNameNoteEdited = {this.state.folderNameNoteEdited}
+          showModalTagSelection = {this.state.showModalTagSelection}
+          onClickAcceptTag={this.addNote}
+          tagNameNoteEdited = {this.state.tagNameNoteEdited}
+
+
         />)}
       />
 

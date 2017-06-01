@@ -17,10 +17,9 @@ class NoteEditionContainer extends React.Component {
     this.addNoteEvent = this.addNoteEvent.bind(this);
     this.getNoteContent = this.getNoteContent.bind(this);
     this.getNoteTitle = this.getNoteTitle.bind(this);
+    this.assignTagEvent = this.assignTagEvent.bind(this);
   }
   addNoteEvent() {
-    console.log("estoy en add note wuuuuu de note edition container! !");
-   
     if(this.props.actionType=="editNote"){
       this.props.onClickAcceptFolder(null, this.state.noteContent, this.state.noteTitle);
     //  this.props.onClickAddNote(this.state.noteContent, this.state.noteTitle, "edit")
@@ -30,6 +29,15 @@ class NoteEditionContainer extends React.Component {
     }
     this.setState({ resetContent: "", resetTitle: "", noteContent:"", noteTitle:"", resetControl:true});
   }
+
+  assignTagEvent(){
+    console.log("ESSSTOYYY EN ASSUGNTAGEVENT" + this.props.actionType);
+    
+       this.props.onClickAssignTag(this.state.noteContent, this.state.noteTitle)
+    
+  
+  }
+
   getNoteContent(textAreaValue) {
     this.setState({ noteContent: textAreaValue, resetContent: textAreaValue, resetControl:true });
   }
@@ -56,8 +64,10 @@ class NoteEditionContainer extends React.Component {
       onClickAssignTag ={this.assignTagEvent}
       idNoteSelected = {this.props.idNoteSelected}
       modalId = {"foldersModal"}
+      modalTagSelectionId = {"tagsModal"}
       actionType={this.props.actionType}
-      onClickAcceptFolder={this.props.onClickAcceptFolder} />
+      onClickAcceptFolder={this.props.onClickAcceptFolder}
+      onClickAcceptTag={this.props.onClickAcceptTag} />
     );
   }
 };

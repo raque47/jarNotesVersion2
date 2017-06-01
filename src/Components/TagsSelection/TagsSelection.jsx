@@ -28,20 +28,20 @@ class TagsSelection extends React.Component {
     }
     render() {
         return (
-            <div className={"opac " + (this.props.showTagSelectionModal ? "showModal" : "hideModal")}>
-                <div className="modalStyle showModalAnimation">
-                    <h4 className="tagLabel">Add or choose a tag for your new note:</h4>
+            <div className={"opac " + (this.props.showModalTagSelection ? "showModal" : "hideModal")}>  
+                <div className="modalTagsStyle showModalAnimation">
+                    <h4 className="tagLabelTags">Add or choose a tag for your new note:</h4>
                     <div className="containerInfo">
                         <div className="containerElectionTags">
                             <input type="text"
                                 onChange={this.sendNewTagName}
                                 value={this.props.resetTitle}
-                                placeholder="Title"
-                                className="titleNoteControl"
+                                placeholder="Add your new tag"
+                                className="newNameControl"
                                 id="newTagOfNote"
   
                             />
-                            <div className="dropdown foldersDropdown">
+                            <div className="dropdown tagsDropdown">
                                 <button className="btn btn-primary dropdown-toggle"
                                     type="button"
                                     data-toggle="dropdown"

@@ -38,6 +38,7 @@ class NotesContainer extends React.Component {
   }
 
   getNotes() {
+
     const self = this;
     axios.get('http://localhost:3000/api/notes').then(function (response) {
       self.setState({ allNotes: response.data, noteEvent: false });
@@ -70,6 +71,7 @@ class NotesContainer extends React.Component {
     const self = this;
     let showNote = false;
     console.log("el action type en notes container es: " + this.props.actionType);
+    console.log("el action type en notes container es: " + notes);
     switch (this.props.actionType) {
       case "viewNotes":
         console.log("VIEW NOTES EVENT!!");
@@ -94,7 +96,7 @@ class NotesContainer extends React.Component {
       case "searchNotes":
         break;
       case "editNote","editNoteFolder":
-        //  console.log("ID EN ACTION NOTES CONTAINER ES: " + this.props.idNoteSelected);
+        console.log("EDIIIIT " + this.props.idNoteSelected);
         if (this.state.noteEvent === true) {
           this.updateNote();
           this.state.noteEvent = false;
@@ -113,6 +115,10 @@ class NotesContainer extends React.Component {
           this.state.noteEvent = true;
         }
         break;
+      //case "chooseTag":
+        //this.getTagsOfNote();
+      //break;
+
     }
     return <div className="containerOfElements">{notes.map((item) => {
       showNote = false;
@@ -121,7 +127,7 @@ class NotesContainer extends React.Component {
           showNote = true;
         }
       }
-      //    console.log("showNote vale: " + showNote + " SHOW EDITION BAR VALE: " + self.props.showEditionBar );
+  console.log("showNote vale: " + showNote + " SHOW EDITION BAR VALE: " + self.props.showEditionBar );
       return <Notes
         key={item._id}
         noteId={item._id}
@@ -133,6 +139,7 @@ class NotesContainer extends React.Component {
         onClickEditEvent={self.editNote}
         showEditionBar={self.props.showEditionBar}
         idFolder={item.folderId} 
+        idTags= {item.tagsIds}
         getFolderName={this.props.getFolderName}/>
     })}</div>;
   }
