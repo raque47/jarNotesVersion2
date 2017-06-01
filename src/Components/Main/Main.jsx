@@ -100,6 +100,7 @@ class Main extends React.Component {
                 showEditionBar={this.props.showEditionBar}
                 noteTitleSelected={this.props.noteTitleSelected}
                 setFolderName = {this.props.setFolderName}
+                onClickEditNoteFolder={this.props.onClickEditNoteFolder}
                  >
               </InformationPanelContainer>
             </div>
@@ -120,8 +121,8 @@ class Main extends React.Component {
 
         <ModalContainer showModal={this.props.showModal}
           onClickAcceptFolder={this.props.onClickAcceptFolder}
-          actionType={this.props.actionType} />
-
+          actionType={this.props.actionType} 
+          folderNameNoteEdited={this.props.folderNameNoteEdited}/>
       </div>
 
     );

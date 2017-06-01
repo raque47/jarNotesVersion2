@@ -63,8 +63,11 @@ class FoldersContainer extends React.Component {
   }
 
   getFolderName() {
-    const getFolder = { _id: "592d9bc2f27766bad685834e" };
+    console.log("ESTOY EN OBTENER NOMBRE DEL FOLDER CON ESTE ID: " + this.props.idSelectedFolder);
+    const self = this;
+    const getFolder = { _id: this.props.idSelectedFolder };
     axios.get('http://localhost:3000/api/folders/'+ getFolder._id).then(function (response) {
+           self.props.onClickEditNoteFolder(response.data.name);
       })
   }
   setFolderName(name) {

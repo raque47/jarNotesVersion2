@@ -15,7 +15,7 @@ class ModalContainer extends React.Component {
         })
     }
     render() {
-        if (this.props.actionType === "chooseFolder" && this.state.folderEvent === true) {
+        if ( (this.props.actionType === "chooseFolder" || this.props.actionType === "editNoteFolder") && this.state.folderEvent === true) {
             if (this.state.folderEvent === true) {
                 this.getFolders();
                 this.state.folderEvent = false;
@@ -28,6 +28,7 @@ class ModalContainer extends React.Component {
             <Modal showModal={this.props.showModal}
                 onClickAcceptFolder={this.props.onClickAcceptFolder}
                 actionType={this.props.actionType} folders={this.state.allFolders}
+                folderNameNoteEdited={this.props.folderNameNoteEdited}
              />
         );
     }

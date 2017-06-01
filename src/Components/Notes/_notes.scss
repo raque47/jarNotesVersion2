@@ -21,17 +21,18 @@
 
 .noteAddedTitle {
     font-family: $font-stack;
-    font-size: 2.2rem;
-    //    font-weight: bold;
+    font-size: 1.7rem;
     margin-right: 1rem;
     margin-left: 1rem;
     flex: 1 1 auto;
+    width:5rem;
+    overflow: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
-
 .infoPanelButtons {
-    display: inline;
-    padding: 0.5rem;
+    margin-right: 1rem;
 }
 
 .hideComponent {
@@ -84,6 +85,7 @@
 .headerNoteContainer{
     display: flex;
     flex-direction: row;
+    height: 4rem;
 }
 
 .editionButtonControls:hover {
