@@ -172,7 +172,7 @@ class MainContainer extends React.Component {
     this.state.tagsNoteEdited = idTagsNote;
 
     //Se controla el tamaño del título
-    if (noteTitleSelected.length > 15) {
+    if (noteTitleSelected != null && noteTitleSelected.length > 15) {
       this.state.noteTitleSelectedEdit = noteTitleSelected.slice(0, 15);
       this.state.noteTitleSelectedEdit = this.state.noteTitleSelectedEdit + "..."
     }
