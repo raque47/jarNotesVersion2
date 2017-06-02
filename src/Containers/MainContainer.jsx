@@ -36,6 +36,8 @@ class MainContainer extends React.Component {
       tagsNameNote: [],
       showModalTagSelection: false,
       tagNameNoteEdited: "",
+      tagsNote:[],
+      idTagsDetailNote:""
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -56,9 +58,11 @@ class MainContainer extends React.Component {
     this.setActionGetTags = this.setActionGetTags.bind(this);
     this.setTagsName = this.setTagsName.bind(this);
     this.closeInfoNotePanel = this.closeInfoNotePanel.bind(this);
+    this.setTagsNote = this.setTagsNote.bind(this);
+    this.setIdTagsNote = this.setIdTagsNote.bind(this);
   }
   mainButtonEvent(id) {
-    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false, actionType:"mainButton" });
   }
 
   searchEvent(id) {
@@ -73,7 +77,7 @@ class MainContainer extends React.Component {
     else {
       event = "searchTags"
     }
-    this.setState({ activeSearch: true, activeView: false, activeAddElement: false, idAction: id, showAllNotes: false, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ activeSearch: true, activeView: false, activeAddElement: false, idAction: id, showAllNotes: false, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
 
   viewEvent(id) {
@@ -88,7 +92,7 @@ class MainContainer extends React.Component {
     else {
       event = "viewTags"
     }
-    this.setState({ activeSearch: false, activeView: true, activeAddElement: false, idAction: id, showAllNotes: true, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ activeSearch: false, activeView: true, activeAddElement: false, idAction: id, showAllNotes: true, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
   addElementEvent(id) {
     console.log("add element event!: ");
@@ -102,14 +106,14 @@ class MainContainer extends React.Component {
     else {
       event = "addTag"
     }
-    this.setState({ activeSearch: false, activeView: false, activeAddElement: true, idAction: id, showAllNotes: false, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ activeSearch: false, activeView: false, activeAddElement: true, idAction: id, showAllNotes: false, actionType: event, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
   chooseFolder(noteContent, noteTitle, action) {
     if (noteTitle === "") {
       noteTitle = "No Title"
     }
     console.log("ESTOY EN CHOOSE FOLDER!!!!!" + "el action type aqui vale: " + this.state.actionType + "action es: " + action);
-    this.setState({ action: action, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "chooseFolder", showModal: true, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ action: action, noteContent: noteContent, noteTitle: noteTitle, showAllNotes: true, actionType: "chooseFolder", showModal: true, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false });
   }
   addNote(idFolder, noteContent, noteTitle) {
     if (noteTitle === "") {
@@ -117,36 +121,37 @@ class MainContainer extends React.Component {
     }
     console.log("la accion de add note es: " + this.state.action);
     if (this.state.action == "add") {
-      this.setState({ idSelectedFolder: idFolder, showAllNotes: true, actionType: "addNote", showModal: false, editionBarVisible: false, getTagsEvent: false });
+      console.log("LOS TAGS DE LA NOTA SON: " + this.state.tagsNote);
+      this.setState({ idSelectedFolder: idFolder, showAllNotes: true, actionType: "addNote", showModal: false, editionBarVisible: false, getTagsEvent: false, showModalTagSelection: false  });
     }
     else if (this.state.action == "edit") {
-      this.setState({ showAllNotes: true, noteContent: noteContent, noteTitle: noteTitle, actionType: "editNote", showModal: false, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+      this.setState({ showAllNotes: true, noteContent: noteContent, noteTitle: noteTitle, actionType: "editNote", showModal: false, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
     }
     else {
       console.log("El id folder elegido es: " + idFolder + " el id del folder perteneciente a la nota es: " +this.state.idSelectedFolder );
       if (idFolder != "" && idFolder != this.state.idSelectedFolder) {
-        this.setState({ showAllNotes: true, idSelectedFolder: idFolder, noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, actionType: "editNoteFolder", idNoteSelected: this.state.idNoteSelected, showModal: false, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+        this.setState({ showAllNotes: true, idSelectedFolder: idFolder, noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, actionType: "editNoteFolder", idNoteSelected: this.state.idNoteSelected, showModal: false, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
       }
       else {
-        this.setState({ showModal: false, actionType: "viewNotes", getTagsEvent: false });
+        this.setState({ showModal: false, actionType: "viewNotes", getTagsEvent: false, showModalTagSelection: false  });
         console.log("ESTOY ENTRANDO AL ELSE DE ADD NOOOOOTEEEEE!!!!!" + this.state.noteContentSelected);
       }
     }
   }
   editNote() {
     console.log("Estoy en edit note de main container!!");
-    this.setState({ noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, showAllNotes: true, actionType: "editNote", action: "edit", idNoteSelected: this.state.idNoteSelected, editionBarVisible: true, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ noteContent: this.state.noteContentSelected, noteTitle: this.state.noteTitleSelected, showAllNotes: true, actionType: "editNote", action: "edit", idNoteSelected: this.state.idNoteSelected, editionBarVisible: true, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
   getTagName(name) {
     console.log("ESTOY EN MAIN CONTAINER" + tagName);
-    this.setState({ tagName: name, resetName: name, resetControl: true, getTagsEvent: false });
+    this.setState({ tagName: name, resetName: name, resetControl: true, getTagsEvent: false, showModalTagSelection: false  });
   }
-  chooseTag(noteContent, noteTitle) {
-    if (noteTitle === "") {
+  chooseTag() {
+  /*  if (noteTitle === "") {
       noteTitle = "No Title"
-    }
-     this.setState({ actionType: "chooseTag", showModalTagSelection: true, editionBarVisible: false, showAllNotes:false });
-     this.state.showModalTagSelection = true;
+    } */
+    console.log("ESTOY EN CHOOSE TAG DE MAIN CONTAINER!!");
+     this.setState({ showModalTagSelection: true, editionBarVisible: false, showAllNotes:false });
   }
   addTag(tagName, action) {
     console.log("aaaaaa!: ");
@@ -155,21 +160,21 @@ class MainContainer extends React.Component {
       console.log("bbbbb!: ");
     }
     if (action == "edit") {
-      this.setState({ tagName: tagName, showAllNotes: true, actionType: "editTag", getTagsEvent: false });
+      this.setState({ tagName: tagName, showAllNotes: true, actionType: "editTag", getTagsEvent: false, showModalTagSelection: false  });
       console.log("cccccccccc!: ");
     }
     else {
       console.log("dddddd EN MAINCONTAINER!: " + tagName);
-      this.setState({ tagName: tagName, showAllTags: true, actionType: "addTag", getTagsEvent: false });
+      this.setState({ tagName: tagName, showAllTags: true, actionType: "addTag", getTagsEvent: false, showModalTagSelection: false  });
     }
 
   }
-  showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected, idFolder, idTagsNote) {
+  showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected, idFolder, idTags) {
     this.state.idNoteSelected = idNoteSelected;
     this.state.noteTitleSelected = noteTitleSelected;
     this.state.noteContentSelected = noteContentSelected;
     this.state.idSelectedFolder = idFolder;
-    this.state.tagsNoteEdited = idTagsNote;
+    this.state.tagsNoteEdited = idTags;
 
     //Se controla el tamaño del título
     if (noteTitleSelected != null && noteTitleSelected.length > 15) {
@@ -179,37 +184,45 @@ class MainContainer extends React.Component {
     else {
       this.state.noteTitleSelectedEdit = noteTitleSelected;
     }
-    this.setState({ editionBarVisible: true, noteTitle: "", noteContent: "", showInfoPanel: false, getTagsEvent: true });
+    this.setState({ editionBarVisible: true, noteTitle: "", noteContent: "", showInfoPanel: false, getTagsEvent: true, showModalTagSelection: false  });
   }
 
   deleteNote() {
-    this.setState({ showAllNotes: true, actionType: "deleteNote", idNoteSelected: this.state.idNoteSelected, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ showAllNotes: true, actionType: "deleteNote", idNoteSelected: this.state.idNoteSelected, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
   editNoteFolder(folderName) {
-    this.setState({ showModal: true, actionType: "editNoteFolder", folderNameNoteEdited: folderName, showInfoPanel: false, getTagsEvent: false });
+    this.setState({ showModal: true, actionType: "editNoteFolder", folderNameNoteEdited: folderName, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false  });
   }
   showInfoNote() {
     // this.setState({showInfoPanel:true});
   }
   noteFolderInfo(folderName) {
     if (this.state.actionType != "infoNote") {
-      this.setState({  editionBarVisible: false, showInfoPanel: false, folderNameNoteEdited: folderName, actionType: "infoNote", noteTitle: this.state.noteTitleSelected, getTagsEvent: false });
+      this.setState({  editionBarVisible: false, showInfoPanel: false, folderNameNoteEdited: folderName, actionType: "infoNote", noteTitle: this.state.noteTitleSelected, getTagsEvent: false, showModalTagSelection: false  });
     }
     else{
-      this.setState({showInfoPanel:true, folderNameNoteEdited:folderName, actionType:"infoNote", noteTitle: this.state.noteTitleSelected,  getTagsEvent:false});
+      this.setState({showInfoPanel:true, folderNameNoteEdited:folderName, actionType:"infoNote", noteTitle: this.state.noteTitleSelected,  getTagsEvent:false, showModalTagSelection: false });
     }
 
 
   }
   setActionGetTags(idTag) {
-    this.setState({ actionType: "infoTagsNote", tagsNoteEdited: idTag });
+    this.setState({ actionType: "infoTagsNote", tagsNoteEdited: idTag, showModalTagSelection: false  });
   }
   setTagsName(tagsName) {
-    this.setState({ tagsNameNote: tagsName });
+    this.setState({ tagsNameNote: tagsName, showModalTagSelection: false  });
   }
   closeInfoNotePanel() {
     this.state.actionType = "closeModal";
-    this.setState({ showInfoPanel: false });
+    this.setState({ showInfoPanel: false, showModalTagSelection: false  });
+  }
+  setTagsNote(tags){
+     this.setState({ tagsNote:tags, showInfoPanel: false, actionType:"saveTags", showModalTagSelection: false  });
+    console.log("los tags de la nota en main container son: " + this.state.tagsNote);
+  }
+  setIdTagsNote(idTags){
+    console.log("el id del tag de la nota es: " + idTags[0] );
+  //  this.setState({idTagsDetailNote:idTags});
   }
   render() {
     return (
@@ -258,8 +271,10 @@ class MainContainer extends React.Component {
           tagsNameNote={this.state.tagsNameNote}
           closeInfoNotePanel={this.closeInfoNotePanel}
           showModalTagSelection = {this.state.showModalTagSelection}
-          onClickAcceptTag={this.addNote}
+          onClickAcceptTag={this.setTagsNote}
           tagNameNoteEdited = {this.state.tagNameNoteEdited}
+          tagsNote={this.state.tagsNote}
+          setIdTagsNote ={this.setIdTagsNote} 
         />)}
       />
 

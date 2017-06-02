@@ -17,7 +17,7 @@ class NoteEditionContainer extends React.Component {
     this.addNoteEvent = this.addNoteEvent.bind(this);
     this.getNoteContent = this.getNoteContent.bind(this);
     this.getNoteTitle = this.getNoteTitle.bind(this);
-    this.assignTagEvent = this.assignTagEvent.bind(this);
+  //  this.assignTagEvent = this.assignTagEvent.bind(this);
   }
   addNoteEvent() {
     if(this.props.actionType=="editNote"){
@@ -30,11 +30,11 @@ class NoteEditionContainer extends React.Component {
     this.setState({ resetContent: "", resetTitle: "", noteContent:"", noteTitle:"", resetControl:true});
   }
 
-  assignTagEvent(){
+ /* assignTagEvent(){
     console.log("ESSSTOYYY EN ASSUGNTAGEVENT" + this.props.actionType);
     
        this.props.onClickAssignTag(this.state.noteContent, this.state.noteTitle)
-  }
+  } */
 
   getNoteContent(textAreaValue) {
     this.setState({ noteContent: textAreaValue, resetContent: textAreaValue, resetControl:true });
@@ -57,7 +57,7 @@ class NoteEditionContainer extends React.Component {
       getNoteContent={this.getNoteContent} 
       getNoteTitle={this.getNoteTitle} 
       onClickAddNote={this.addNoteEvent}
-      onClickAssignTag ={this.assignTagEvent}
+      onClickAssignTag ={this.props.onClickAssignTag}
       idNoteSelected = {this.props.idNoteSelected}
       modalId = {"foldersModal"}
       modalTagSelectionId = {"tagsModal"}

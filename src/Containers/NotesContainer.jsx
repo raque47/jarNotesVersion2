@@ -25,12 +25,9 @@ class NotesContainer extends React.Component {
   }
 
   addNote() {
-    const tag1 = "592fe7c94a1c6e2e50b1e446";
-    const tag2 = "592fe7ed4a1c6e2e50b1e447";
-    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: [tag1, tag2], folderId: this.props.idSelectedFolder }
+    const newNote = { noteTitle: this.props.noteTitle, noteContent: this.props.noteContent, tagsIds: this.props.tagsNote, folderId: this.props.idSelectedFolder }
     const self = this;
     axios.post('http://localhost:3000/api/notes', newNote).then(() => {
-
       //Se realiza un get de todas las notas 
       self.getNotes();
     });

@@ -28,6 +28,7 @@ class InformationPanel extends React.Component {
           showAllTags={this.props.showAllTags}
           idAction={this.props.idAction}
           actionType={"infoTagsNote"}
+          secondActionType = {this.props.actionType}
           onClickEditTag={this.props.onClickEditTag}
           idTagSelected={this.props.idTagSelected}
           onClickAddTag={this.props.onClickAddTag}
@@ -35,6 +36,8 @@ class InformationPanel extends React.Component {
           getTagsName={this.props.getTagsName}
           setTagsName={this.props.setTagsName}
           getTagsEvent={this.props.getTagsEvent}
+          tagsNote={this.props.tagsNote}
+          setIdTagsNote ={this.props.setIdTagsNote}
         />
 
         <Switch>
@@ -72,6 +75,21 @@ class InformationPanel extends React.Component {
           )}
           />
 
+          <Route path='/assignTag' render={() => (
+            <TagsContainer
+              elementName={this.props.elementName}
+              addTagEvent={false}
+              showAllTags={this.props.showAllTags}
+              idAction={this.props.idAction}
+              actionType="viewTags"
+              onClickEditTag={this.props.onClickEditTag}
+              idTagSelected={this.props.idTagSelected}
+              onClickAddTag={this.props.onClickAddTag}
+              search = {false}
+            />
+          )}
+          />
+
           <Route path='/tags' render={() => (
             <TagsContainer
               elementName={this.props.elementName}
@@ -105,6 +123,7 @@ class InformationPanel extends React.Component {
 
           <Route path="/addNote" render={() => (
             (
+              console.log("ESTOY ENTRANDO A ADD NOOOOTE"),
               <NotesContainer
                 noteTitle={this.props.noteTitle}
                 noteContent={this.props.noteContent}
@@ -117,6 +136,7 @@ class InformationPanel extends React.Component {
                 showEditionBar={this.props.showEditionBar}
                 getFolderName={this.props.getFolderName}
                 setActionGetTag={this.props.setActionGetTag}
+                tagsNote={this.props.tagsNote}
               />)
 
           )}

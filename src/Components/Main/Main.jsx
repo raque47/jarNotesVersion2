@@ -112,6 +112,8 @@ class Main extends React.Component {
                 setTagsName={this.props.setTagsName}
                 idTagsNote={this.props.idTagsNote}
                 getTagsEvent={this.props.getTagsEvent}
+                tagsNote={this.props.tagsNote}
+                setIdTagsNote ={this.props.setIdTagsNote}
               >
               </InformationPanelContainer>
             </div>
@@ -141,7 +143,8 @@ class Main extends React.Component {
         <TagsSelectionContainer showModalTagSelection={this.props.showModalTagSelection}
           onClickAcceptTag={this.props.onClickAcceptTag}
           actionType={this.props.actionType}
-          tagNameNoteEdited={this.props.tagNameNoteEdited} />
+          tagNameNoteEdited={this.props.tagNameNoteEdited}
+           />
      </div>
 
     );

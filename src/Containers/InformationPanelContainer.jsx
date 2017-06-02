@@ -62,6 +62,8 @@ class InformationPanelContainer extends React.Component {
           idTagsNote={this.props.idTagsNote}
           setTagsName={this.props.setTagsName}
           getTagsEvent={this.props.getTagsEvent}
+          tagsNote={this.props.tagsNote}
+          setIdTagsNote ={this.props.setIdTagsNote}
            >
 
         </InformationPanel>
