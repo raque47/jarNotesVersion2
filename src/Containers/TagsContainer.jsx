@@ -26,12 +26,9 @@ class TagsContainer extends React.Component {
     this.addEvent = this.addEvent.bind(this);
     this.setTagName = this.setTagName.bind(this);
     this.getTagsName = this.getTagsName.bind(this);
-<<<<<<< HEAD
     this.updateSearchInput = this.updateSearchInput.bind(this);
-=======
     this.addTagsOfNote = this.addTagsOfNote.bind(this);
     this.setIdTagsNote = this.setIdTagsNote.bind(this);
->>>>>>> 9fca531bd1b0e08b983c1c16e3f9fda89625a6fc
   }
 
   getAllTags(showTags) {
