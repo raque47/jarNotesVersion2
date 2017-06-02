@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Tags from '../Components/Tags/Tags';
 import axios from '../../node_modules/axios';
 import Search from '../Components/Search/Search';
+import SearchContainer from './SearchContainer';
 //import tagsStyle from '../Components/Tags/_tags.scss'
 
 class TagsContainer extends React.Component {
@@ -12,7 +13,9 @@ class TagsContainer extends React.Component {
       showTag: false,
       allTags: [],
       tagEvent: true,
-      idTagSelected: ""
+      idTagSelected: "",
+      activeSearch: false,
+      searchInput: ""
     };
     this.getAllTags = this.getAllTags.bind(this);
     this.addTag = this.addTag.bind(this);
@@ -23,6 +26,7 @@ class TagsContainer extends React.Component {
     this.addEvent = this.addEvent.bind(this);
     this.setTagName = this.setTagName.bind(this);
     this.getTagsName = this.getTagsName.bind(this);
+    this.updateSearchInput = this.updateSearchInput.bind(this);
   }
 
   getAllTags(showTags) {
@@ -87,9 +91,27 @@ class TagsContainer extends React.Component {
 
     })
   }
+  // updateSearchInput(searchInput) {
+  //   console.log('Dentro del updateSearch en tagsContainer searchInput esSs:' + this.state.searchInput);
+  //   this.state.searchInput = searchInput;
+  //   console.log('Despues dentro del updateSearch en tagsContainer searchInput esSs:' + this.state.searchInput);
 
+
+  // }
+
+  updateSearchInput(event) {
+    //console.log('ENTREEEEE mi searchInput es'+searchInput);
+    //console.log('ENTREEEEE mi searchInput es'+searchInput);
+    //const searchInput = event.currentTarget.value;
+    //this.props.updateSearchInput(searchInput);
+    const input = event.currentTarget.value;
+    this.setState({ searchInput: input });
+    this.state.searchInput = event.currentTarget.value;
+  }
   render() {
     const tags = this.state.allTags;
+    console.log('TAGSSS:' + tags);
+    // console.log('TAGSSS:' + tags.item.elementName);
     const self = this;
     let showTag = false;
     switch (this.props.actionType) {
@@ -100,6 +122,10 @@ class TagsContainer extends React.Component {
         }
         else {
           this.state.tagEvent = true;
+        }
+        console.log('ActiveSearch ess: ' + this.props.activeSearch);
+        if (this.props.activeSearch === true) {
+
         }
         break;
       case "addTag":
@@ -112,6 +138,7 @@ class TagsContainer extends React.Component {
         }
         break;
       case "searchTags":
+        console.log("WIIIIII SOY YO!!!!");
         break;
       case "editTag":
         if (this.state.tagEvent === true) {
@@ -139,35 +166,14 @@ class TagsContainer extends React.Component {
     }
 
     return (
-         <div>
-           <Search
-              activeSearch={this.props.activeSearch}
-              idAction={this.props.idAction}
-              actionType={this.props.actionType}
-              onClickEditNote={this.props.onClickEditNote}
-            />    
-          <div className="containerOfElements">
-            {
-              tags.map((item) => {
-                return (
-                  <Tags
-                    key={item._id}
-                    tagId={item._id}
-                    showTag={true}
-                    elementName={item.name}
-                    showAllTags={self.props.showAllTags}
-                    onClickDeleteEvent={this.deleteTag}
-                    onClickEditEvent={self.updateTag}
-                    setTagName={this.setTagName}
-                    activeSearch={this.props.activeSearch}                
-                  />
-                );
-              })
-            }
-          </div>
-
-         </div>
-        
+      <SearchContainer
+        showTag={true}
+        showAllTags={this.props.showAllTags}
+        onClickDeleteEvent={this.deleteTag}
+        setTagName={this.setTagName}
+        activeSearch={this.props.activeSearch}
+        tags = {this.state.allTags}
+      />
     );
   }
 };

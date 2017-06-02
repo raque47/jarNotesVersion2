@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import InlineEdit from 'react-edit-inline';
+import tagsStyle from './_tags.scss';
 
 class Tags extends React.Component {
   
@@ -8,10 +9,6 @@ class Tags extends React.Component {
     super(props);
     this.deleteTag = this.deleteTag.bind(this);
     this.dataChanged = this.dataChanged.bind(this);
-    this.state = {
-      message: '',
-      name: ''
-    }
   }
   deleteTag(event) {
     const idTagSelected = this.props.tagId;
@@ -29,8 +26,6 @@ class Tags extends React.Component {
   render() {
     return (     
       <div id={this.props.tagId} className={"infoPanelElements borderStyle "} >
-       
-
         <div className="tagContainer" >
           <InlineEdit
             validate={this.customValidateText}
@@ -41,7 +36,7 @@ class Tags extends React.Component {
             className="tagAddedName"
             style={{ minWidth: 150, display: 'inline-block', outline: 0,borderColor: 'E7E7E7'}}
           />
-          <button className="buttons infoPanelButtons"
+          <button className="trashButton infoPanelButtons"
             onClick={this.deleteTag}><img
               src={require("../../images/trash-button.svg")}
               className="navBar__images" />
