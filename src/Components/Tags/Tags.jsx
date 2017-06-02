@@ -27,9 +27,10 @@ class Tags extends React.Component {
     return (text.length > 0 && text.length < 64);
   }
   render() {
-    return (
-      <div id={this.props.tagId}
-        className={"infoPanelElements borderStyle "} >
+    return (     
+      <div id={this.props.tagId} className={"infoPanelElements borderStyle "} >
+       
+
         <div className="tagContainer" >
           <InlineEdit
             validate={this.customValidateText}

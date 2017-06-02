@@ -41,11 +41,18 @@ class InformationPanel extends React.Component {
 
         <Switch>
           <Route path="/search" render={() => (
-            <Search
+            <TagsContainer
               activeSearch={this.props.activeSearch}
               idAction={this.props.idAction}
-              actionType={this.props.actionType}
-              onClickEditNote={this.props.onClickEditNote}
+              //actionType={this.props.actionType}
+              //onClickEditNote={this.props.onClickEditNote}
+              elementName={this.props.elementName}
+              addTagEvent={false}
+              showAllTags={this.props.showAllTags}
+              actionType="viewTags"
+              onClickEditTag={this.props.onClickEditTag}
+              idTagSelected={this.props.idTagSelected}
+              onClickAddTag={this.props.onClickAddTag}
             />
           )}
           />

@@ -2,6 +2,7 @@ import preload from '../../public/db.json';
 import React, { Component } from 'react';
 import Tags from '../Components/Tags/Tags';
 import axios from '../../node_modules/axios';
+import Search from '../Components/Search/Search';
 //import tagsStyle from '../Components/Tags/_tags.scss'
 
 class TagsContainer extends React.Component {
@@ -160,24 +161,35 @@ class TagsContainer extends React.Component {
     }
 
     return (
-      <div className="containerOfElements">
-        {
-          tags.map((item) => {
-            return (
-              <Tags
-                key={item._id}
-                tagId={item._id}
-                showTag={true}
-                elementName={item.name}
-                showAllTags={self.props.showAllTags}
-                onClickDeleteEvent={this.deleteTag}
-                onClickEditEvent={self.updateTag}
-                setTagName={this.setTagName}
-              />
-            );
-          })
-        }
-      </div>
+         <div>
+           <Search
+              activeSearch={this.props.activeSearch}
+              idAction={this.props.idAction}
+              actionType={this.props.actionType}
+              onClickEditNote={this.props.onClickEditNote}
+            />    
+          <div className="containerOfElements">
+            {
+              tags.map((item) => {
+                return (
+                  <Tags
+                    key={item._id}
+                    tagId={item._id}
+                    showTag={true}
+                    elementName={item.name}
+                    showAllTags={self.props.showAllTags}
+                    onClickDeleteEvent={this.deleteTag}
+                    onClickEditEvent={self.updateTag}
+                    setTagName={this.setTagName}
+                    activeSearch={this.props.activeSearch}                
+                  />
+                );
+              })
+            }
+          </div>
+
+         </div>
+        
     );
   }
 };
