@@ -8,7 +8,7 @@ class DropDownTags extends React.Component {
     this.getTag = this.getTag.bind(this);
   }
   getTag(event) {
-   this.props.getTagId(event.target.id, event.target.value );
+   this.props.getTagId(event.target.id, event.target.value);
   }
   render() {
     return (

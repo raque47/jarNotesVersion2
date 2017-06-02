@@ -28,6 +28,7 @@ class InformationPanel extends React.Component {
           showAllTags={this.props.showAllTags}
           idAction={this.props.idAction}
           actionType={"infoTagsNote"}
+          secondActionType = {this.props.actionType}
           onClickEditTag={this.props.onClickEditTag}
           idTagSelected={this.props.idTagSelected}
           onClickAddTag={this.props.onClickAddTag}
@@ -35,6 +36,7 @@ class InformationPanel extends React.Component {
           getTagsName={this.props.getTagsName}
           setTagsName={this.props.setTagsName}
           getTagsEvent={this.props.getTagsEvent}
+          tagsNote={this.props.tagsNote}
         />
 
         <Switch>
@@ -61,6 +63,21 @@ class InformationPanel extends React.Component {
               showEditionBar={this.props.showEditionBar}
               getFolderName={this.props.getFolderName}
               setActionGetTag={this.props.setActionGetTag}
+            />
+          )}
+          />
+
+          <Route path='/assignTag' render={() => (
+            <TagsContainer
+              elementName={this.props.elementName}
+              addTagEvent={false}
+              showAllTags={this.props.showAllTags}
+              idAction={this.props.idAction}
+              actionType="viewTags"
+              onClickEditTag={this.props.onClickEditTag}
+              idTagSelected={this.props.idTagSelected}
+              onClickAddTag={this.props.onClickAddTag}
+              search = {false}
             />
           )}
           />

@@ -22,6 +22,7 @@ class TagsContainer extends React.Component {
     this.addEvent = this.addEvent.bind(this);
     this.setTagName = this.setTagName.bind(this);
     this.getTagsName = this.getTagsName.bind(this);
+    this.addTagsOfNote = this.addTagsOfNote.bind(this);
   }
 
   getAllTags(showTags) {
@@ -86,6 +87,14 @@ class TagsContainer extends React.Component {
 
     })
   }
+  addTagsOfNote() {
+    let newTag = {};
+    for (let i = 0; i < this.props.tagsNote.length; ++i) {
+      newTag = { name: this.props.tagsNote[i] }
+      axios.post('http://localhost:3000/api/tags', newTag).then(() => {
+      });
+    }
+  }
 
   render() {
     const tags = this.state.allTags;
@@ -122,9 +131,11 @@ class TagsContainer extends React.Component {
         }
         break;
       case "infoTagsNote":
-        if (this.props.getTagsEvent === true) {
+        console.log("ENTRE AL CASO DE INFO TAGS NOTE" + "EL SECOND ACTION ES: " + this.props.secondActionType);
+        if (this.props.secondActionType == "saveTags") {
           if (this.state.tagEvent === true) {
-            this.getTagsName();
+            console.log("");
+            this.addTagsOfNote();
             this.state.tagEvent = false;
           }
           else {
@@ -132,6 +143,17 @@ class TagsContainer extends React.Component {
           }
         }
 
+        else {
+          if (this.props.getTagsEvent === true) {
+            if (this.state.tagEvent === true) {
+              this.getTagsName();
+              this.state.tagEvent = false;
+            }
+            else {
+              this.state.tagEvent = true;
+            }
+          }
+        }
         break;
       default:
         console.log("No entre a ningun caso EN TAGS!");
