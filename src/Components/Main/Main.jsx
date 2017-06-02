@@ -113,6 +113,7 @@ class Main extends React.Component {
                 idTagsNote={this.props.idTagsNote}
                 getTagsEvent={this.props.getTagsEvent}
                 tagsNote={this.props.tagsNote}
+                setIdTagsNote ={this.props.setIdTagsNote}
               >
               </InformationPanelContainer>
             </div>

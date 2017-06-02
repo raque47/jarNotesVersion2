@@ -37,6 +37,7 @@ class InformationPanel extends React.Component {
           setTagsName={this.props.setTagsName}
           getTagsEvent={this.props.getTagsEvent}
           tagsNote={this.props.tagsNote}
+          setIdTagsNote ={this.props.setIdTagsNote}
         />
 
         <Switch>
@@ -122,6 +123,7 @@ class InformationPanel extends React.Component {
 
           <Route path="/addNote" render={() => (
             (
+              console.log("ESTOY ENTRANDO A ADD NOOOOTE"),
               <NotesContainer
                 noteTitle={this.props.noteTitle}
                 noteContent={this.props.noteContent}
@@ -134,6 +136,7 @@ class InformationPanel extends React.Component {
                 showEditionBar={this.props.showEditionBar}
                 getFolderName={this.props.getFolderName}
                 setActionGetTag={this.props.setActionGetTag}
+                tagsNote={this.props.tagsNote}
               />)
 
           )}

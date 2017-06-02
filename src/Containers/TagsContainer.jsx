@@ -24,6 +24,7 @@ class TagsContainer extends React.Component {
     this.setTagName = this.setTagName.bind(this);
     this.getTagsName = this.getTagsName.bind(this);
     this.addTagsOfNote = this.addTagsOfNote.bind(this);
+    this.setIdTagsNote = this.setIdTagsNote.bind(this);
   }
 
   getAllTags(showTags) {
@@ -90,11 +91,90 @@ class TagsContainer extends React.Component {
   }
   addTagsOfNote() {
     let newTag = {};
-    for (let i = 0; i < this.props.tagsNote.length; ++i) {
-      newTag = { name: this.props.tagsNote[i] }
-      axios.post('http://localhost:3000/api/tags', newTag).then(() => {
-      });
-    }
+    const self = this;
+    let allTagsAdded = false;
+    let tagAdded = 0;
+    let counter = 0;
+    var postPromises = [];
+
+    /* for (let i = 0; i < this.props.tagsNote.length; ++i) {
+       newTag = { name: this.props.tagsNote[i] }
+       let promise = axios.post('http://localhost:3000/api/tags', newTag).then(() => {
+         counter=counter+1;
+         postPromises.push(promise)
+         console.log("estoy en pooooost!!!");
+       });
+     };
+ 
+     Promise.all(postPromises).then(console.log("El counter vale: " + counter)); */
+
+    /*  Promise.all(this.props.tagsNote.map(function (item) {
+         newTag = { name: item }
+         return (axios.post('http://localhost:3000/api/tags', newTag).then(() => {
+           console.log("estoy en pooost");
+         }));
+     })).then(console.log("Promesas cumplidas!! ")); */
+
+    var x = this.prueba();
+    var y = this.prueba2();
+
+   /* var z = new Promise((resolve, reject) => {
+      this.prueba3();
+    }); */
+
+    //  var z  = this.prueba3();
+    var g = z[0];
+    //  var resolvedPromisesArray = [Promise.(g) ];
+    var p = Promise.all([g]);
+    // immediately logging the value of p
+    console.log(p);
+    // using setTimeout we can execute code after the stack is empty
+    setTimeout(function () {
+      console.log('Promesas cumplidas!! ');
+      console.log(p);
+    });
+
+    Promise.all([y, z, g]).then(console.log("Promesas cumplidas!! "));
+  }
+
+  prueba() {
+    axios.get('http://localhost:3000/api/tags').then(console.log("prueba 1 funcion"));
+  }
+
+  prueba2() {
+    axios.get('http://localhost:3000/api/tags');
+    console.log("prueba 2 funcion");
+  }
+
+  prueba3() {
+      var x = (this.props.tagsNote.map(function (item) {
+      const newTag = { name: item };
+      return (axios.get('http://localhost:3000/api/tags').then(() => {
+        console.log("estoy en geeeeeeeeet");
+      }));
+    }));
+
+    return x;
+    // console.log("el contenido de map es: " + x + " contenido:" + x[0]);
+  }
+
+
+  setIdTagsNote() {
+    const self = this;
+    let counter = 0;
+    let idNoteTags = [];
+    axios.get('http://localhost:3000/api/tags').then(function (response) {
+      for (let i = 0; i < self.props.tagsNote.length; ++i) {
+        counter = 0;
+        while (counter < response.data.length && self.props.tagsNote[i] != response.data[counter].name) {
+          ++counter;
+        }
+        if (counter < response.data.length) {
+          idNoteTags.push(response.data[counter]._id);
+          self.props.setIdTagsNote(idNoteTags);
+        }
+      }
+    })
   }
 
   render() {
@@ -113,7 +193,7 @@ class TagsContainer extends React.Component {
         break;
       case "addTag":
         if (this.state.tagEvent === true) {
-          this.addTag();
+          //     this.addTag();
           this.state.tagEvent = false;
         }
         else {
@@ -134,9 +214,12 @@ class TagsContainer extends React.Component {
       case "infoTagsNote":
         console.log("ENTRE AL CASO DE INFO TAGS NOTE" + "EL SECOND ACTION ES: " + this.props.secondActionType);
         if (this.props.secondActionType == "saveTags") {
+          console.log("ESTOY ENTRANDO A AGREGAR TAGS DE NOTA!!!");
           if (this.state.tagEvent === true) {
             console.log("");
-            this.addTagsOfNote();
+            self.addTagsOfNote();
+            // self.setIdTagsNote()
+
             this.state.tagEvent = false;
           }
           else {
@@ -161,35 +244,35 @@ class TagsContainer extends React.Component {
     }
 
     return (
-         <div>
-           <Search
-              activeSearch={this.props.activeSearch}
-              idAction={this.props.idAction}
-              actionType={this.props.actionType}
-              onClickEditNote={this.props.onClickEditNote}
-            />    
-          <div className="containerOfElements">
-            {
-              tags.map((item) => {
-                return (
-                  <Tags
-                    key={item._id}
-                    tagId={item._id}
-                    showTag={true}
-                    elementName={item.name}
-                    showAllTags={self.props.showAllTags}
-                    onClickDeleteEvent={this.deleteTag}
-                    onClickEditEvent={self.updateTag}
-                    setTagName={this.setTagName}
-                    activeSearch={this.props.activeSearch}                
-                  />
-                );
-              })
-            }
-          </div>
+      <div>
+        <Search
+          activeSearch={this.props.activeSearch}
+          idAction={this.props.idAction}
+          actionType={this.props.actionType}
+          onClickEditNote={this.props.onClickEditNote}
+        />
+        <div className="containerOfElements">
+          {
+            tags.map((item) => {
+              return (
+                <Tags
+                  key={item._id}
+                  tagId={item._id}
+                  showTag={true}
+                  elementName={item.name}
+                  showAllTags={self.props.showAllTags}
+                  onClickDeleteEvent={this.deleteTag}
+                  onClickEditEvent={self.updateTag}
+                  setTagName={this.setTagName}
+                  activeSearch={this.props.activeSearch}
+                />
+              );
+            })
+          }
+        </div>
 
-         </div>
-        
+      </div>
+
     );
   }
 };

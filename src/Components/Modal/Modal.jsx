@@ -37,7 +37,7 @@ class Modal extends React.Component {
                             <DropDownItems items={this.props.folders} getItemId={this.getFolderId} />
                         </div>
                     </div>
-                    <Link to='/editNote'>
+                    <Link to='/addNote'>
                     <button type="button" onClick={this.acceptFolder} className="closeModal editionButtonControls" ><span className="editionTextControl" data-toggle="tooltip" data-placement="top" title="Add Note">Accept</span></button>
                     </Link>
                 </div>

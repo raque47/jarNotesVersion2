@@ -36,7 +36,8 @@ class MainContainer extends React.Component {
       tagsNameNote: [],
       showModalTagSelection: false,
       tagNameNoteEdited: "",
-      tagsNote:[]
+      tagsNote:[],
+      idTagsDetailNote:""
     }
     this.mainButtonEvent = this.mainButtonEvent.bind(this);
     this.searchEvent = this.searchEvent.bind(this);
@@ -58,9 +59,10 @@ class MainContainer extends React.Component {
     this.setTagsName = this.setTagsName.bind(this);
     this.closeInfoNotePanel = this.closeInfoNotePanel.bind(this);
     this.setTagsNote = this.setTagsNote.bind(this);
+    this.setIdTagsNote = this.setIdTagsNote.bind(this);
   }
   mainButtonEvent(id) {
-    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false });
+    this.setState({ activeSearch: false, activeView: false, activeAddElement: false, idAction: id, editionBarVisible: false, showInfoPanel: false, getTagsEvent: false, showModalTagSelection: false, actionType:"mainButton" });
   }
 
   searchEvent(id) {
@@ -119,6 +121,7 @@ class MainContainer extends React.Component {
     }
     console.log("la accion de add note es: " + this.state.action);
     if (this.state.action == "add") {
+      console.log("LOS TAGS DE LA NOTA SON: " + this.state.tagsNote);
       this.setState({ idSelectedFolder: idFolder, showAllNotes: true, actionType: "addNote", showModal: false, editionBarVisible: false, getTagsEvent: false, showModalTagSelection: false  });
     }
     else if (this.state.action == "edit") {
@@ -166,12 +169,12 @@ class MainContainer extends React.Component {
     }
 
   }
-  showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected, idFolder, idTagsNote) {
+  showEditionBar(idNoteSelected, noteTitleSelected, noteContentSelected, idFolder, idTags) {
     this.state.idNoteSelected = idNoteSelected;
     this.state.noteTitleSelected = noteTitleSelected;
     this.state.noteContentSelected = noteContentSelected;
     this.state.idSelectedFolder = idFolder;
-    this.state.tagsNoteEdited = idTagsNote;
+    this.state.tagsNoteEdited = idTags;
 
     //Se controla el tamaño del título
     if (noteTitleSelected != null && noteTitleSelected.length > 15) {
@@ -216,6 +219,10 @@ class MainContainer extends React.Component {
   setTagsNote(tags){
      this.setState({ tagsNote:tags, showInfoPanel: false, actionType:"saveTags", showModalTagSelection: false  });
     console.log("los tags de la nota en main container son: " + this.state.tagsNote);
+  }
+  setIdTagsNote(idTags){
+    console.log("el id del tag de la nota es: " + idTags[0] );
+  //  this.setState({idTagsDetailNote:idTags});
   }
   render() {
     return (
@@ -267,6 +274,7 @@ class MainContainer extends React.Component {
           onClickAcceptTag={this.setTagsNote}
           tagNameNoteEdited = {this.state.tagNameNoteEdited}
           tagsNote={this.state.tagsNote}
+          setIdTagsNote ={this.setIdTagsNote} 
         />)}
       />
 
